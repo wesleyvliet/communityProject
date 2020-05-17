@@ -1,0 +1,6 @@
+RewriteRule ^(views/img)($|/) - [L]
+RewriteRule ^(views/css)($|/) - [L]
+RewriteRule ^(views/img/products)($|/) - [L]
+RewriteRule ^(views/js)($|/) - [L]
+RewriteEngine On
+RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
