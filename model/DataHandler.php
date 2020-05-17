@@ -42,8 +42,7 @@ class DataHandler{
 		return $this->dbh->query($sql,PDO::FETCH_ASSOC);
 	}
 	public function updateData($sql){
-		$this->query($sql);
-		return $this->rowCount();
+		$this->dbh->query($sql);
 	}
 	public function deleteData($sql){
 		$this->query($sql);

@@ -19,6 +19,12 @@ class ContactsController{
 					case 'create':
 					$this->collectCreateCompetition($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestTime'], $_REQUEST['contestDate'], $_REQUEST['contestCompetitorsA'], $_REQUEST['contestCompetitorsB']);
 					break;
+					case 'delete-game':
+					$this->collectDeleteGame($_REQUEST['id']);
+					break;
+					case 'undo-delete':
+					$this->collectUndoDelete($_REQUEST['id']);
+					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
 					break;
@@ -102,15 +108,22 @@ class ContactsController{
 
 	}
 
-	public function collectDeleteContact($id){
-
+	public function collectDeleteGame($id){
+		$message = $this->ContactsLogic->archiveGame($id);
+		$this->collectAllGames($message);
 	}
+
+	public function collectUndoDelete($id) {
+		$message = $this->ContactsLogic->undoDelete($id);
+		$this->collectAllGames($message);
+	}
+
 	public function __destruct(){
 
 	}
 
-	public function collectAllGames() {
-		$overview = $this->ContactsLogic->fetchAllGames();
+	public function collectAllGames($message = null) {
+		$overview = $this->ContactsLogic->fetchAllGames($message);
 		include 'view/overviewGames.php';
 	}
 }

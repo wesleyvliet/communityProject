@@ -66,21 +66,53 @@ class ContactsLogic {
 
 	}
 
-	public function fetchAllGames() {
+	public function archiveGame($id) {
+		$sql = "UPDATE competition SET archived=1 WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Wedstrijd succesvol verwijderd! Weer terug zetten <a href='?op=undo-delete&id=" . $id . "'>klik hier!</a>";
+		return $message;
+	}
+
+	public function undoDelete($id) {
+		$sql = "UPDATE competition SET archived=0 WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Actie ongedaan gemaakt";
+		return $message;
+	}
+
+	public function fetchAllGames($message) {
+		if ((isset($message)) && ($message != "")) {
+			$message = $message;
+		} else {
+			$message = "";
+		}
 		$sql = "SELECT * FROM competition";
 		$results = $this->DataHandler->readsData($sql);
-		$overview = "<div>";
+		$overview = "<a href='dashboard'>Terug</a>";
+		$overview .= "<div>";
+		$overview .= $message;
+		$overview .= "<table>";
+		$overview .= "<tr><th>Title<th>";
+		$overview .= "<th>Game</th>";
+		$overview .= "<th>Description</th>";
+		$overview .= "<th>Competitors A</th>";
+		$overview .= "<th>Competitors B</th>";
+		$overview .= "<th>Time</th>";
+		$overview .= "<th>date</th>";
+		$overview .= "<th>Delete</th>";
+		$overview .= "</tr>";
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
-			$overview .= "<div>";
-			$overview .= $row['title'] . "<br>";
-			$overview .= $row["game"]  . "<br>";
-			$overview .= $row["description"]  . "<br>";
-			$overview .= $row["competitorsA"]  . "<br>";
-			$overview .= $row["competitorsB"]  . "<br>";
-			$overview .= $row["time"]  . "<br>";
-			$overview .= $row["date"]  . "<br>";
-			$overview .= "</div>";
+			$overview .= "<tr><td>" . $row['title'] . "<td>";
+			$overview .= "<td>" . $row["game"] . "</td>";
+			$overview .= "<td>" . $row["description"] . "</td>";
+			$overview .= "<td>" . $row["competitorsA"] . "</td>";
+			$overview .= "<td>" . $row["competitorsB"] . "</td>";
+			$overview .= "<td>" . $row["time"] . "</td>";
+			$overview .= "<td>" . $row["date"] . "</td>";
+			$overview .= "<td><a href='?op=delete-game&id=" . $row['id'] . "'>Delete</a></td>";
+			$overview .= "</tr>";
 		}
+		$overview .= "</table>";
 		$overview .= "</div>";
 		return $overview;
 	}
