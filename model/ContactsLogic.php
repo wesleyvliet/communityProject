@@ -17,7 +17,7 @@ class ContactsLogic {
 
 	public function checkDataContest($title, $game, $description, $competitorsAmount, $time, $date) {
 		$error = false;
-		if(empty($title) || empty($game) || empty($description) || empty($competitorsAmount) || empty($time)) || empty($date)) {
+		if(empty($title) || empty($game) || empty($description) || empty($competitorsAmount) || empty($time) || empty($date)) {
 			$error = true;
 		}
 		if(strlen($title) > 60 || strlen($game) > 60 || strlen($description) > 240 || strlen($competitorsAmount) > 60 || strlen($time) > 60 || strlen($date) > 60) {

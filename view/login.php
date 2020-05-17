@@ -5,10 +5,10 @@ echo "<form method='POST' action='?op=login' enctype='multipart/form-data' autoc
 if(!empty($error)) {
     echo $error . '<br>';
     echo "<input type='text' name='userName' value=" . $userName . " >";
-    echo "<input type='text' name='userPass'>";
+    echo "<input type='password' name='userPass'>";
 } else {
     echo "<input type='text' name='userName'>";
-    echo "<input type='text' name='userPass'>";
+    echo "<input type='password' name='userPass'>";
 }
 echo "<input type='submit' value='Login'>";
 echo "</form>";
