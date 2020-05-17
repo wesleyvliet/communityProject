@@ -26,6 +26,7 @@ class ContactsController{
 			} else {
 				switch ($url) {
 					case 'admin': include 'view/login.php'; break;
+					case 'dashboard': include 'view/dashboard.php'; break;
 					case 'nieuwe-wedstrijden': include 'view/addContest.php'; break;
 					case 'nieuwe-wedstrijden-competitors': $this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']); break;
 					default:
@@ -73,7 +74,7 @@ class ContactsController{
 				session_start();
 				$_SESSION["name"] = $admin['username'];
 				$_SESSION["sesionId"] = "83523489765735412414";
-				include 'view/dashboard.php';
+				header('Location: dashboard');
 			}
 		} else {
 			$error = 'Ongeldige gegevens bij het inlogen controleer de velden opnieuw';
