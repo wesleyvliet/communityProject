@@ -66,6 +66,23 @@ class ContactsLogic {
 
 	}
 
-
+	public function fetchAllGames() {
+		$sql = "SELECT * FROM competition";
+		$results = $this->DataHandler->readsData($sql);
+		$overview = "<div>";
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$overview .= "<div>";
+			$overview .= $row['title'] . "<br>";
+			$overview .= $row["game"]  . "<br>";
+			$overview .= $row["description"]  . "<br>";
+			$overview .= $row["competitorsA"]  . "<br>";
+			$overview .= $row["competitorsB"]  . "<br>";
+			$overview .= $row["time"]  . "<br>";
+			$overview .= $row["date"]  . "<br>";
+			$overview .= "</div>";
+		}
+		$overview .= "</div>";
+		return $overview;
+	}
 
 }
