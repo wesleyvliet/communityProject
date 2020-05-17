@@ -7,20 +7,20 @@ class ContactsLogic {
 		$this->DataHandler = new Datahandler('localhost','mysql' ,'g69' ,'root' ,'');
 	}
 
-	public function createCompetition($title, $game, $description, $date, $contestCompetitorsA, $contestCompetitorsB) {
+	public function createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
 		$contestCompetitorsA = serialize($contestCompetitorsA);
 		$contestCompetitorsB = serialize($contestCompetitorsB);
-		$sql = "INSERT INTO `competition` (`id`, `title`, `game`, `description`, `competitorsA`, `competitorsB`, `date`) VALUES (NULL, '$title', '$game', '$description', '$contestCompetitorsA', '$contestCompetitorsB', '$date')";
+		$sql = "INSERT INTO `competition` (`id`, `title`, `game`, `description`, `competitorsA`, `competitorsB`, `time`, `date`) VALUES (NULL, '$title', '$game', '$description', '$contestCompetitorsA', '$contestCompetitorsB', '$time', '$date')";
 		$result = $this->DataHandler->createData($sql);
 		return $result;
 	}
 
-	public function checkDataContest($title, $game, $description, $competitorsAmount, $date) {
+	public function checkDataContest($title, $game, $description, $competitorsAmount, $time, $date) {
 		$error = false;
-		if(empty($title) || empty($game) || empty($description) || empty($competitorsAmount) || empty($date)) {
+		if(empty($title) || empty($game) || empty($description) || empty($competitorsAmount) || empty($time)) || empty($date)) {
 			$error = true;
 		}
-		if(strlen($title) > 60 || strlen($game) > 60 || strlen($description) > 240 || strlen($competitorsAmount) > 60 || strlen($date) > 60) {
+		if(strlen($title) > 60 || strlen($game) > 60 || strlen($description) > 240 || strlen($competitorsAmount) > 60 || strlen($time) > 60 || strlen($date) > 60) {
 			$error = true;
 		}
 		return $error;

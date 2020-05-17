@@ -17,7 +17,7 @@ class ContactsController{
 					$this->collectReadAdmin($_REQUEST['userName'], $_REQUEST['userPass']);
 					break;
 					case 'create':
-					$this->collectCreateCompetition($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestDate'], $_REQUEST['contestCompetitorsA'], $_REQUEST['contestCompetitorsB']);
+					$this->collectCreateCompetition($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestTime'], $_REQUEST['contestDate'], $_REQUEST['contestCompetitorsA'], $_REQUEST['contestCompetitorsB']);
 					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
@@ -27,7 +27,7 @@ class ContactsController{
 				switch ($url) {
 					case 'admin': include 'view/login.php'; break;
 					case 'nieuwe-wedstrijden': include 'view/addContest.php'; break;
-					case 'nieuwe-wedstrijden-competitors': $this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestDate']); break;
+					case 'nieuwe-wedstrijden-competitors': $this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']); break;
 					default:
 					echo 'sorry kan deze pagina: ' . $url . ' niet vinden :(';
 					break;
@@ -39,8 +39,8 @@ class ContactsController{
 
 	}
 
-	public function collectCreateCompetition($title, $game, $description, $date, $contestCompetitorsA, $contestCompetitorsB) {
-		$create = $this->ContactsLogic->createCompetition($title, $game, $description, $date, $contestCompetitorsA, $contestCompetitorsB);
+	public function collectCreateCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
+		$create = $this->ContactsLogic->createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB);
 		$id = intval($create);
 		if($id >= 1) {
 			$message = 'wedstrijd is aangemaakt';
@@ -51,8 +51,8 @@ class ContactsController{
 		}
 	}
 
-	public function collectReadCompetitors($title, $game, $description, $competitorsAmount, $date){
-		$check = $this->ContactsLogic->checkDataContest($title, $game, $description, $competitorsAmount, $date);
+	public function collectReadCompetitors($title, $game, $description, $competitorsAmount, $time, $date){
+		$check = $this->ContactsLogic->checkDataContest($title, $game, $description, $competitorsAmount, $time, $date);
 		if($check == false) {
 			$competitors = $this->ContactsLogic->fetchCompetitors();
 		} else {

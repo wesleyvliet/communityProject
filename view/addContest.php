@@ -19,6 +19,7 @@ if(empty($competitors)) {
         echo "<option value='7'>7vs7</option>";
         echo "<option value='8'>8vs8</option>";
         echo "</select>";
+        echo "<input type='time' value='" . $time ."' name='contestTime'>";
         echo "<input type='date' value='" . $date ."' name='contestDate'>";
     } else {
         echo "<input type='text' name='contestTitle'>";
@@ -34,6 +35,7 @@ if(empty($competitors)) {
         echo "<option value='7'>7vs7</option>";
         echo "<option value='8'>8vs8</option>";
         echo "</select>";
+        echo "<input type='time' name='contestTime'>";
         echo "<input type='date' name='contestDate'>";
     }
     echo "<input type='submit' value='kies deelnemers'>";
@@ -43,6 +45,7 @@ if(empty($competitors)) {
     echo "<input style='display:none' type='hidden' name='contestTitle' value=" . $title . ">";
     echo "<input style='display:none' type='hidden' name='contestGame' value=" . $game . ">";
     echo "<input style='display:none' type='hidden' name='contestDescription' value=" . $description . ">";
+    echo "<input style='display:none' type='hidden' name='contestTime' value=" . $time . ">";
     echo "<input style='display:none' type='hidden' name='contestDate' value=" . $date . ">";
     for ($i=0; $i < $competitorsAmount; $i++) {
         echo "<select name='contestCompetitorsA[]'>";
