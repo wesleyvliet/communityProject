@@ -25,13 +25,24 @@ class ContactsController{
 				}
 			} else {
 				switch ($url) {
-					case 'admin': include 'view/login.php'; break;
-					case 'dashboard': include 'view/dashboard.php'; break;
-					case 'nieuwe-wedstrijden': include 'view/addContest.php'; break;
-					case 'nieuwe-wedstrijden-competitors': $this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']); break;
+					case 'admin':
+						include 'view/login.php';
+						break;
+					case 'dashboard':
+						include 'view/dashboard.php';
+						break;
+					case 'nieuwe-wedstrijden':
+						include 'view/addContest.php';
+						break;
+					case 'nieuwe-wedstrijden-competitors':
+						$this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']);
+						break;
+					case 'overview-wedstrijden':
+						$this->collectAllGames();
+						break;
 					default:
-					echo 'sorry kan deze pagina: ' . $url . ' niet vinden :(';
-					break;
+						echo 'sorry kan deze pagina: ' . $url . ' niet vinden :(';
+						break;
 				}
 			}
 		} catch (ValidationException $e) {
@@ -98,6 +109,10 @@ class ContactsController{
 
 	}
 
+	public function collectAllGames() {
+		$overview = $this->ContactsLogic->fetchAllGames();
+		include 'view/overviewGames.php';
+	}
 }
 
 ?>
