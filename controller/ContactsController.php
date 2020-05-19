@@ -25,6 +25,8 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'edit-wedstrijd':
+					$this->collectEditGame($_REQUEST['id']);
 					case 'add-competitor':
 						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
 					break;
@@ -172,6 +174,9 @@ class ContactsController{
 	public function collectAllGames($message = null) {
 		$overview = $this->ContactsLogic->fetchAllGames($message);
 		include 'view/overviewGames.php';
+	}
+	public function collectEditGame($id) {
+		$edit = $this->ContactsLogic->editGame($id);
 	}
 }
 
