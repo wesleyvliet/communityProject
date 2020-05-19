@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="custom.css">
-    <title>G69</title>
-
-
-
-</head>
-
+<?php
+require_once "view/header.php";
+?>
 <body class="bg-gray-800 font-sans leading-normal tracking-normal">
-    <!-- Nav -->
-
     <nav class="bg-gray-900">
         <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto mb-10 py-5">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <img src="g2-logo.png" alt="" class="h-16">
+                <img src="view/assets/img/g2-logo.png" alt="" class="h-16">
                 <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
                     <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
                 </a>
@@ -60,7 +47,7 @@
 
     <!-- Big lean more -->
     <div class="bg-cover bg-center mb-6 flex justify-between m-auto mb-3 w-11/12  md:h-auto text-white py-16 px-6 object-fill"
-        style="background-image: url(g2.jpg)">
+        style="background-image: url(view/assets/img/g2.jpg)">
         <div class="md:w-1/2">
             <p class=" hidden md:block font-bold">We are G69</p>
             <p class=" hidden md:block mb-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat officia
@@ -75,45 +62,25 @@
     <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-11/12 m-auto mb-6 justify-around">
         <!-- article 1 -->
-        <a href="">
-            <div class="big bg-top bg-cover   mb-6 sm:mb-0 lg:mr-4 lg:ml-2 h-auto  " style="background-image: url(rl.jpg)">
-                <div
-                    class="px-10 py-32 lg:py-40 bg-opacity-25 hover:bg-opacity-75 text-center text-xl  text-white bg-gray-900 ">
-                    <span class=""> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore
-                        quod!</span>
-                </div>
-            </div>
-        </a>
+        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-4   h-64 text-xl text-white hover:"
+            style="background-image: url(view/assets/img/rl.jpg)">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+        </div>
         <!-- article 2 -->
-        <a href="">
-            <div class=" bg-top bg-cover  bg-green-400  mb-6 sm:mb-0 lg:mr-4 lg:ml-2 h-auto "
-                style="background-image: url(reaper.jpg)">
-                <div
-                    class="px-10 py-32 lg:py-40  bg-opacity-25 hover:bg-opacity-75 text-center text-xl text-white bg-gray-900 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
+        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-4  lg:ml-2    h-64 text-xl text-white hover:"
+            style="background-image: url(view/assets/img/reaper.jpg)">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+        </div>
         <!-- article 3 -->
-        <a href="">
-            <div class=" bg-top bg-cover  bg-green-400  mb-6 lg:mr-4 lg:ml-2 h-auto "
-                style="background-image: url(spelers.jpg)">
-                <div
-                    class="px-10 py-32 lg:py-40 bg-opacity-25 hover:bg-opacity-75 text-center text-xl text-white bg-gray-900 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
+        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-2 lg:ml-2    h-64 text-xl text-white hover:"
+            style="background-image: url(view/assets/img/spelers.jpg)">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+        </div>
         <!-- article 4 -->
-        <a href="">
-            <div class=" bg-top bg-cover  bg-green-400  mb-6 lg:mr-4 lg:ml-2 h-auto "
-                style="background-image: url(bmw.jpg)">
-                <div
-                    class="px-10 py-32 lg:py-40 bg-opacity-25 hover:bg-opacity-75 text-center text-xl text-white bg-gray-900 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
+        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:ml-4  h-64 text-xl text-white hover:"
+            style="background-image: url(view/assets/img/bmw.jpg)">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+        </div>
     </div>
     <!-- Article end -->
 
@@ -130,9 +97,9 @@
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="moscow.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/moscow.png" alt="" class="h-16"></div>
             </div>
         </div>
 
@@ -145,9 +112,9 @@
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="rouge.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/rouge.png" alt="" class="h-16"></div>
             </div>
         </div>
 
@@ -160,9 +127,9 @@
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="excel.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/excel.png" alt="" class="h-16"></div>
             </div>
         </div>
 
@@ -175,16 +142,15 @@
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="misfits.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/misfits.png" alt="" class="h-16"></div>
             </div>
         </div>
     </div>
     <!-- Article end -->
-
-    <!-- footer -->
-    <footer class="footer bg-gray-900 relative pt-1 ">
+        <!-- footer -->
+        <footer class="footer bg-gray-900 relative pt-1 ">
         <div class="container mx-auto px-6">
             <!-- Footer nav -->
             <div class="sm:flex sm:mt-8">
@@ -223,7 +189,6 @@
         </div>
     </footer>
 
-
     <script>
         //Javascript to toggle the menu
         document.getElementById('nav-toggle').onclick = function () {
@@ -231,6 +196,6 @@
         }
     </script>
 
-</body>
-
-</html>
+<?php
+require_once "view/footer.php";
+?>
