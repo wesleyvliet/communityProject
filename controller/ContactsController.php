@@ -25,14 +25,18 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'add-competitor':
+						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
+					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
 					break;
 				}
 			} else {
 				switch ($url) {
+					case 'home':
 					case 'index.php':
-						require_once 'view/home.php';
+						$this->collectReadCompetitions();
 						break;
 					// case 'view':
 					// 	require_once 'view/assets/css/style.css';
@@ -43,6 +47,9 @@ class ContactsController{
 					case 'dashboard':
 						include 'view/dashboard.php';
 						break;
+					case 'nieuwe-deelnemers':
+						include 'view/competitors.php';
+					break;
 					case 'nieuwe-wedstrijden':
 						include 'view/addContest.php';
 						break;
@@ -64,7 +71,37 @@ class ContactsController{
 	}
 
 	public function collectHomePage() {
+		$competitions = $this->ContactsLogic->readCompetition();
 		include 'view/home.php';
+	}
+
+	public function collectCreateCompetitor($name, $logo) {
+		session_start();
+		if(empty($name) || empty($logo)) {
+			$_SESSION['warning'] = 'missende gegevens binnengekregen controleer het formulier en proebeer het opnieuw';
+			header('Location: nieuwe-deelnemers');
+		} else {
+			$uploadLogo = $this->ContactsLogic->uploadFile($logo);
+			if($uploadLogo['upload'] == 'false') {
+				$_SESSION['warning'] = $uploadLogo['message'];
+				header('Location: nieuwe-deelnemers');
+			} else {
+				$competitor = $this->ContactsLogic->createCompetitor($name, $uploadLogo['message']);
+				$id = intval($competitor);
+				if($id >= 1) {
+					$_SESSION['warning'] = 'deelnemer is aangemaakt';
+					header('Location: nieuwe-deelnemers');
+				} else {
+					$_SESSION['warning'] = 'deelnemer is niet aangemaakt proebeer het opnieuw';
+					header('Location: nieuwe-deelnemers');
+				}
+			}
+		}
+	}
+
+	public function collectReadCompetitions() {
+		$competitions = $this->ContactsLogic->readCompetition();
+		require_once 'view/home.php';
 	}
 
 	public function collectCreateCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
