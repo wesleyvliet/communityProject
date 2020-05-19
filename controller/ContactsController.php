@@ -31,6 +31,12 @@ class ContactsController{
 				}
 			} else {
 				switch ($url) {
+					case 'index.php':
+						require_once 'view/home.php';
+						break;
+					// case 'view':
+					// 	require_once 'view/assets/css/style.css';
+					// 	break;
 					case 'admin':
 						include 'view/login.php';
 						break;
@@ -47,7 +53,7 @@ class ContactsController{
 						$this->collectAllGames();
 						break;
 					default:
-						echo 'sorry kan deze pagina: ' . $url . ' niet vinden :(';
+						echo 'sorry kann deze pagina: ' . $url . ' niet vinden :(';
 						break;
 				}
 			}
@@ -55,6 +61,10 @@ class ContactsController{
 				$errors = $e->getErrors();
 		}
 
+	}
+
+	public function collectHomePage() {
+		include 'view/home.php';
 	}
 
 	public function collectCreateCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
