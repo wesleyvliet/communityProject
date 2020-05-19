@@ -25,6 +25,9 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'edit-wedstrijd':
+					$this->collectEditGame($_REQUEST['id']);
+					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
 					break;
@@ -135,6 +138,9 @@ class ContactsController{
 	public function collectAllGames($message = null) {
 		$overview = $this->ContactsLogic->fetchAllGames($message);
 		include 'view/overviewGames.php';
+	}
+	public function collectEditGame($id) {
+		$edit = $this->ContactsLogic->editGame($id);
 	}
 }
 

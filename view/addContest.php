@@ -3,6 +3,7 @@ if(!empty($message)) {
     echo $message;
 }
 if(empty($competitors)) {
+    echo "<a href='overview-wedstrijden'>Terug</a>";
     echo "<form method='POST' action='nieuwe-wedstrijden-competitors' enctype='multipart/form-data' autocomplete='off'>";
     if(!empty($error)) {
         echo $error . '<br>';
