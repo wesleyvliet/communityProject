@@ -66,6 +66,10 @@ pre {
   font-size: 1em; /* 2 */
 }
 
+.bigger-t:hover{
+  font-size: 1.5rem;
+}
+
 /* Text-level semantics
    ========================================================================== */
 
