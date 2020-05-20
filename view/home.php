@@ -1,12 +1,14 @@
 <?php
 require_once "view/header.php";
 ?>
+
 <body class="bg-gray-800 font-sans leading-normal tracking-normal">
     <nav class="bg-gray-900">
         <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto mb-10 py-5">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <img src="view/assets/img/g2-logo.png" alt="" class="h-16">
-                <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+            <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+                <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
+               
                     <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
                 </a>
             </div>
@@ -60,33 +62,50 @@ require_once "view/header.php";
 
     <!-- article -->
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-11/12 m-auto mb-6 justify-around">
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
         <!-- article 1 -->
-        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-4   h-64 text-xl text-white hover:"
-            style="background-image: url(view/assets/img/rl.jpg)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-        </div>
-        <!-- article 2 -->
-        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-4  lg:ml-2    h-64 text-xl text-white hover:"
-            style="background-image: url(view/assets/img/reaper.jpg)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-        </div>
-        <!-- article 3 -->
-        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:mr-2 lg:ml-2    h-64 text-xl text-white hover:"
-            style="background-image: url(view/assets/img/spelers.jpg)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-        </div>
-        <!-- article 4 -->
-        <div class=" bg-top bg-cover text-center bg-green-400 px-10 py-32 lg:py-48 mb-6 lg:ml-4  h-64 text-xl text-white hover:"
-            style="background-image: url(view/assets/img/bmw.jpg)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-        </div>
+        <a href="article">
+            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/rl-players.jpg)">
+                <div
+                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
+                    G2 Is Your NA Rocket League Spring Series
+                        Champions
+                </div>
+            </div>
+        </a>
+        <!-- article 1 -->
+        <a href="">
+            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/reaper.jpg)">
+                <div
+                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40  h-full text-xl text-white ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+                </div>
+            </div>
+        </a>
+        <!-- article 1 -->
+        <a href="">
+            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/spelers.jpg)">
+                <div
+                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+                </div>
+            </div>
+        </a>
+        <!-- article 1 -->
+        <a href="">
+            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/bmw.jpg)">
+                <div
+                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
+                </div>
+            </div>
+        </a>
     </div>
     <!-- Article end -->
 
     <!-- Comp -->
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 w-11/12 m-auto mb-40 flex ">
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 w-11/12 m-auto mb-24 gap-2 flex ">
         <!-- Comp 1  -->
         <div class=" mb-16 h-32 text-xl text-white sm:pr-2  ">
             <div class=" bg-green-100 text-blue-200">
@@ -97,9 +116,11 @@ require_once "view/header.php";
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
+                </div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/moscow.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/moscow.png" alt=""
+                        class="h-16"></div>
             </div>
         </div>
 
@@ -112,9 +133,11 @@ require_once "view/header.php";
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
+                </div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/rouge.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/rouge.png" alt=""
+                        class="h-16"></div>
             </div>
         </div>
 
@@ -127,9 +150,11 @@ require_once "view/header.php";
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
+                </div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/excel.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/excel.png" alt=""
+                        class="h-16"></div>
             </div>
         </div>
 
@@ -142,15 +167,17 @@ require_once "view/header.php";
             </div>
             <div class="flex justify-center items-center content-center bg-gray-700 h-full">
 
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
+                </div>
                 <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/misfits.png" alt="" class="h-16"></div>
+                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/misfits.png" alt=""
+                        class="h-16"></div>
             </div>
         </div>
     </div>
     <!-- Article end -->
-        <!-- footer -->
-        <footer class="footer bg-gray-900 relative pt-1 ">
+    <!-- footer -->
+    <footer class="footer bg-gray-900 relative pt-1 ">
         <div class="container mx-auto px-6">
             <!-- Footer nav -->
             <div class="sm:flex sm:mt-8">
@@ -179,8 +206,8 @@ require_once "view/header.php";
 
         <!-- Footer border / copyright -->
         <div class="container mx-auto px-6">
-            <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
-                <div class="sm:w-2/3 text-center py-6">
+            <div class="mt-16 flex flex-col items-center">
+                <div class="sm:w-2/3 text-center py-2">
                     <p class="text-sm text-gray-100 font-bold mb-2">
                         © 2020 by Yeet inc
                     </p>
@@ -196,6 +223,6 @@ require_once "view/header.php";
         }
     </script>
 
-<?php
+    <?php
 require_once "view/footer.php";
 ?>

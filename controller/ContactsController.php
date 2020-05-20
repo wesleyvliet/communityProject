@@ -43,6 +43,9 @@ class ContactsController{
 					// case 'view':
 					// 	require_once 'view/assets/css/style.css';
 					// 	break;
+					case 'article':
+						include 'view/article.php';
+						break;
 					case 'admin':
 						include 'view/login.php';
 						break;
