@@ -7,6 +7,92 @@ class ContactsLogic {
 		$this->DataHandler = new Datahandler('localhost','mysql' ,'g69' ,'root' ,'');
 	}
 
+	public function createCompetitor($name, $logo) {
+		$sql = "INSERT INTO `competitors` (`id`, `name`, `logo`) VALUES (NULL, '$name', '$logo')";
+		$result = $this->DataHandler->createData($sql);
+		return $result;
+	}
+
+	public function uploadFile($file) {
+		if($file['size'] !== 0) {
+			$name = $file['name'];
+			$target_dir = "view/assets/img/compLogo/";
+			$target_file = $target_dir . basename($file["name"]);
+			// Select file type
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+			// Valid file extensions
+			$extensions_arr = array("jpg","jpeg","png","gif");
+			// Check extension
+			if( in_array($imageFileType,$extensions_arr) ){
+				// Upload file
+				if(file_exists($target_file)) {
+					$result = array('upload' => 'false', 'message' => 'er is al een logo met deze naam, noem het bestand anders en proebeer het opnieuw');
+					return $result;
+				} else {
+					if(!move_uploaded_file($file['tmp_name'],$target_dir.$name)) {
+						$result = array('upload' => 'false', 'message' => 'er is een error opgetreden probeer het opnieuw');
+						return $result;
+					} else {
+						$result = array('upload' => 'true', 'message' => $target_file);
+						return $result;
+					}
+				}
+			} else {
+				$result = array('upload' => 'false', 'message' => 'ongeldige bestand type alleen jpg, jprg, png, gif zijn toegestaan');
+				return $result;
+			}
+		} else {
+			$result = array('upload' => 'false', 'message' => 'geen logo binnengekregen controleer het formulier, en proebeer het opnieuw');
+			return $result;
+		}
+	}
+
+	public function readCompetition() {
+		$sql = "SELECT * FROM competition";
+		$results = $this->DataHandler->readsData($sql);
+		$resultArray = array();
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$competitorNameA = array();
+			$competitorA = unserialize($row['competitorsA']);
+			$endA = count($competitorA);
+			for ($i=0; $i < $endA; $i++) {
+				$id = $competitorA[$i];
+				$sql = "SELECT * FROM competitors WHERE id = $id";
+				$resultsCompA = $this->DataHandler->readsData($sql);
+				while($rowCompA = $resultsCompA->fetch(PDO::FETCH_ASSOC)) {
+					//echo var_dump($row);
+					array_push($competitorNameA, array("id" => $rowCompA['id'], "name" => $rowCompA['name'], "logo" => $rowCompA['logo']));
+				}
+			}
+			$competitorNameB = array();
+			$competitorB = unserialize($row['competitorsB']);
+			$endB = count($competitorB);
+			for ($i=0; $i < $endB; $i++) {
+				$id = $competitorB[$i];
+				$sql = "SELECT * FROM competitors WHERE id = $id";
+				$resultsCompB = $this->DataHandler->readsData($sql);
+				while($rowCompB = $resultsCompB->fetch(PDO::FETCH_ASSOC)) {
+					//echo var_dump($row);
+					array_push($competitorNameB, array("id" => $rowCompB['id'], "name" => $rowCompB['name'], "logo" => $rowCompB['logo']));
+				}
+			}
+			//echo var_dump($competitorNameA);
+			array_push($resultArray, array(
+				"id" => $row['id'],
+				'title' => $row['title'],
+				'game' => $row['game'],
+				'description' => $row['description'],
+				'competitorsA' => $competitorNameA,
+				'competitorsB' => $competitorNameB,
+				'time' => $row['time'],
+				'date' => $row['date']
+			));
+		}
+		//echo var_dump($resultArray);
+		return($resultArray);
+
+	}
+
 	public function createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
 		$contestCompetitorsA = serialize($contestCompetitorsA);
 		$contestCompetitorsB = serialize($contestCompetitorsB);
