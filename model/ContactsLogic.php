@@ -170,7 +170,7 @@ class ContactsLogic {
 		if ((isset($message)) && ($message != "")) {
 			$message = '</div>
 			<div id="alert-box" class="alert-toast absolute bottom-0 right-0 m-8">
-			<label class="close cursor-pointer flex items-start items-center justify-center w-full p-2 pt-1 pr-1 bg-red-500 rounded shadow-lg text-white" for="footertoast">
+			<label class="close cursor-pointer flex items-start items-center justify-center w-full p-2 pt-1 pr-1 bg-green-500 rounded shadow-lg text-white" for="footertoast">
 			<p>'.$message.'</p>
 			<button onclick="hideAlert()" class="h-8 w-5 ml-2">
 			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
@@ -207,7 +207,7 @@ class ContactsLogic {
 			<td class="w-1/6 text-left py-3 px-4">'.$row['time'].'</td>
 			<td class="w-1/6 text-left py-3 px-4">'.$row['date'].'</td>
 			<td class="w-1/6 text-left py-3 px-4">
-			<a href="?op=edit-wedstrijd&id=' . $row['id'] . '"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+			<a href="?op=edit-wedstrijd-form&id=' . $row['id'] . '"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path class="heroicon-ui" d="M9 4.58V4c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v.58a8 8 0 0 1 1.92 
 			1.11l.5-.29a2 2 0 0 1 2.74.73l1 1.74a2 2 0 0 1-.73 2.73l-.5.29a8.06 8.06 0 0 1 0 2.22l.5.3a2 2 0 0 1 .73 2.72l-1 1.74a2 2 0 0 1-2.73.73l-.5-.3A8 8 0 0 1 15 
 			19.43V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.58a8 8 0 0 1-1.92-1.11l-.5.29a2 2 0 0 1-2.74-.73l-1-1.74a2 2 0 0 1 .73-2.73l.5-.29a8.06 8.06 0 0 1 0-2.22l-.5-.3a2 2 0 0 1-.73-2.72l1-1.74a2 
@@ -228,24 +228,32 @@ class ContactsLogic {
 		}
 		$overview .= '</table></div>' . $message;
 		return $overview;
-		
-		
-		
 	}
 
-	public function editGame($id) {
+	public function editGameForm($id) {
 		$sql = "SELECT * FROM competition WHERE id=$id";
-		$results = $this->Datahandler->readsData($sql);
+		$results = $this->DataHandler->readsData($sql);
 		$game = $results->fetch(PDO::FETCH_ASSOC);
 		
-		$edit = "<form action='' method='post'>
-		<input type='text' name='contestTitle' value=" . $game['title'] . ">
-		<input type='text' name='contestGame' value=" . $game['game'] . ">
-		<input type='text' name='contestDescription' value=" . $game['description'] . ">
-
-		<input type='time' value='" . $game['time'] ."' name='contestTime'>
-		<input type='date' value='" . $game['date'] ."' name='contestDate'>
+		$edit = "<form action='?op=edit-wedstrijd' method='post'>
+		<input type='text' name='id' hidden value='" . $game['id'] . "'>
+		<input type='text' name='title' value='" . $game['title'] . "'>
+		<input type='text' name='game' value='" . $game['game'] . "'>
+		<input type='text' name='description' value='" . $game['description'] . "'>
+		<input type='text' name='competitorsA' value='" . $game['competitorsA'] . "'>
+		<input type='text' name='competitorsB' value='" . $game['competitorsB'] . "'>
+		<input type='time' value='" . $game['time'] ."' name='time'>
+		<input type='date' value='" . $game['date'] ."' name='date'>
+		<input type='submit' value='Update'>
 		</form>";
+
+		return $edit;
 	}
 
+	public function editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
+		$sql = "UPDATE competition SET title='$title', game='$game', description='$description', competitorsA='$competitorsA', competitorsB='$competitorsB', time='$time', date='$date' WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Wedstrijd successvol geupdate";
+		return $message;
+	}
 }

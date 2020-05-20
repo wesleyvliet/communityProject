@@ -25,8 +25,12 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'edit-wedstrijd-form':
+					$this->collectEditGameForm($_REQUEST['id']);
+					break;
 					case 'edit-wedstrijd':
-					$this->collectEditGame($_REQUEST['id']);
+					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['description'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
+					break;
 					case 'add-competitor':
 						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
 					break;
@@ -178,8 +182,13 @@ class ContactsController{
 		$overview = $this->ContactsLogic->fetchAllGames($message);
 		include 'view/overviewGames.php';
 	}
-	public function collectEditGame($id) {
-		$edit = $this->ContactsLogic->editGame($id);
+	public function collectEditGameForm($id) {
+		$edit = $this->ContactsLogic->editGameForm($id);
+		require_once 'view/editContest.php';
+	}
+	public function collectEditGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
+		$message = $this->ContactsLogic->editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date);
+		$this->collectAllGames($message);
 	}
 }
 
