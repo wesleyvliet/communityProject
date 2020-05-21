@@ -54,10 +54,19 @@
                     Showdown
                 <span class="block border border-gray-400 w-2/4 ml-2"></span>
             </div>
-            <div class="flex justify-around text-center divide-x divide-gray-300">
-                <input type="text" id="compA" placeholder="Competitor A" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">
+            <div class="flex justify-around text-center divide-x divide-gray-300 p-8">
+
+                <select name="compA" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                    <option>Team</option>
+                    <option value="#"></option>
+                </select>
+
                 <h1 class="text-red-500 font-bold border-none">Vs</h1>
-                <input type="text" id="compB" placeholder="Competitor B" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">
+
+                <select name="compB" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                    <option>Team</option>
+                    <option value="#"></option>
+                </select>
             </div>
 
             <div class="flex items-center text-gray-800">
@@ -78,9 +87,11 @@
 
             <div class="flex items-center text-gray-800 p-8">
                 <span class="w-1/2"></span>
-                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-10 rounded float-right">
-                    Wedstrijd toevoegen
-                </button>
+                <a href="#">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-10 rounded float-right">
+                        Wedstrijd toevoegen
+                    </button>
+                </a>
                 <span class="w-1/2"></span>
             </div>
             
