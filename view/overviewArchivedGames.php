@@ -20,26 +20,19 @@ require_once "view/header.php";
     <!-- Nav menu CMS END -->
 
     <div class="md:px-40 py-8 w-full">
-        <a href="dashboard">
+        <a href="overview-wedstrijden">
             <button class="bg-transparent hover:bg-indigo-800 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded">
                 Terug
             </button>
         </a>
         <div class="flex mb-4 mt-8">
             <div class="w-3/6">
-                <h1 class="font-bold">Wedstrijden</h1>
+                <h1 class="font-bold">Gearchiveerde Wedstrijden</h1>
             </div>
             <div class="w-3/6">
                 <a href="nieuwe-wedstrijden">
                     <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded float-right">
                         Wedstrijd toevoegen
-                    </button>
-                </a>
-            </div>
-            <div class="w-1/6">
-                <a href="gearchiveerde-wedstrijden">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">
-                    Gearchiveerde Wedstrijden
                     </button>
                 </a>
             </div>
