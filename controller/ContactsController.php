@@ -25,6 +25,9 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'undo-delete-archive':
+					$this->collectUndoDeleteArchive($_REQUEST['id']);
+					break;
 					case 'edit-wedstrijd-form':
 					$this->collectEditGameForm($_REQUEST['id']);
 					break;
@@ -67,6 +70,9 @@ class ContactsController{
 						break;
 					case 'overview-wedstrijden':
 						$this->collectAllGames();
+						break;
+					case 'gearchiveerde-wedstrijden':
+						$this->collectArchivedGames();
 						break;
 					default:
 						echo 'sorry kann deze pagina: ' . $url . ' niet vinden :(';
@@ -174,6 +180,11 @@ class ContactsController{
 		$this->collectAllGames($message);
 	}
 
+	public function collectUndoDeleteArchive($id) {
+		$message = $this->ContactsLogic->undoDelete($id);
+		$this->collectArchivedGames($message);
+	}
+
 	public function __destruct(){
 
 	}
@@ -189,6 +200,11 @@ class ContactsController{
 	public function collectEditGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
 		$message = $this->ContactsLogic->editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date);
 		$this->collectAllGames($message);
+	}
+
+	public function collectArchivedGames($message = null) {
+		$overview = $this->ContactsLogic->fetchArchivedGames($message);
+		include 'view/overviewArchivedGames.php';
 	}
 }
 

@@ -162,7 +162,7 @@ class ContactsLogic {
 	public function undoDelete($id) {
 		$sql = "UPDATE competition SET archived=0 WHERE id=$id";
 		$this->DataHandler->updateData($sql);
-		$message = "Actie ongedaan gemaakt";
+		$message = "Wedstrijd hersteld";
 		return $message;
 	}
 
@@ -255,5 +255,55 @@ class ContactsLogic {
 		$this->DataHandler->updateData($sql);
 		$message = "Wedstrijd successvol geupdate";
 		return $message;
+	}
+
+	public function fetchArchivedGames($message) {
+		if ((isset($message)) && ($message != "")) {
+			$message = '</div>
+			<div id="alert-box" class="alert-toast absolute bottom-0 right-0 m-8">
+			<label class="close cursor-pointer flex items-start items-center justify-center w-full p-2 pt-1 pr-1 bg-green-500 rounded shadow-lg text-white" for="footertoast">
+			<p>'.$message.'</p>
+			<button onclick="hideAlert()" class="h-8 w-5 ml-2">
+			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+			<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+			</svg>
+			</button>
+			</label>
+			</div>';
+		} else {
+			$message = "";
+		}
+		$sql = "SELECT * FROM competition WHERE archived=1";
+		$results = $this->DataHandler->readsData($sql);
+		$overview = '<div class="shadow overflow-hidden rounded border-b border-gray-200">
+		<table class="min-w-full bg-white">
+		<thead class="bg-gray-800 text-white">
+		<tr>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Event</th>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Game</th>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Comp A</th>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Comp B</th>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Tijd</th>
+		<th class="w-1/6 text-left py-3 px-4 uppercase font-semibold text-sm">Datum</th>
+		<th class="text-left py-3 px-4 uppercase font-semibold text-sm">Herstellen</th>
+		</tr>
+		</thead>';
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$overview .= '<tr>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['title'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['game'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['competitorsA'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['competitorsB'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['time'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">'.$row['date'].'</td>
+			<td class="w-1/6 text-left py-3 px-4">
+			<a href="?op=undo-delete-archive&id=' . $row['id'] . '"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z"/></svg>
+			</button></a>
+			</td>
+			</tr>';
+		}
+		$overview .= '</table></div>' . $message;
+		return $overview;
 	}
 }
