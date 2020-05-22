@@ -6,9 +6,9 @@ require_once "view/header.php";
     <nav class="bg-gray-900">
         <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto mb-10 py-5">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-                <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
-               
+                <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+                    <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
+
                     <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
                 </a>
             </div>
@@ -62,14 +62,14 @@ require_once "view/header.php";
 
     <!-- article -->
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
+        class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
         <!-- article 1 -->
         <a href="article">
             <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/rl-players.jpg)">
                 <div
                     class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
                     G2 Is Your NA Rocket League Spring Series
-                        Champions
+                    Champions
                 </div>
             </div>
         </a>
@@ -105,77 +105,43 @@ require_once "view/header.php";
 
     <!-- Comp -->
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 w-11/12 m-auto mb-24 gap-2 flex ">
+        class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-24 col-gap-4 flex ">
         <!-- Comp 1  -->
-        <div class=" mb-16 h-32 text-xl text-white sm:pr-2  ">
-            <div class=" bg-green-100 text-blue-200">
-                <div class=" flex justify-between px-1 bg-gray-900 h-3 text-sm text-gray-500"><span
-                        class="">02-05-20</span><span class="">9 pm</span></div>
-                <div class="flex justify-between bg-gray-900 text-white px-1  "><span>02-05-20</span><span>CS-GO</span>
-                </div>
-            </div>
-            <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
+        <?php
+       foreach ($competitions as $event){
+        echo'<div class="  comp-container ">';
+        echo '<div class=" comp-section1">';
+        echo '<div class=" comp-date-section">';
+        echo '<span>'. $event["date"] . '</span><span>9 pm</span>';
+        echo '</div>';
+        echo '<div class="comp-held-section ">';
+        echo '<span>02-05-20</span><span>CS-GO</span>';
+        echo '</div>';
+        echo '</div>';
 
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
-                </div>
-                <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/moscow.png" alt=""
-                        class="h-16"></div>
-            </div>
-        </div>
+        echo '<div class="comp-section2">';
 
-        <div class=" mb-16 h-32 text-xl text-white sm:pl-2 ">
-            <div class=" bg-green-100 text-blue-200">
-                <div class=" flex justify-between px-1 bg-gray-900 h-3 text-sm text-gray-500"><span
-                        class="">02-05-20</span><span class="">9 pm</span></div>
-                <div class="flex justify-between bg-gray-900 text-white px-1  "><span>02-05-20</span><span>CS-GO</span>
-                </div>
-            </div>
-            <div class="flex justify-center items-center content-center bg-gray-700 h-full">
-
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
-                </div>
-                <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/rouge.png" alt=""
-                        class="h-16"></div>
-            </div>
-        </div>
-
-        <div class=" mb-16 h-32 text-xl text-white sm:pr-2  ">
-            <div class=" bg-green-100 text-blue-200">
-                <div class=" flex justify-between px-1 bg-gray-900 h-3 text-sm text-gray-500"><span
-                        class="">02-05-20</span><span class="">9 pm</span></div>
-                <div class="flex justify-between bg-gray-900 text-white px-1  "><span>02-05-20</span><span>CS-GO</span>
-                </div>
-            </div>
-            <div class="flex justify-center items-center content-center bg-gray-700 h-full  ">
-
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
-                </div>
-                <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/excel.png" alt=""
-                        class="h-16"></div>
-            </div>
-        </div>
-
-        <div class=" mb-16 h-32 text-xl text-white sm:pl-2 ">
-            <div class=" bg-green-100 text-blue-200">
-                <div class=" flex justify-between px-1 bg-gray-900 h-3 text-sm text-gray-500"><span
-                        class="">02-05-20</span><span class="">9 pm</span></div>
-                <div class="flex justify-between bg-gray-900 text-white px-1  "><span>02-05-20</span><span>CS-GO</span>
-                </div>
-            </div>
-            <div class="flex justify-center items-center content-center bg-gray-700 h-full">
-
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/logo.png" alt="" class="h-16">
-                </div>
-                <div class="mr-2">vs</div>
-                <div class=" inline-block  align-baseline mr-2"><img src="view/assets/img/misfits.png" alt=""
-                        class="h-16"></div>
-            </div>
-        </div>
+        echo '<div class="comp-img-container">';
+        echo '<img src="view/assets/img/logo.png" alt="" class="comp-img ">';
+        echo '</div>';
+        echo '<div class="mr-2">vs</div>';
+        echo '<div class=" comp-img-container">';
+        echo '<img src="view/assets/img/logo.png" alt="" class="comp-img ">';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+;
+       }
+       ?>
     </div>
     <!-- Article end -->
+    <?php
+        echo '<pre>';
+        print_r ($competitions);
+        echo '</pre>';
+    ?>
+
+
     <!-- footer -->
     <footer class="footer bg-gray-900 relative pt-1 ">
         <div class="container mx-auto px-6">
