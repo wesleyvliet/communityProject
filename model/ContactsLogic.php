@@ -234,24 +234,106 @@ class ContactsLogic {
 		$sql = "SELECT * FROM competition WHERE id=$id";
 		$results = $this->DataHandler->readsData($sql);
 		$game = $results->fetch(PDO::FETCH_ASSOC);
+
+		$sql = "SELECT * FROM competitors";
+		$results = $this->DataHandler->readsData($sql);
+		$compA = "";
+		$compB = "";
+		while ($comp = $results->fetch(PDO::FETCH_ASSOC)) {
+			if ($game['competitorsA'] == $comp['name']) {
+				$compA .= '<option selected value="'.$game['competitorsA'].'">'.$game['competitorsA'].'</option>';
+			} else {
+				$compA .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+			}
+
+			if ($game['competitorsB'] == $comp['name']) {
+				$compB .= '<option selected value="'.$game['competitorsB'].'">'.$game['competitorsB'].'</option>';
+			} else {
+				$compB .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+			}
+		}
+
 		
-		$edit = "<form action='?op=edit-wedstrijd' method='post'>
-		<input type='text' name='id' hidden value='" . $game['id'] . "'>
-		<input type='text' name='title' value='" . $game['title'] . "'>
-		<input type='text' name='game' value='" . $game['game'] . "'>
-		<input type='text' name='description' value='" . $game['description'] . "'>
-		<input type='text' name='competitorsA' value='" . $game['competitorsA'] . "'>
-		<input type='text' name='competitorsB' value='" . $game['competitorsB'] . "'>
-		<input type='time' value='" . $game['time'] ."' name='time'>
-		<input type='date' value='" . $game['date'] ."' name='date'>
-		<input type='submit' value='Update'>
-		</form>";
+
+
+		$edit = '<form action="?op=edit-wedstrijd" method="post" class="max-w-lg border border-gray-200 shadow-xs mx-auto rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
+			<input type="text" name="id" hidden value="' . $game['id'] . '">	
+			<div class="flex flex-col">
+				<label for="event" class="self-start mb-2 font-medium text-gray-800">
+					Event
+				</label>
+
+				<input type="text" id="event" name="title" value="'.$game["title"].'" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">
+			</div>
+
+			<div class="flex flex-col">
+				<label for="game" class="self-start mb-2 font-medium text-gray-800">
+					Event
+				</label>
+
+				<select name="game" class="border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					<option selected value="'.$game['game'].'">'.$game['game'].'</option>
+					<option value="CSGO">CSGO</option>
+					<option value="Rocket League">Rocket League</option>
+					<option value="League of Legends">League of Legends</option>
+					<option value="Valorant">Valorant</option>
+					<option value="Overwatch">Overwatch</option>
+					<option value="Dota 2">Dota 2</option>
+					<option value="R6">R6</option>
+				</select>
+			</div>
+
+			<div class="flex items-center text-gray-800">
+				<span class="block border border-gray-400 w-2/4 mr-2"></span>
+					Showdown
+				<span class="block border border-gray-400 w-2/4 ml-2"></span>
+			</div>
+			<div class="flex justify-around text-center divide-x divide-gray-300 p-8">
+
+				<select name="competitorsA" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					'.$compA.'
+				</select>
+
+				<h1 class="text-red-500 font-bold border-none">Vs</h1>
+
+				<select name="competitorsB" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					'.$compB.'
+				</select>
+			</div>
+
+			<div class="flex items-center text-gray-800">
+				<span class="block border border-gray-400 w-1/2 mr-2"></span>
+					Datum Tijd
+				<span class="block border border-gray-400 w-1/2 ml-2"></span>
+			</div>
+
+			<div class="flex justify-around text-center divide-x divide-gray-300">
+
+				<input type="date" name=date id="date" class="border-solid bg-transparent text-xl appearance-none outline-none" value="'.$game['date'].'">
+
+				<div class="mt-2 p-1 w-40 bg-white rounded-lg shadow-xl">
+					<div class="flex">
+						<input type="time" name="time" placeholder="00:00" step="900" value="'.$game['time'].'" class="bg-transparent text-xl appearance-none outline-none">
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="flex items-center text-gray-800 p-8">
+				<span class="w-1/2"></span>
+				<a href="#">
+					<input type="submit" value="Wedstrijd aanpassen" class="bg-green-400 hover:bg-green-600 text-white font-bold py-1 px-10 rounded float-right"/>
+				</a>
+				<span class="w-1/2"></span>
+			</div>
+			
+		</form>';
 
 		return $edit;
 	}
 
-	public function editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
-		$sql = "UPDATE competition SET title='$title', game='$game', description='$description', competitorsA='$competitorsA', competitorsB='$competitorsB', time='$time', date='$date' WHERE id=$id";
+	public function editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$sql = "UPDATE competition SET title='$title', game='$game', competitorsA='$competitorsA', competitorsB='$competitorsB', time='$time', date='$date' WHERE id=$id";
 		$this->DataHandler->updateData($sql);
 		$message = "Wedstrijd successvol geupdate";
 		return $message;
