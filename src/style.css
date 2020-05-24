@@ -2,4 +2,32 @@
 
 @tailwind components;
 
+.comp-container {
+    @apply mb-16 h-32 text-xl text-white ;
+  }
+
+.comp-section1 {
+    @apply  bg-green-100 text-blue-200
+}
+.comp-date-section{
+    @apply flex justify-between px-1 bg-gray-900 h-3 text-sm text-gray-500
+}
+.comp-held-section{
+    @apply flex justify-between bg-gray-900 text-white px-1 
+}
+.comp-section2 {
+    @apply flex justify-center items-center content-center bg-gray-700 h-full 
+}
+.comp-img-container {
+    @apply  inline-block h-16 align-baseline mr-2
+}
+.comp-img {
+    @apply h-16
+}
+
+
+
+
+ 
+
 @tailwind utilities;

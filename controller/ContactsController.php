@@ -25,6 +25,15 @@ class ContactsController{
 					case 'undo-delete':
 					$this->collectUndoDelete($_REQUEST['id']);
 					break;
+					case 'undo-delete-archive':
+					$this->collectUndoDeleteArchive($_REQUEST['id']);
+					break;
+					case 'edit-wedstrijd-form':
+					$this->collectEditGameForm($_REQUEST['id']);
+					break;
+					case 'edit-wedstrijd':
+					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['description'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
+					break;
 					case 'add-competitor':
 						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
 					break;
@@ -41,6 +50,9 @@ class ContactsController{
 					// case 'view':
 					// 	require_once 'view/assets/css/style.css';
 					// 	break;
+					case 'article':
+						include 'view/article.php';
+						break;
 					case 'admin':
 						include 'view/login.php';
 						break;
@@ -58,6 +70,9 @@ class ContactsController{
 						break;
 					case 'overview-wedstrijden':
 						$this->collectAllGames();
+						break;
+					case 'gearchiveerde-wedstrijden':
+						$this->collectArchivedGames();
 						break;
 					default:
 						echo 'sorry kann deze pagina: ' . $url . ' niet vinden :(';
@@ -165,6 +180,11 @@ class ContactsController{
 		$this->collectAllGames($message);
 	}
 
+	public function collectUndoDeleteArchive($id) {
+		$message = $this->ContactsLogic->undoDelete($id);
+		$this->collectArchivedGames($message);
+	}
+
 	public function __destruct(){
 
 	}
@@ -172,6 +192,19 @@ class ContactsController{
 	public function collectAllGames($message = null) {
 		$overview = $this->ContactsLogic->fetchAllGames($message);
 		include 'view/overviewGames.php';
+	}
+	public function collectEditGameForm($id) {
+		$edit = $this->ContactsLogic->editGameForm($id);
+		require_once 'view/editContest.php';
+	}
+	public function collectEditGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
+		$message = $this->ContactsLogic->editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date);
+		$this->collectAllGames($message);
+	}
+
+	public function collectArchivedGames($message = null) {
+		$overview = $this->ContactsLogic->fetchArchivedGames($message);
+		include 'view/overviewArchivedGames.php';
 	}
 }
 
