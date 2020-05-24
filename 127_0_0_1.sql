@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 mei 2020 om 18:35
+-- Gegenereerd op: 24 mei 2020 om 20:06
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.3
 
@@ -66,15 +66,15 @@ CREATE TABLE `competition` (
 
 INSERT INTO `competition` (`id`, `title`, `game`, `competitorsA`, `competitorsB`, `time`, `date`, `archived`) VALUES
 (1, 'title', 'CSGO', 'usertest2', 'usertest4', '05:00:00', '2020-05-21', 0),
-(3, 'title', '', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', '00:00:00', '2020-05-21', 0),
-(4, 'title', '', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', '00:00:00', '2020-05-21', 0),
-(5, 'title', '', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', '00:00:00', '2020-05-21', 0),
-(6, 'title', '', 'a:3:{i:0;s:1:\"1\";i:1;s:1:\"3\";i:2;s:1:\"2\";}', 'a:3:{i:0;s:1:\"2\";i:1;s:1:\"2\";i:2;s:1:\"4\";}', '00:00:00', '2020-05-19', 0),
-(7, 'title', '', 'a:3:{i:0;s:1:\"1\";i:1;s:1:\"3\";i:2;s:1:\"2\";}', 'a:3:{i:0;s:1:\"2\";i:1;s:1:\"2\";i:2;s:1:\"4\";}', '00:00:00', '2020-05-19', 0),
-(8, 'title', 'game', 'a:1:{i:0;s:1:\"1\";}', 'a:1:{i:0;s:1:\"3\";}', '00:00:00', '2020-05-18', 0),
-(9, 'test', 'test', 'a:1:{i:0;s:1:\"1\";}', 'a:1:{i:0;s:1:\"1\";}', '06:03:00', '2020-05-18', 0),
-(10, 'test', 'test', 'a:1:{i:0;s:1:\"1\";}', 'a:1:{i:0;s:1:\"1\";}', '03:42:00', '2020-05-29', 0),
-(11, 'test', 'test', 'a:1:{i:0;s:1:\"1\";}', 'a:1:{i:0;s:1:\"1\";}', '03:42:00', '2020-05-29', 0);
+(3, 'title', '', 'usertest1', 'usertest1', '00:00:00', '2020-05-21', 0),
+(4, 'title', '', 'usertest4', 'usertest1', '00:00:00', '2020-05-21', 0),
+(5, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-21', 0),
+(6, 'title', '', 'usertest1', 'usertest1', '00:00:00', '2020-05-19', 0),
+(7, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-19', 0),
+(8, 'title', 'game', 'usertest1', 'usertest1', '00:00:00', '2020-05-18', 0),
+(9, 'test', 'test', 'usertest1', 'usertest1', '06:03:00', '2020-05-18', 0),
+(10, 'test', 'test', 'usertest1', 'usertest1', '03:42:00', '2020-05-29', 0),
+(11, 'test', 'test', 'usertest1', 'usertest1', '03:42:00', '2020-05-29', 0);
 
 -- --------------------------------------------------------
 
@@ -93,10 +93,10 @@ CREATE TABLE `competitors` (
 --
 
 INSERT INTO `competitors` (`id`, `name`, `logo`) VALUES
-(1, 'usertest1', 'logo1'),
-(2, 'usertest2', 'logo2'),
-(3, 'usertest3', 'logo3'),
-(4, 'usertest4', 'logo4');
+(1, 'usertest1', 'logo1.png'),
+(2, 'usertest2', 'logo2.png'),
+(3, 'usertest3', 'logo3.png'),
+(4, 'usertest4', 'logo4.png');
 
 --
 -- Indexen voor geëxporteerde tabellen

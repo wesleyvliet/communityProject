@@ -50,47 +50,42 @@ class ContactsLogic {
 	public function readCompetition() {
 		$sql = "SELECT * FROM competition";
 		$results = $this->DataHandler->readsData($sql);
-		$resultArray = array();
-		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
-			$competitorNameA = array();
-			$competitorA = unserialize($row['competitorsA']);
-			$endA = count($competitorA);
-			for ($i=0; $i < $endA; $i++) {
-				$id = $competitorA[$i];
-				$sql = "SELECT * FROM competitors WHERE id = $id";
-				$resultsCompA = $this->DataHandler->readsData($sql);
-				while($rowCompA = $resultsCompA->fetch(PDO::FETCH_ASSOC)) {
-					//echo var_dump($row);
-					array_push($competitorNameA, array("id" => $rowCompA['id'], "name" => $rowCompA['name'], "logo" => $rowCompA['logo']));
-				}
-			}
-			$competitorNameB = array();
-			$competitorB = unserialize($row['competitorsB']);
-			$endB = count($competitorB);
-			for ($i=0; $i < $endB; $i++) {
-				$id = $competitorB[$i];
-				$sql = "SELECT * FROM competitors WHERE id = $id";
-				$resultsCompB = $this->DataHandler->readsData($sql);
-				while($rowCompB = $resultsCompB->fetch(PDO::FETCH_ASSOC)) {
-					//echo var_dump($row);
-					array_push($competitorNameB, array("id" => $rowCompB['id'], "name" => $rowCompB['name'], "logo" => $rowCompB['logo']));
-				}
-			}
-			//echo var_dump($competitorNameA);
-			array_push($resultArray, array(
-				"id" => $row['id'],
-				'title' => $row['title'],
-				'game' => $row['game'],
-				'description' => $row['description'],
-				'competitorsA' => $competitorNameA,
-				'competitorsB' => $competitorNameB,
-				'time' => $row['time'],
-				'date' => $row['date']
-			));
-		}
-		//echo var_dump($resultArray);
-		return($resultArray);
 
+		$comp ='';
+       	while ($competition = $results->fetch(PDO::FETCH_ASSOC)){
+			$sql = "SELECT * FROM competitors";
+			$teams = $this->DataHandler->readsData($sql);
+			while ($competitors = $teams->fetch(PDO::FETCH_ASSOC)) {
+				if ($competition['competitorsA'] == $competitors['name']) {
+					$logoA = $competitors['logo'];
+				}
+				if ($competition['competitorsB'] == $competitors['name']) {
+					$logoB = $competitors['logo'];
+				}
+			}
+
+			$comp .= '<div class="  comp-container hidden ">';
+			$comp .= '<div class=" comp-section1">';
+			$comp .= '<div class=" comp-date-section">';
+			$comp .= '<span>'. $competition["date"] . '</span><span>'.$competition["time"] . '</span>';
+			$comp .= '</div>';
+			$comp .= '<div class="comp-held-section ">';
+			$comp .= '<span>'. $competition["title"] . '</span><span>'.$competition["game"] . '</span>';
+			$comp .= '</div>';
+			$comp .= '</div>';
+
+			$comp .= '<div class="comp-section2">';
+			$comp .= '<div class="comp-img-container">';
+			$comp .= '<img src="view/assets/img/'. $logoA .'" alt="" class="comp-img ">';
+			$comp .= '</div>';
+			$comp .= '<div class="mr-2">vs</div>';
+			$comp .= '<div class=" comp-img-container">';
+			$comp .= '<img src="view/assets/img/'. $logoB .'" alt="" class="comp-img ">';
+			$comp .= '</div>';
+			$comp .= '</div>';
+			$comp .= '</div>';
+	   	}
+	   return $comp;
 	}
 
 	public function createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
