@@ -105,28 +105,28 @@ require_once "view/header.php";
 
     <!-- Comp -->
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-24 col-gap-4 flex ">
+        class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
         <!-- Comp 1  -->
         <?php
        foreach ($competitions as $event){
-        echo'<div class="  comp-container ">';
+        echo'<div class="  comp-container hidden ">';
         echo '<div class=" comp-section1">';
         echo '<div class=" comp-date-section">';
-        echo '<span>'. $event["date"] . '</span><span>9 pm</span>';
+        echo '<span>'. $event["date"] . '</span><span>'.$event["time"] . '</span>';
         echo '</div>';
         echo '<div class="comp-held-section ">';
-        echo '<span>02-05-20</span><span>CS-GO</span>';
+        echo '<span>'. $event["competitorsA"][0]["name"] . '</span><span>'.$event["game"] . '</span>';
         echo '</div>';
         echo '</div>';
 
         echo '<div class="comp-section2">';
 
         echo '<div class="comp-img-container">';
-        echo '<img src="view/assets/img/logo.png" alt="" class="comp-img ">';
+        echo '<img src="view/assets/img/'. $event["competitorsA"][0]["logo"] .'" alt="" class="comp-img ">';
         echo '</div>';
         echo '<div class="mr-2">vs</div>';
         echo '<div class=" comp-img-container">';
-        echo '<img src="view/assets/img/logo.png" alt="" class="comp-img ">';
+        echo '<img src="view/assets/img/'. $event["competitorsB"][0]["logo"] .'" alt="" class="comp-img ">';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -134,12 +134,14 @@ require_once "view/header.php";
        }
        ?>
     </div>
+    
+    <div class="m-auto  text-center mb-12">
+        <a href="#" class="bg-red-600 py-4 px-8 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="load">Load More</a>
+    </div>
     <!-- Article end -->
-    <?php
-        echo '<pre>';
-        print_r ($competitions);
-        echo '</pre>';
-    ?>
+    
+    
+   
 
 
     <!-- footer -->
@@ -187,6 +189,19 @@ require_once "view/header.php";
         document.getElementById('nav-toggle').onclick = function () {
             document.getElementById("nav-content").classList.toggle("hidden");
         }
+
+        $(function(){
+    $(".comp-container").slice(0, 4).show(); // select the first ten
+    $("#load").click(function(e){ // click event for load more
+        e.preventDefault();
+        $(".comp-container:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
+        if($(".comp-container:hidden").length == 0){ // check if any hidden divs still exist
+            $("#load").css("background-color","white" ); 
+            $("#load").css("color","black" ); 
+            $('#load').css('cursor', 'default');
+        }
+    });
+});
     </script>
 
     <?php
