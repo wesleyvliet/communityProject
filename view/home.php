@@ -104,35 +104,9 @@ require_once "view/header.php";
     <!-- Article end -->
 
     <!-- Comp -->
-    <div
-        class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
         <!-- Comp 1  -->
-        <?php
-       foreach ($competitions as $event){
-        echo'<div class="  comp-container hidden ">';
-        echo '<div class=" comp-section1">';
-        echo '<div class=" comp-date-section">';
-        echo '<span>'. $event["date"] . '</span><span>'.$event["time"] . '</span>';
-        echo '</div>';
-        echo '<div class="comp-held-section ">';
-        echo '<span>'. $event["competitorsA"][0]["name"] . '</span><span>'.$event["game"] . '</span>';
-        echo '</div>';
-        echo '</div>';
-
-        echo '<div class="comp-section2">';
-
-        echo '<div class="comp-img-container">';
-        echo '<img src="view/assets/img/'. $event["competitorsA"][0]["logo"] .'" alt="" class="comp-img ">';
-        echo '</div>';
-        echo '<div class="mr-2">vs</div>';
-        echo '<div class=" comp-img-container">';
-        echo '<img src="view/assets/img/'. $event["competitorsB"][0]["logo"] .'" alt="" class="comp-img ">';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-;
-       }
-       ?>
+        <?php echo $competitions; ?>
     </div>
     
     <div class="m-auto  text-center mb-12">
