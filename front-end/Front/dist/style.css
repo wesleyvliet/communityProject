@@ -66,6 +66,10 @@ pre {
   font-size: 1em; /* 2 */
 }
 
+.bigger-t:hover{
+  font-size: 1.5rem;
+}
+
 /* Text-level semantics
    ========================================================================== */
 
@@ -415,7 +419,7 @@ ul {
  */
 
 html {
-  font-family: Lato, sans-serif; /* 1 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -559,7 +563,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
@@ -621,74 +625,6 @@ video {
   .container {
     max-width: 1280px;
   }
-}
-
-.comp-container {
-  margin-bottom: 4rem;
-  height: 8rem;
-  font-size: 1.25rem;
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-}
-
-.comp-section1 {
-  --bg-opacity: 1;
-  background-color: #f0fff4;
-  background-color: rgba(240, 255, 244, var(--bg-opacity));
-  --text-opacity: 1;
-  color: #bee3f8;
-  color: rgba(190, 227, 248, var(--text-opacity))
-}
-
-.comp-date-section{
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  --bg-opacity: 1;
-  background-color: #1a202c;
-  background-color: rgba(26, 32, 44, var(--bg-opacity));
-  height: 0.75rem;
-  font-size: 0.875rem;
-  --text-opacity: 1;
-  color: #a0aec0;
-  color: rgba(160, 174, 192, var(--text-opacity))
-}
-
-.comp-held-section{
-  display: flex;
-  justify-content: space-between;
-  --bg-opacity: 1;
-  background-color: #1a202c;
-  background-color: rgba(26, 32, 44, var(--bg-opacity));
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-  padding-left: 0.25rem;
-  padding-right: 0.25rem
-}
-
-.comp-section2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  --bg-opacity: 1;
-  background-color: #4a5568;
-  background-color: rgba(74, 85, 104, var(--bg-opacity));
-  height: 100%
-}
-
-.comp-img-container {
-  display: inline-block;
-  height: 4rem;
-  vertical-align: baseline;
-  margin-right: 0.5rem
-}
-
-.comp-img {
-  height: 4rem
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
@@ -6122,11 +6058,15 @@ video {
 }
 
 .font-sans {
-  font-family: Lato, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.font-display {
-  font-family: Lato, sans-serif;
+.font-serif {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-mono {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .font-hairline {
@@ -24538,11 +24478,15 @@ video {
   }
 
   .sm\:font-sans {
-    font-family: Lato, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  .sm\:font-display {
-    font-family: Lato, sans-serif;
+  .sm\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .sm\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .sm\:font-hairline {
@@ -42955,11 +42899,15 @@ video {
   }
 
   .md\:font-sans {
-    font-family: Lato, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  .md\:font-display {
-    font-family: Lato, sans-serif;
+  .md\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .md\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .md\:font-hairline {
@@ -61372,11 +61320,15 @@ video {
   }
 
   .lg\:font-sans {
-    font-family: Lato, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  .lg\:font-display {
-    font-family: Lato, sans-serif;
+  .lg\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .lg\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .lg\:font-hairline {
@@ -79789,11 +79741,15 @@ video {
   }
 
   .xl\:font-sans {
-    font-family: Lato, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  .xl\:font-display {
-    font-family: Lato, sans-serif;
+  .xl\:font-serif {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .xl\:font-mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .xl\:font-hairline {
@@ -92752,7 +92708,7 @@ video {
   .xl\:delay-150 {
     transition-delay: 150ms;
   }
-
+ 
   .xl\:delay-200 {
     transition-delay: 200ms;
   }

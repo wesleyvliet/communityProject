@@ -4,13 +4,13 @@ require_once "view/header.php";
 
 <body class="bg-gray-800 font-sans leading-normal tracking-normal">
     <nav class="bg-gray-900">
-        <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto py-5">
+        <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto mb-10 py-5">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a class="text-white no-underline hover:text-white hover:no-underline" href="home">
-                    <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
-                   
-                        <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
-                    </a>
+            <a class="text-white no-underline hover:text-white hover:no-underline" href="home">
+                <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
+               
+                    <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
+                </a>
             </div>
             <!-- Nav burger menu  (hidden on bigger screens)-->
             <div class="block lg:hidden">
