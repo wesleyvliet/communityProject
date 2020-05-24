@@ -32,7 +32,7 @@ class ContactsController{
 					$this->collectEditGameForm($_REQUEST['id']);
 					break;
 					case 'edit-wedstrijd':
-					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['description'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
+					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
 					break;
 					case 'add-competitor':
 						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
@@ -197,8 +197,8 @@ class ContactsController{
 		$edit = $this->ContactsLogic->editGameForm($id);
 		require_once 'view/editContest.php';
 	}
-	public function collectEditGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
-		$message = $this->ContactsLogic->editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date);
+	public function collectEditGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
 		$this->collectAllGames($message);
 	}
 
