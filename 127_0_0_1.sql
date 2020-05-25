@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 mei 2020 om 20:06
+-- Gegenereerd op: 25 mei 2020 om 16:10
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.3
 
@@ -46,6 +46,46 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
+  `categorie` int(10) NOT NULL,
+  `author` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `content`, `date`, `categorie`, `author`) VALUES
+(1, 'test', 'test testtest test test test test testtest test v v v v test', '2020-05-25', 1, 'B====D');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `categorie`
+--
+
+CREATE TABLE `categorie` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `categorie`
+--
+
+INSERT INTO `categorie` (`id`, `name`) VALUES
+(1, 'CSGO');
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `competition`
 --
 
@@ -65,8 +105,8 @@ CREATE TABLE `competition` (
 --
 
 INSERT INTO `competition` (`id`, `title`, `game`, `competitorsA`, `competitorsB`, `time`, `date`, `archived`) VALUES
-(1, 'title', 'CSGO', 'usertest2', 'usertest4', '05:00:00', '2020-05-21', 0),
-(3, 'title', '', 'usertest1', 'usertest1', '00:00:00', '2020-05-21', 0),
+(1, 'Anthony is gay', 'CSGO', 'usertest2', 'usertest4', '05:00:00', '2020-05-21', 0),
+(3, 'title', 'Valorant', 'usertest4', 'usertest1', '00:00:00', '2020-05-21', 1),
 (4, 'title', '', 'usertest4', 'usertest1', '00:00:00', '2020-05-21', 0),
 (5, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-21', 0),
 (6, 'title', '', 'usertest1', 'usertest1', '00:00:00', '2020-05-19', 0),
@@ -109,6 +149,18 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexen voor tabel `competition`
 --
 ALTER TABLE `competition`
@@ -129,6 +181,18 @@ ALTER TABLE `competitors`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(240) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT voor een tabel `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT voor een tabel `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT voor een tabel `competition`
