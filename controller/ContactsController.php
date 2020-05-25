@@ -64,9 +64,12 @@ class ContactsController{
 						break;
 					case 'nieuwe-deelnemers':
 						include 'view/competitors.php';
-					break;
+						break;
 					case 'nieuwe-wedstrijden':
 						include 'view/addContest.php';
+						break;
+					case 'overview-artiekelen':
+						$this->collectAllArticles();
 						break;
 					case 'nieuwe-wedstrijden-competitors':
 						$this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']);
@@ -208,6 +211,11 @@ class ContactsController{
 	public function collectArchivedGames($message = null) {
 		$overview = $this->ContactsLogic->fetchArchivedGames($message);
 		include 'view/overviewArchivedGames.php';
+	}
+
+	public function collectAllArticles() {
+		$articles = $this->ContactsLogic->fetchAllArticles();
+		require_once 'view/aricleOverview.php';
 	}
 }
 

@@ -383,4 +383,24 @@ class ContactsLogic {
 		$overview .= '</table></div>' . $message;
 		return $overview;
 	}
+
+	public function fetchAllArticles() {
+		$sql = "SELECT *, categorie.id, categorie.name FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
+		$results = $this->DataHandler->readsData($sql);
+		$overview = '<table>
+			<tr><th>Title</th>
+			<th>Categorie</th>
+			<th>Date</th>
+			<th>Author</th></tr>';
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$overview .= '<tr>
+			<td>'.$row['title'].'</td>
+			<td>'.$row['name'].'</td>
+			<td>'.$row['date'].'</td>
+			<td>'.$row['author'].'</td>
+			</tr>';
+		}
+		$overview .= '</table>';
+		return $overview;
+	}
 }
