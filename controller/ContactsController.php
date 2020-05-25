@@ -53,6 +53,9 @@ class ContactsController{
 					case 'article':
 						include 'view/article.php';
 						break;
+					case 'shop':
+						include 'view/shop.php';
+						break;
 					case 'admin':
 						include 'view/login.php';
 						break;
