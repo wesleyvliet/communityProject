@@ -10,9 +10,9 @@
     <input type="text" name="author" id="author">
     <label for="content">Inhoudt</label>
     <textarea name="text" id="content" cols="30" rows="10"></textarea>
-    <input type="submit" value="Send">
     <label for="image">voorbeeldafbeelding</label>
     <input type="file" name="preview" id="image">
+    <input type="submit" value="Send">
 </form>
 
 <?php //require_once 'view/footer.php'; ?>

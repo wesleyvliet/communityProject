@@ -438,7 +438,7 @@ class ContactsLogic {
 		} else {
 			$message = "";
 		}
-		$sql = "SELECT *, categorie.id, categorie.name FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
+		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
 		$results = $this->DataHandler->readsData($sql);
 		$overview = '<table>
 			<tr><th>Title</th>
@@ -451,6 +451,7 @@ class ContactsLogic {
 			<td>'.$row['name'].'</td>
 			<td>'.$row['date'].'</td>
 			<td>'.$row['author'].'</td>
+			<td><a href="?op=edit-article&id='.$row['idArticle'].'">Bewerken</a></td>
 			</tr>';
 		}
 		$overview .= '</table>'.$message;
@@ -479,7 +480,7 @@ class ContactsLogic {
 	}
 
 	public function readArticle($id) {
-		$sql = "SELECT * FROM articles WHERE id=$id";
+		$sql = "SELECT * FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.id=$id";
 		$results = $this->DataHandler->readsData($sql);
 		$row = $results->fetch(PDO::FETCH_ASSOC);
 
@@ -487,7 +488,7 @@ class ContactsLogic {
 		$article["title"] = $row["title"];
 		$article["content"] = $row["content"];
 		$article["date"] = $row["date"];
-		$article["categorie"] = $row["categorie"];
+		$article["categorie"] = $row["name"];
 		$article["author"] = $row["author"];
 		$article["preview_image"] = $row["preview_image"];
 
@@ -508,5 +509,47 @@ class ContactsLogic {
 			</a>';
 		}
 		return $articles;
+	}
+
+	public function editArticle($id) {
+		$sql = "SELECT * FROM articles WHERE id=$id";
+		$results = $this->DataHandler->readsData($sql);
+		$row = $results->fetch(PDO::FETCH_ASSOC);
+
+		$sql = "SELECT * FROM categorie";
+		$results = $this->DataHandler->readsData($sql);
+		
+
+		$categorie = '<select name="categorie" id="categorie">';
+		while($categories = $results->fetch(PDO::FETCH_ASSOC)) {
+			if ($row["id"] == $categories["id"]) {
+				$categorie .= '<option value="'.$categories['id'].'">'.$categories['name'].'</option> selected';
+			} else {
+				$categorie .= '<option value="'.$categories['id'].'">'.$categories['name'].'</option>';
+			}
+		}
+		$categorie .= '</select>';
+
+		$article = array();
+		$article["id"] = $row["id"];
+		$article["title"] = $row["title"];
+		$article["content"] = $row["content"];
+		$article["categorie"] = $categorie;
+		$article["author"] = $row["author"];
+		$article["preview_image"] = $row["preview_image"];
+
+		return $article;
+	}
+
+	public function updateArticle($id, $title, $categorie, $author, $text, $imageFile, $image) {
+		if (!isset($imageFile) || $imageFile['size'] == 0) {
+			$image = $image;
+		} else {
+			$image = $imageFile;
+		}
+		$sql = "UPDATE articles SET title='$title', content='$text', categorie='$categorie', author='$author', preview_image='$image' WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Artikel successvol geupdate";
+		return $message;
 	}
 }
