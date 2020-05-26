@@ -16,7 +16,7 @@ class ContactsLogic {
 	public function uploadFile($file) {
 		if($file['size'] !== 0) {
 			$name = $file['name'];
-			$target_dir = "view/assets/img/compLogo/";
+			$target_dir = "view/assets/img/";
 			$target_file = $target_dir . basename($file["name"]);
 			// Select file type
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -468,9 +468,11 @@ class ContactsLogic {
 		return $form;
 	}
 
-	public function CreateArticle($title, $categorie, $author, $text) {
+	public function CreateArticle($title, $categorie, $author, $text, $image) {
+		$this->uploadFile($image);
+		$image = $image['name'];
 		$date = date("Y-m-d");
-		$sql = "INSERT INTO `articles` (`id`, `title`, `content`, `date`, `categorie`, `author`) VALUES (NULL, '$title', '$text', '$date', '$categorie', '$author')";
+		$sql = "INSERT INTO `articles` (`id`, `title`, `content`, `date`, `categorie`, `author`, `preview_image`) VALUES (NULL, '$title', '$text', '$date', '$categorie', '$author', '$image')";
 		$this->DataHandler->createData($sql);
 		$message = "Artiekel is aangemaakt";
 		return $message;
@@ -487,7 +489,24 @@ class ContactsLogic {
 		$article["date"] = $row["date"];
 		$article["categorie"] = $row["categorie"];
 		$article["author"] = $row["author"];
+		$article["preview_image"] = $row["preview_image"];
 
 		return $article;
+	}
+
+	public function displayArticles() {
+		$sql = "SELECT * FROM articles";
+		$results = $this->DataHandler->readsData($sql);
+		$articles = "";
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$articles .= '<a class="articleGrid hidden" href="article?id='.$row["id"].'">
+				<div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/'.$row["preview_image"].')">
+					<div class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
+						'.$row['title'].'
+					</div>
+				</div>
+			</a>';
+		}
+		return $articles;
 	}
 }

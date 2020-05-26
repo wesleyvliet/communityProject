@@ -56,45 +56,12 @@ require_once "view/header.php";
     </div>
 
     <!-- article -->
-    <div
-        class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
-        <!-- article 1 -->
-        <a href="article?id=1">
-            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/rl-players.jpg)">
-                <div
-                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
-                    G2 Is Your NA Rocket League Spring Series
-                    Champions
-                </div>
-            </div>
-        </a>
-        <!-- article 1 -->
-        <a href="">
-            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/reaper.jpg)">
-                <div
-                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40  h-full text-xl text-white ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
-        <!-- article 1 -->
-        <a href="">
-            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/spelers.jpg)">
-                <div
-                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
-        <!-- article 1 -->
-        <a href="">
-            <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/bmw.jpg)">
-                <div
-                    class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, labore quod!
-                </div>
-            </div>
-        </a>
+    <div class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
+        <?php echo $articles; ?>
+    </div>
+
+    <div class="m-auto  text-center mb-12">
+        <a href="#" class="bg-red-600 py-4 px-8 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="loadArticle">Load More</a>
     </div>
     <!-- Article end -->
 
@@ -151,17 +118,30 @@ require_once "view/header.php";
         }
 
         $(function(){
-    $(".comp-container").slice(0, 4).show(); // select the first ten
-    $("#load").click(function(e){ // click event for load more
-        e.preventDefault();
-        $(".comp-container:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
-        if($(".comp-container:hidden").length == 0){ // check if any hidden divs still exist
-            $("#load").css("background-color","white" );
-            $("#load").css("color","black" );
-            $('#load').css('cursor', 'default');
-        }
-    });
-});
+        $(".comp-container").slice(0, 4).show(); // select the first ten
+        $("#load").click(function(e){ // click event for load more
+                e.preventDefault();
+                $(".comp-container:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
+                if($(".comp-container:hidden").length == 0){ // check if any hidden divs still exist
+                    $("#load").css("background-color","white" );
+                    $("#load").css("color","black" );
+                    $('#load').css('cursor', 'default');
+                }
+            });
+        });
+
+        $(function(){
+        $(".articleGrid").slice(0, 4).show(); // select the first ten
+        $("#loadArticle").click(function(e){ // click event for load more
+                e.preventDefault();
+                $(".articleGrid:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
+                if($(".articleGrid:hidden").length == 0){ // check if any hidden divs still exist
+                    $("#loadArticle").css("background-color","white" );
+                    $("#loadArticle").css("color","black" );
+                    $('#loadArticle').css('cursor', 'default');
+                }
+            });
+        });
     </script>
 
     <?php

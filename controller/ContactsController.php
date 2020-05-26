@@ -38,7 +38,7 @@ class ContactsController{
 					$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
 					break;
 					case 'create-article':
-					$this->collectCreateArticle($_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text']);
+					$this->collectCreateArticle($_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text'], $_FILES['preview']);
 					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
@@ -48,7 +48,7 @@ class ContactsController{
 				switch ($url) {
 					case 'home':
 					case 'index.php':
-						$this->collectReadCompetitions();
+						$this->collectHomePage();
 						break;
 					// case 'view':
 					// 	require_once 'view/assets/css/style.css';
@@ -106,11 +106,6 @@ class ContactsController{
 
 	}
 
-	public function collectHomePage() {
-		$competitions = $this->ContactsLogic->readCompetition();
-		include 'view/home.php';
-	}
-
 	public function collectCreateCompetitor($name, $logo) {
 		session_start();
 		if(empty($name) || empty($logo)) {
@@ -135,7 +130,8 @@ class ContactsController{
 		}
 	}
 
-	public function collectReadCompetitions() {
+	public function collectHomePage() {
+		$articles = $this->ContactsLogic->displayArticles();
 		$competitions = $this->ContactsLogic->readCompetition();
 		require_once 'view/home.php';
 	}
@@ -243,9 +239,9 @@ class ContactsController{
 		$articleform = $this->ContactsLogic->fetchArticleForm();
 		require_once 'view/createArticle.php';
 	}
-
-	public function collectCreateArticle($title, $categorie, $author, $text) {
-		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text);
+	
+	public function collectCreateArticle($title, $categorie, $author, $text, $image) {
+		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);	
 		$this->collectAllArticles($message);
 	}
 

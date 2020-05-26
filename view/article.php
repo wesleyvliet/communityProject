@@ -47,10 +47,10 @@ require_once "view/header.php";
     <div class="w-10/12 m-auto mb-3 h-auto py-12">
         <!-- Article img -->
         <div class=" bg-cover bg-top mb-10 h-64" id="article_img"
-            style="background-image: url(view/assets/img/rl-players.jpg)">
+            style="background-image: url(view/assets/img/<?php echo $article["preview_image"]; ?>)">
             <div class="flex items-center h-full bg-gray-900 bg-opacity-25">
                 <div class="flex-1 lg:px-64 text-center ">
-                    <span class=" block text-white text-4xl px-16"><?php echo $article["title"] ?></span>
+                    <span class=" block text-white text-4xl px-16"><?php echo $article["title"]; ?></span>
                     <span class="text-white"><?php echo $article["date"] ?></span>
                 </div>
             </div>
@@ -62,13 +62,13 @@ require_once "view/header.php";
             <div id="categorie-container " class="m-auto text-center mb-10 ">
                 <p class=" text-xl">CATEGORIE</p>
                 <div class="flex justify-center gap-5">
-                    <span class=" bg-red-600 px-2 py-1 "><?php echo $article["categorie"] ?></span>
+                    <span class=" bg-red-600 px-2 py-1 "><?php echo $article["categorie"]; ?></span>
                 </div>
 
             </div>
 
             <p>
-                <?php echo $article["content"] ?>
+                <?php echo $article["content"]; ?>
             </p>
         </div>
     </div>
