@@ -438,7 +438,7 @@ class ContactsLogic {
 		} else {
 			$message = "";
 		}
-		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
+		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.archived=0";
 		$results = $this->DataHandler->readsData($sql);
 		$overview = '<table>
 			<tr><th>Title</th>
@@ -452,6 +452,7 @@ class ContactsLogic {
 			<td>'.$row['date'].'</td>
 			<td>'.$row['author'].'</td>
 			<td><a href="?op=edit-article&id='.$row['idArticle'].'">Bewerken</a></td>
+			<td><a href="?op=delete-article&id='.$row['idArticle'].'">Verwijderen</a></td>
 			</tr>';
 		}
 		$overview .= '</table>'.$message;
@@ -551,5 +552,55 @@ class ContactsLogic {
 		$this->DataHandler->updateData($sql);
 		$message = "Artikel successvol geupdate";
 		return $message;
+	}
+
+	public function archiveArticle($id) {
+		$sql = "UPDATE articles SET archived=1 WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Artikel succesvol verwijderd! Weer terug zetten <a class='text-blue-900 font-bold' href='?op=undo-delete-article&id=" . $id . "'>klik hier!</a>";
+		return $message;
+	}
+
+	public function undoDeleteArticle($id) {
+		$sql = "UPDATE articles SET archived=0 WHERE id=$id";
+		$this->DataHandler->updateData($sql);
+		$message = "Artikel hersteld";
+		return $message;
+	}
+
+	public function fetchAllArchivedArticles($message) {
+		if ((isset($message)) && ($message != "")) {
+			$message = '</div>
+			<div id="alert-box" class="alert-toast absolute bottom-0 right-0 m-8">
+			<label class="close cursor-pointer flex items-start items-center justify-center w-full p-2 pt-1 pr-1 bg-green-500 rounded shadow-lg text-white" for="footertoast">
+			<p>'.$message.'</p>
+			<button onclick="hideAlert()" class="h-8 w-5 ml-2">
+			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+			<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+			</svg>
+			</button>
+			</label>
+			</div>';
+		} else {
+			$message = "";
+		}
+		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.archived=1";
+		$results = $this->DataHandler->readsData($sql);
+		$overview = '<table>
+			<tr><th>Title</th>
+			<th>Categorie</th>
+			<th>Date</th>
+			<th>Author</th></tr>';
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$overview .= '<tr>
+			<td>'.$row['title'].'</td>
+			<td>'.$row['name'].'</td>
+			<td>'.$row['date'].'</td>
+			<td>'.$row['author'].'</td>
+			<td><a href="?op=edit-article&id='.$row['idArticle'].'">Herstellen</a></td>
+			</tr>';
+		}
+		$overview .= '</table>'.$message;
+		return $overview;
 	}
 }

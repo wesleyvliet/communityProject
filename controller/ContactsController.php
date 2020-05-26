@@ -46,8 +46,14 @@ class ContactsController{
 					case 'update-article':
 					$this->collectUpdateArticle($_REQUEST['id'],$_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text'], $_FILES['preview'], $_REQUEST['image']);
 					break;
+					case 'delete-article':
+					$this->collectDeleteArticle($_REQUEST['id']);
+					break;
+					case 'undo-delete-article':
+					$this->collectUndoDeleteArticle($_REQUEST['id']);
+					break;
 					default:
-					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
+					echo 'sorry kan deze actie: ' . $op . ' niet vinden :(';
 					break;
 				}
 			} else {
@@ -79,6 +85,9 @@ class ContactsController{
 						break;
 					case 'overview-artiekelen':
 						$this->collectAllArticles();
+						break;
+					case 'overview-archived-articles':
+						$this->collectAllArchivedArticles();
 						break;
 					case 'create-article':
 						$this->collectArticleForm();
@@ -264,6 +273,21 @@ class ContactsController{
 	public function collectUpdateArticle($id, $title, $categorie, $author, $text, $imageFile, $image) {
 		$message = $this->ContactsLogic->updateArticle($id, $title, $categorie, $author, $text, $imageFile, $image);
 		$this->collectAllArticles($message);
+	}
+
+	public function collectDeleteArticle($id) {
+		$message = $this->ContactsLogic->archiveArticle($id);
+		$this->collectAllArticles($message);
+	}
+
+	public function collectUndoDeleteArticle($id) {
+		$message = $this->ContactsLogic->undoDeleteArticle($id);
+		$this->collectAllArticles($message);	
+	}
+
+	public function collectAllArchivedArticles($message = null) {
+		$articles = $this->ContactsLogic->fetchAllArchivedArticles($message);
+		require_once 'view/archivedArticleOverview.php';
 	}
 }
 
