@@ -239,6 +239,7 @@ class ContactsController{
 		$articleform = $this->ContactsLogic->fetchArticleForm();
 		require_once 'view/createArticle.php';
 	}
+	
 	public function collectCreateArticle($title, $categorie, $author, $text, $image) {
 		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);	
 		$this->collectAllArticles($message);
