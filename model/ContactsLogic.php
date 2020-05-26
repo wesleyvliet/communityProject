@@ -440,22 +440,63 @@ class ContactsLogic {
 		}
 		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.archived=0";
 		$results = $this->DataHandler->readsData($sql);
-		$overview = '<table>
-			<tr><th>Title</th>
-			<th>Categorie</th>
-			<th>Date</th>
-			<th>Author</th></tr>';
+		$overview = '<table class="border-collapse w-full mt-10">
+			<thead class="bg-gray-800 text-white border border-gray-300">
+				<tr>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Titel</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Categorie</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Datum</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Auteur</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Aanpassen</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Verwijderen</th>
+				</tr>
+			</thead>
+			<tbody>';
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
-			$overview .= '<tr>
-			<td>'.$row['title'].'</td>
-			<td>'.$row['name'].'</td>
-			<td>'.$row['date'].'</td>
-			<td>'.$row['author'].'</td>
-			<td><a href="?op=edit-article&id='.$row['idArticle'].'">Bewerken</a></td>
-			<td><a href="?op=delete-article&id='.$row['idArticle'].'">Verwijderen</a></td>
-			</tr>';
+			$overview .= '<tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Title</span>
+				'.$row['title'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Categorie</span>
+				'.$row['name'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Datum</span>
+				'.$row['date'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Auteur</span>
+				'.$row['author'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Aanpassen</span>
+				<a href="?op=edit-article&id=' . $row['idArticle'] . '">
+					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15"><path class="heroicon-ui" d="M9 4.58V4c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v.58a8 8 0 0 1 1.92 
+							1.11l.5-.29a2 2 0 0 1 2.74.73l1 1.74a2 2 0 0 1-.73 2.73l-.5.29a8.06 8.06 0 0 1 0 2.22l.5.3a2 2 0 0 1 .73 2.72l-1 1.74a2 2 0 0 1-2.73.73l-.5-.3A8 8 0 0 1 15 
+							19.43V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.58a8 8 0 0 1-1.92-1.11l-.5.29a2 2 0 0 1-2.74-.73l-1-1.74a2 2 0 0 1 .73-2.73l.5-.29a8.06 8.06 0 0 1 0-2.22l-.5-.3a2 2 0 0 1-.73-2.72l1-1.74a2 
+							2 0 0 1 2.73-.73l.5.3A8 8 0 0 1 9 4.57zM7.88 7.64l-.54.51-1.77-1.02-1 1.74 1.76 1.01-.17.73a6.02 6.02 0 0 0 0 2.78l.17.73-1.76 1.01 1 1.74 1.77-1.02.54.51a6 6 0 0 0 2.4 
+							1.4l.72.2V20h2v-2.04l.71-.2a6 6 0 0 0 2.41-1.4l.54-.51 1.77 1.02 1-1.74-1.76-1.01.17-.73a6.02 6.02 0 0 0 0-2.78l-.17-.73 1.76-1.01-1-1.74-1.77 1.02-.54-.51a6 6 0 0 
+							0-2.4-1.4l-.72-.2V4h-2v2.04l-.71.2a6 6 0 0 0-2.41 1.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+						</svg>
+					</button>
+				</a>
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-2 text-xs font-bold uppercase w-32">Verwijderen</span>
+				<a href="?op=delete-article&id=' . $row['idArticle'] . '">
+					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 
+							.552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+						</svg>
+					</button>
+				</a>
+			</td>
+		</tr>';
 		}
-		$overview .= '</table>'.$message;
+		$overview .= '</tbody></table>'.$message;
 		return $overview;
 	}
 
@@ -586,21 +627,46 @@ class ContactsLogic {
 		}
 		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.archived=1";
 		$results = $this->DataHandler->readsData($sql);
-		$overview = '<table>
-			<tr><th>Title</th>
-			<th>Categorie</th>
-			<th>Date</th>
-			<th>Author</th></tr>';
+		$overview = '<table class="border-collapse w-full mt-10">
+			<thead class="bg-gray-800 text-white border border-gray-300">
+				<tr>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Titel</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Categorie</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Datum</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Auteur</th>
+					<th class="p-3 font-bold uppercase hidden lg:table-cell">Herstellen</th>
+				</tr>
+			</thead>
+			<tbody>';
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
-			$overview .= '<tr>
-			<td>'.$row['title'].'</td>
-			<td>'.$row['name'].'</td>
-			<td>'.$row['date'].'</td>
-			<td>'.$row['author'].'</td>
-			<td><a href="?op=undo-delete-article&id='.$row['idArticle'].'">Herstellen</a></td>
-			</tr>';
+			$overview .= '<tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Title</span>
+				'.$row['title'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Categorie</span>
+				'.$row['name'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Datum</span>
+				'.$row['date'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Auteur</span>
+				'.$row['author'].'
+			</td>
+			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-2 text-xs font-bold uppercase w-32">Herstellen</span>
+				<a href="?op=undo-delete-article&id=' . $row['id'] . '">
+					<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z"/></svg>
+					</button>
+				</a>
+			</td>
+		</tr>';
 		}
-		$overview .= '</table>'.$message;
+		$overview .= '</tbody></table>'.$message;
 		return $overview;
 	}
 }
