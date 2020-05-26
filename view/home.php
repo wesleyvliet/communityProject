@@ -49,7 +49,7 @@ require_once "view/header.php";
             <p class=" hidden md:block font-bold">We are G69</p>
             <p class=" hidden md:block mb-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat officia
                 aliquam repellendus, saepe quae possimus amet incidunt necessitatibus esse quas. </p>
-            <a href="#"
+            <a href="About-G69"
                 class="bg-red-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Learn
                 more</a>
         </div>
