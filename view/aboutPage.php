@@ -34,7 +34,7 @@ require_once "view/header.php";
                             href="Merch">Merch</a>
                     </li>
                     <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                        <a class="inline-block py-2 px-4 text-white no-underline"
                             href="About-G69">About-G69</a>
                     </li>
                 </ul>
@@ -46,13 +46,11 @@ require_once "view/header.php";
     <!-- Main -->
     <div class="w-10/12 m-auto mb-3 h-auto py-12">
         <!-- Article img -->
-        <div class=" bg-cover bg-top mb-10 h-64" id="article_img"
-            style="background-image: url(view/assets/img/rl-players.jpg)">
-            <div class="flex items-center h-full bg-gray-900 bg-opacity-25">
-                <div class="flex-1 lg:px-64 text-center ">
-                    <span class=" block text-white text-4xl px-16">G69 Is Your NA Rocket League Spring Series
-                        Champions</span>
-                    <span class="text-white">2 September 2019</span>
+        <div class=" bg-cover bg-center mb-10 h-64" id="article_img"
+            style="background-image: url(view/assets/img/flag.png)">
+            <div class="flex items-center h-full bg-opacity-25">
+                <div class="flex-1 lg:px-64 text-center">
+                    <span class="text-white text-4xl px-16 bg-gray-800 w-auto">About G69 And Who We Are</span>
                 </div>
             </div>
         </div>
@@ -60,46 +58,31 @@ require_once "view/header.php";
 
 
         <div class=" w-2/3 text-white m-auto">
-            <div id="categorie-container " class="m-auto text-center mb-10 ">
-                <p class=" text-xl">CATEGORIE</p>
-                <div class="flex justify-center gap-5">
-                    <span class=" bg-red-600 px-2 py-1 ">g69</span>
-                    <span class=" bg-red-600 px-2 py-1 ">rocket league</span>
-                    <span class=" bg-red-600 px-2 py-1 ">NA</span>
-                </div>
-
-            </div>
 
             <p>
-                Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another
-                clean tournament win to become your Rocket League Spring Series – North America Champions!
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                Nam at diam viverra, auctor enim eget, eleifend sapien
+                Fusce nulla arcu, molestie eget congue et, placerat in ex
+                Integer imperdiet aliquet risus, non laoreet neque blandit et
+                Etiam lacinia ultrices risus at dignissim
+                Curabitur finibus in tellus feugiat semper
+                Donec finibus tristique faucibus
+                Nulla facilisi
+                Aliquam nec risus augue
+                Maecenas id ornare augue, ac convallis tortor
+                Quisque ultricies suscipit est a molestie.
                 <br>
                 <br>
-                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we
-                have re-established ourselves as the North American Powerhouse we are known as.
-                <br>
-                <br>
-                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League
-                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s
-                share of the $125,000 prize pool.
-                <br>
-                <br>
-                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in
-                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us
-                as we took the series 4-2 to advance to the Grand Finals.
-                <br>
-                <br>
-                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned
-                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0
-                sweep!
-                <br>
-                <br>
-                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well
-                deserved R&R before we get back into the action in RLCS10.
-                <br>
-                <br>
-                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and
-                Twitch!
+                Donec eget ornare est
+                Duis rutrum egestas pellentesque
+                Nam porttitor congue elit id laoreet
+                In placerat fermentum neque eget imperdiet
+                In hac habitasse platea dictumst
+                Aliquam rhoncus magna ut massa rutrum, et dignissim magna sagittis
+                Mauris ac fringilla dolor, non aliquam elit
+                Curabitur sit amet urna tempus, vehicula orci vitae, dapibus nibh
+                Quisque vitae elit eu est elementum eleifend
+                Aliquam mattis odio sed lorem semper ornare.
             </p>
         </div>
     </div>
@@ -114,15 +97,15 @@ require_once "view/header.php";
                 <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-around">
                     <div class="flex flex-col">
                         <span class="font-bold text-gray-100 uppercase mb-2"></span>
-                        <span class="my-2"><a href="Home" class="text-blue-700  text-md hover:text-blue-50">Home</a></span>
+                        <span class="my-2"><a href="Home" class="text-blue-700  text-md hover:text-blue-500">Home</a></span>
                         <span class="my-2"><a href="Merch" class="text-blue-700  text-md hover:text-blue-500">Merch</a></span>
-                        <span class="my-2"><a href="About-G69" class="text-blue-700  text-md hover:text-blue-500">About-G69</a></span>
+                        <span class="my-2"><a href="About-G69" class="text-white-700  text-md hover:text-blue-500 text-white">About-G69</a></span>
                     </div>
                     <div class="flex flex-col">
                         <span class="font-bold text-gray-100 uppercase mt-4 md:mt-0 mb-2"></span>
                         <span class="my-2"><a href="Privacy" class="text-blue-700 text-md hover:text-blue-500">Privacy</a></span>
                         <span class="my-2"><a href="Disclaimer" class="text-blue-700  text-md hover:text-blue-500">Disclaimer</a></span>
-                        <span class="my-2"><a href="article" class="text-white-700  text-md hover:text-blue-500 text-white">Nieuws</a></span>
+                        <span class="my-2"><a href="article" class="text-blue-700 text-md hover:text-blue-500">Nieuws</a></span>
                     </div>
                 </div>
             </div>

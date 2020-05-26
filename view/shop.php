@@ -27,27 +27,20 @@ require_once "view/header.php";
                 id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="Home">Home</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block py-2 px-4 text-white no-underline"
+                            href="Merch">Merch</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
-                    </li>
-                    <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
-                    </li>
-                    <li class="">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
+                            href="About-G69">About-G69</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-
-
 
     <!-- article -->
     <div class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
@@ -137,22 +130,16 @@ require_once "view/header.php";
             <div class="sm:flex sm:mt-8">
                 <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-around">
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-100 uppercase mb-2">Footer header 1</span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
+                        <span class="font-bold text-gray-100 uppercase mb-2"></span>
+                        <span class="my-2"><a href="Home" class="text-blue-700  text-md hover:text-blue-500">Home</a></span>
+                        <span class="my-2"><a href="Merch" class="text-white-700  text-md hover:text-blue-500 text-white">Merch</a></span>
+                        <span class="my-2"><a href="About-G69" class="text-blue-700  text-md hover:text-blue-500">About-G69</a></span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-100 uppercase mt-4 md:mt-0 mb-2">Footer header 2</span>
-                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link
-                                1</a></span>
+                        <span class="font-bold text-gray-100 uppercase mt-4 md:mt-0 mb-2"></span>
+                        <span class="my-2"><a href="Privacy" class="text-blue-700 text-md hover:text-blue-500">Privacy</a></span>
+                        <span class="my-2"><a href="Disclaimer" class="text-blue-700  text-md hover:text-blue-500">Disclaimer</a></span>
+                        <span class="my-2"><a href="article" class="text-blue-700 text-md hover:text-blue-500">Nieuws</a></span>
                     </div>
                 </div>
             </div>

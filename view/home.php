@@ -27,25 +27,20 @@ require_once "view/header.php";
                 id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="Home">Home</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
+                            href="Merch">Merch</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
-                    </li>
-                    <li class="">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="#">link</a>
+                            href="About-G69">About-G69</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <!-- Big lean more -->
     <div class="bg-cover bg-center mb-6 flex justify-between m-auto mb-3 w-11/12  md:h-auto text-white py-16 px-6 object-fill"
@@ -104,51 +99,16 @@ require_once "view/header.php";
     <!-- Article end -->
 
     <!-- Comp -->
-<<<<<<< HEAD
-    <div
-        class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
-        <!-- Comp 1  -->
-        <?php
-       foreach ($competitions as $event){
-        echo'<div class="  comp-container hidden ">';
-        echo '<div class=" comp-section1">';
-        echo '<div class=" comp-date-section">';
-        echo '<span>'. $event["date"] . '</span><span>'.$event["time"] . '</span>';
-        echo '</div>';
-        echo '<div class="comp-held-section ">';
-        echo '<span>'. $event["competitorsA"][0]["name"] . '</span><span>'.$event["game"] . '</span>';
-        echo '</div>';
-        echo '</div>';
 
-        echo '<div class="comp-section2">';
-
-        echo '<div class="comp-img-container">';
-        echo '<img src="view/assets/img/'. $event["competitorsA"][0]["logo"] .'" alt="" class="comp-img ">';
-        echo '</div>';
-        echo '<div class="mr-2">vs</div>';
-        echo '<div class=" comp-img-container">';
-        echo '<img src="view/assets/img/'. $event["competitorsB"][0]["logo"] .'" alt="" class="comp-img ">';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-;
-       }
-       ?>
-=======
     <div class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
         <!-- Comp 1  -->
         <?php echo $competitions; ?>
->>>>>>> master
     </div>
-    
+
     <div class="m-auto  text-center mb-12">
         <a href="#" class="bg-red-600 py-4 px-8 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="load">Load More</a>
     </div>
     <!-- Article end -->
-    
-    
-   
-
 
     <!-- footer -->
     <footer class="footer bg-gray-900 relative pt-1 ">
@@ -157,22 +117,16 @@ require_once "view/header.php";
             <div class="sm:flex sm:mt-8">
                 <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-around">
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-100 uppercase mb-2">Footer header 1</span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
+                        <span class="font-bold text-gray-100 uppercase mb-2"></span>
+                        <span class="my-2"><a href="Home" class="text-white-700  text-md hover:text-blue-500 text-white">Home</a></span>
+                        <span class="my-2"><a href="Merch" class="text-blue-700  text-md hover:text-blue-500">Merch</a></span>
+                        <span class="my-2"><a href="About-G69" class="text-blue-700  text-md hover:text-blue-500">About-G69</a></span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-100 uppercase mt-4 md:mt-0 mb-2">Footer header 2</span>
-                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link
-                                1</a></span>
-                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link
-                                1</a></span>
+                        <span class="font-bold text-gray-100 uppercase mt-4 md:mt-0 mb-2"></span>
+                        <span class="my-2"><a href="Privacy" class="text-blue-700 text-md hover:text-blue-500">Privacy</a></span>
+                        <span class="my-2"><a href="Disclaimer" class="text-blue-700  text-md hover:text-blue-500">Disclaimer</a></span>
+                        <span class="my-2"><a href="article" class="text-blue-700 text-md hover:text-blue-500">Nieuws</a></span>
                     </div>
                 </div>
             </div>
@@ -202,8 +156,8 @@ require_once "view/header.php";
         e.preventDefault();
         $(".comp-container:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
         if($(".comp-container:hidden").length == 0){ // check if any hidden divs still exist
-            $("#load").css("background-color","white" ); 
-            $("#load").css("color","black" ); 
+            $("#load").css("background-color","white" );
+            $("#load").css("color","black" );
             $('#load').css('cursor', 'default');
         }
     });

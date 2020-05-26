@@ -53,7 +53,7 @@ class ContactsController{
 					case 'article':
 						include 'view/article.php';
 						break;
-					case 'shop':
+					case 'merch':
 						include 'view/shop.php';
 						break;
 					case 'admin':
@@ -79,6 +79,15 @@ class ContactsController{
 						break;
 					case 'gearchiveerde-wedstrijden':
 						$this->collectArchivedGames();
+						break;
+					case 'about-g69':
+						include 'view/aboutPage.php';
+						break;
+					case 'privacy':
+						include 'view/privacy.php';
+						break;
+					case 'disclaimer':
+						include 'view/disclaimer.php';
 						break;
 					default:
 						echo 'sorry kann deze pagina: ' . $url . ' niet vinden :(';
