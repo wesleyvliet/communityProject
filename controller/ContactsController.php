@@ -32,7 +32,7 @@ class ContactsController{
 					$this->collectEditGameForm($_REQUEST['id']);
 					break;
 					case 'edit-wedstrijd':
-					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['description'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
+					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
 					break;
 					case 'add-competitor':
 						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
@@ -53,6 +53,9 @@ class ContactsController{
 					case 'article':
 						include 'view/article.php';
 						break;
+					case 'shop':
+						include 'view/shop.php';
+						break;
 					case 'admin':
 						include 'view/login.php';
 						break;
@@ -61,9 +64,12 @@ class ContactsController{
 						break;
 					case 'nieuwe-deelnemers':
 						include 'view/competitors.php';
-					break;
+						break;
 					case 'nieuwe-wedstrijden':
 						include 'view/addContest.php';
+						break;
+					case 'overview-artiekelen':
+						$this->collectAllArticles();
 						break;
 					case 'nieuwe-wedstrijden-competitors':
 						$this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']);
@@ -197,14 +203,19 @@ class ContactsController{
 		$edit = $this->ContactsLogic->editGameForm($id);
 		require_once 'view/editContest.php';
 	}
-	public function collectEditGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
-		$message = $this->ContactsLogic->editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date);
+	public function collectEditGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
 		$this->collectAllGames($message);
 	}
 
 	public function collectArchivedGames($message = null) {
 		$overview = $this->ContactsLogic->fetchArchivedGames($message);
 		include 'view/overviewArchivedGames.php';
+	}
+
+	public function collectAllArticles() {
+		$articles = $this->ContactsLogic->fetchAllArticles();
+		require_once 'view/aricleOverview.php';
 	}
 }
 

@@ -104,6 +104,7 @@ require_once "view/header.php";
     <!-- Article end -->
 
     <!-- Comp -->
+<<<<<<< HEAD
     <div
         class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
         <!-- Comp 1  -->
@@ -133,6 +134,11 @@ require_once "view/header.php";
 ;
        }
        ?>
+=======
+    <div class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
+        <!-- Comp 1  -->
+        <?php echo $competitions; ?>
+>>>>>>> master
     </div>
     
     <div class="m-auto  text-center mb-12">

@@ -50,47 +50,42 @@ class ContactsLogic {
 	public function readCompetition() {
 		$sql = "SELECT * FROM competition";
 		$results = $this->DataHandler->readsData($sql);
-		$resultArray = array();
-		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
-			$competitorNameA = array();
-			$competitorA = unserialize($row['competitorsA']);
-			$endA = count($competitorA);
-			for ($i=0; $i < $endA; $i++) {
-				$id = $competitorA[$i];
-				$sql = "SELECT * FROM competitors WHERE id = $id";
-				$resultsCompA = $this->DataHandler->readsData($sql);
-				while($rowCompA = $resultsCompA->fetch(PDO::FETCH_ASSOC)) {
-					//echo var_dump($row);
-					array_push($competitorNameA, array("id" => $rowCompA['id'], "name" => $rowCompA['name'], "logo" => $rowCompA['logo']));
-				}
-			}
-			$competitorNameB = array();
-			$competitorB = unserialize($row['competitorsB']);
-			$endB = count($competitorB);
-			for ($i=0; $i < $endB; $i++) {
-				$id = $competitorB[$i];
-				$sql = "SELECT * FROM competitors WHERE id = $id";
-				$resultsCompB = $this->DataHandler->readsData($sql);
-				while($rowCompB = $resultsCompB->fetch(PDO::FETCH_ASSOC)) {
-					//echo var_dump($row);
-					array_push($competitorNameB, array("id" => $rowCompB['id'], "name" => $rowCompB['name'], "logo" => $rowCompB['logo']));
-				}
-			}
-			//echo var_dump($competitorNameA);
-			array_push($resultArray, array(
-				"id" => $row['id'],
-				'title' => $row['title'],
-				'game' => $row['game'],
-				'description' => $row['description'],
-				'competitorsA' => $competitorNameA,
-				'competitorsB' => $competitorNameB,
-				'time' => $row['time'],
-				'date' => $row['date']
-			));
-		}
-		//echo var_dump($resultArray);
-		return($resultArray);
 
+		$comp ='';
+       	while ($competition = $results->fetch(PDO::FETCH_ASSOC)){
+			$sql = "SELECT * FROM competitors";
+			$teams = $this->DataHandler->readsData($sql);
+			while ($competitors = $teams->fetch(PDO::FETCH_ASSOC)) {
+				if ($competition['competitorsA'] == $competitors['name']) {
+					$logoA = $competitors['logo'];
+				}
+				if ($competition['competitorsB'] == $competitors['name']) {
+					$logoB = $competitors['logo'];
+				}
+			}
+
+			$comp .= '<div class="  comp-container hidden ">';
+			$comp .= '<div class=" comp-section1">';
+			$comp .= '<div class=" comp-date-section">';
+			$comp .= '<span>'. $competition["date"] . '</span><span>'.$competition["time"] . '</span>';
+			$comp .= '</div>';
+			$comp .= '<div class="comp-held-section ">';
+			$comp .= '<span>'. $competition["title"] . '</span><span>'.$competition["game"] . '</span>';
+			$comp .= '</div>';
+			$comp .= '</div>';
+
+			$comp .= '<div class="comp-section2">';
+			$comp .= '<div class="comp-img-container">';
+			$comp .= '<img src="view/assets/img/'. $logoA .'" alt="" class="comp-img ">';
+			$comp .= '</div>';
+			$comp .= '<div class="mr-2">vs</div>';
+			$comp .= '<div class=" comp-img-container">';
+			$comp .= '<img src="view/assets/img/'. $logoB .'" alt="" class="comp-img ">';
+			$comp .= '</div>';
+			$comp .= '</div>';
+			$comp .= '</div>';
+	   	}
+	   return $comp;
 	}
 
 	public function createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
@@ -234,24 +229,106 @@ class ContactsLogic {
 		$sql = "SELECT * FROM competition WHERE id=$id";
 		$results = $this->DataHandler->readsData($sql);
 		$game = $results->fetch(PDO::FETCH_ASSOC);
+
+		$sql = "SELECT * FROM competitors";
+		$results = $this->DataHandler->readsData($sql);
+		$compA = "";
+		$compB = "";
+		while ($comp = $results->fetch(PDO::FETCH_ASSOC)) {
+			if ($game['competitorsA'] == $comp['name']) {
+				$compA .= '<option selected value="'.$game['competitorsA'].'">'.$game['competitorsA'].'</option>';
+			} else {
+				$compA .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+			}
+
+			if ($game['competitorsB'] == $comp['name']) {
+				$compB .= '<option selected value="'.$game['competitorsB'].'">'.$game['competitorsB'].'</option>';
+			} else {
+				$compB .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+			}
+		}
+
 		
-		$edit = "<form action='?op=edit-wedstrijd' method='post'>
-		<input type='text' name='id' hidden value='" . $game['id'] . "'>
-		<input type='text' name='title' value='" . $game['title'] . "'>
-		<input type='text' name='game' value='" . $game['game'] . "'>
-		<input type='text' name='description' value='" . $game['description'] . "'>
-		<input type='text' name='competitorsA' value='" . $game['competitorsA'] . "'>
-		<input type='text' name='competitorsB' value='" . $game['competitorsB'] . "'>
-		<input type='time' value='" . $game['time'] ."' name='time'>
-		<input type='date' value='" . $game['date'] ."' name='date'>
-		<input type='submit' value='Update'>
-		</form>";
+
+
+		$edit = '<form action="?op=edit-wedstrijd" method="post" class="max-w-lg border border-gray-200 shadow-xs mx-auto rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
+			<input type="text" name="id" hidden value="' . $game['id'] . '">	
+			<div class="flex flex-col">
+				<label for="event" class="self-start mb-2 font-medium text-gray-800">
+					Event
+				</label>
+
+				<input type="text" id="event" name="title" value="'.$game["title"].'" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">
+			</div>
+
+			<div class="flex flex-col">
+				<label for="game" class="self-start mb-2 font-medium text-gray-800">
+					Event
+				</label>
+
+				<select name="game" class="border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					<option selected value="'.$game['game'].'">'.$game['game'].'</option>
+					<option value="CSGO">CSGO</option>
+					<option value="Rocket League">Rocket League</option>
+					<option value="League of Legends">League of Legends</option>
+					<option value="Valorant">Valorant</option>
+					<option value="Overwatch">Overwatch</option>
+					<option value="Dota 2">Dota 2</option>
+					<option value="R6">R6</option>
+				</select>
+			</div>
+
+			<div class="flex items-center text-gray-800">
+				<span class="block border border-gray-400 w-2/4 mr-2"></span>
+					Showdown
+				<span class="block border border-gray-400 w-2/4 ml-2"></span>
+			</div>
+			<div class="flex justify-around text-center divide-x divide-gray-300 p-8">
+
+				<select name="competitorsA" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					'.$compA.'
+				</select>
+
+				<h1 class="text-red-500 font-bold border-none">Vs</h1>
+
+				<select name="competitorsB" class="w-40 border border-gray-400 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+					'.$compB.'
+				</select>
+			</div>
+
+			<div class="flex items-center text-gray-800">
+				<span class="block border border-gray-400 w-1/2 mr-2"></span>
+					Datum Tijd
+				<span class="block border border-gray-400 w-1/2 ml-2"></span>
+			</div>
+
+			<div class="flex justify-around text-center divide-x divide-gray-300">
+
+				<input type="date" name=date id="date" class="border-solid bg-transparent text-xl appearance-none outline-none" value="'.$game['date'].'">
+
+				<div class="mt-2 p-1 w-40 bg-white rounded-lg shadow-xl">
+					<div class="flex">
+						<input type="time" name="time" placeholder="00:00" step="900" value="'.$game['time'].'" class="bg-transparent text-xl appearance-none outline-none">
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="flex items-center text-gray-800 p-8">
+				<span class="w-1/2"></span>
+				<a href="#">
+					<input type="submit" value="Wedstrijd aanpassen" class="bg-green-400 hover:bg-green-600 text-white font-bold py-1 px-10 rounded float-right"/>
+				</a>
+				<span class="w-1/2"></span>
+			</div>
+			
+		</form>';
 
 		return $edit;
 	}
 
-	public function editGame($id, $title, $game, $description, $competitorsA, $competitorsB, $time, $date) {
-		$sql = "UPDATE competition SET title='$title', game='$game', description='$description', competitorsA='$competitorsA', competitorsB='$competitorsB', time='$time', date='$date' WHERE id=$id";
+	public function editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$sql = "UPDATE competition SET title='$title', game='$game', competitorsA='$competitorsA', competitorsB='$competitorsB', time='$time', date='$date' WHERE id=$id";
 		$this->DataHandler->updateData($sql);
 		$message = "Wedstrijd successvol geupdate";
 		return $message;
@@ -304,6 +381,26 @@ class ContactsLogic {
 			</tr>';
 		}
 		$overview .= '</table></div>' . $message;
+		return $overview;
+	}
+
+	public function fetchAllArticles() {
+		$sql = "SELECT *, categorie.id, categorie.name FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
+		$results = $this->DataHandler->readsData($sql);
+		$overview = '<table>
+			<tr><th>Title</th>
+			<th>Categorie</th>
+			<th>Date</th>
+			<th>Author</th></tr>';
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$overview .= '<tr>
+			<td>'.$row['title'].'</td>
+			<td>'.$row['name'].'</td>
+			<td>'.$row['date'].'</td>
+			<td>'.$row['author'].'</td>
+			</tr>';
+		}
+		$overview .= '</table>';
 		return $overview;
 	}
 }
