@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
-    echo "<a href='overview-wedstrijden'>Terug</a><br>";
-    echo $edit;
-=======
 require_once 'view/header.php';
 ?>
     <nav class="flex items-center justify-between flex-wrap bg-indigo-800 p-6">
+        <a class='text-white' href='overview-wedstrijden'>Terug</a>;
         <div class="flex items-center flex-shrink-0 text-white mr-6">
           <span class="font-semibold text-xl tracking-tight">G69</span>
         </div>
@@ -15,11 +12,13 @@ require_once 'view/header.php';
           </button>
         </div>
     </nav>
-
     <div class="flex justify-center items-center py-8">
-        <?php echo $edit; ?>
+        <?php if(!empty($check)){echo $check['message'];} ?>
+    </div>
+    <div class="flex justify-center items-center py-8">
+        <?php echo $edit;?>
     </div>
 <?php
+
 require_once 'view/footer.php';
->>>>>>> master
 ?>
