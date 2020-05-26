@@ -215,8 +215,14 @@ class ContactsController{
 		require_once 'view/editContest.php';
 	}
 	public function collectEditGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
-		$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
-		$this->collectAllGames($message);
+		$check = $this->ContactsLogic->checkDataGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+		if($check['error'] == 'false') {
+			$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+			$this->collectAllGames($message);
+		} else {
+			$edit = $this->ContactsLogic->editGameForm($id);
+			include 'view/editContest.php';
+		}
 	}
 
 	public function collectArchivedGames($message = null) {
