@@ -597,7 +597,7 @@ class ContactsLogic {
 			<td>'.$row['name'].'</td>
 			<td>'.$row['date'].'</td>
 			<td>'.$row['author'].'</td>
-			<td><a href="?op=edit-article&id='.$row['idArticle'].'">Herstellen</a></td>
+			<td><a href="?op=undo-delete-article&id='.$row['idArticle'].'">Herstellen</a></td>
 			</tr>';
 		}
 		$overview .= '</table>'.$message;
