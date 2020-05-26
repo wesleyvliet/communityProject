@@ -43,72 +43,72 @@ require_once "view/header.php";
     </nav>
 
     <!-- article -->
-    <div class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 md:gap-4 lg:gap-4 ">
         <!-- item1 -->
-        <div class="max-w-xs bg-gray-800 shadow-lg rounded-lg overflow-hidden my-10">
-            <div class="px-4 py-2">
+        <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">
+            <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-white font-bold text-3xl uppercase">G69 shirt</h1>
                 <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
                     quidem sequi illum facere recusandae voluptatibus</p>
             </div>
             <img src="view/assets/img/shirt.png" alt="" class="h-56 w-full object-contain mt-2">
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                 <button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Add to card</button>
             </div>
         </div>
         <!-- end item1 -->
           <!-- item2 -->
-          <div class="max-w-xs bg-gray-800 shadow-lg rounded-lg overflow-hidden my-10">
-            <div class="px-4 py-2">
+          <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto m-auto my-10">
+            <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-white font-bold text-3xl uppercase">G69 cap</h1>
                 <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
                     quidem sequi illum facere recusandae voluptatibus</p>
             </div>
             <img src="view/assets/img/cap.png" alt="" class="h-56 w-full object-contain mt-2">
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                 <button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Add to card</button>
             </div>
         </div>
         <!-- end item2 -->
           <!-- item3 -->
-          <div class="max-w-xs bg-gray-800 shadow-lg rounded-lg overflow-hidden my-10">
-            <div class="px-4 py-2">
+          <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">
+            <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-white font-bold text-3xl uppercase">G69 mug</h1>
                 <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
                     quidem sequi illum facere recusandae voluptatibus</p>
             </div>
             <img src="view/assets/img/mug.png" alt="" class="h-56 w-full object-contain mt-2">
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                 <button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Add to card</button>
             </div>
         </div>
         <!-- end item3 -->
           <!-- item4 -->
-          <div class="max-w-xs bg-gray-800 shadow-lg rounded-lg overflow-hidden my-10">
-            <div class="px-4 py-2">
+          <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">
+            <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-white font-bold text-3xl uppercase">G69 chair</h1>
                 <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
                     quidem sequi illum facere recusandae voluptatibus</p>
             </div>
             <img src="view/assets/img/chair.png" alt="" class="h-56 w-full object-contain mt-2">
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                 <button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Add to card</button>
             </div>
         </div>
         <!-- end item4 -->
           <!-- item5 -->
-          <div class="max-w-xs bg-gray-800 shadow-lg rounded-lg overflow-hidden my-10">
-            <div class="px-4 py-2">
+          <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">
+            <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-white font-bold text-3xl uppercase">G69 flag</h1>
                 <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
                     quidem sequi illum facere recusandae voluptatibus</p>
             </div>
             <img src="view/assets/img/flag.png" alt="" class="h-56 w-full object-contain mt-2">
-            <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">
                 <h1 class="text-gray-200 font-bold text-xl">$129</h1>
                 <button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Add to card</button>
             </div>
