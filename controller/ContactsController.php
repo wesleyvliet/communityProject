@@ -40,6 +40,12 @@ class ContactsController{
 					case 'create-article':
 					$this->collectCreateArticle($_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text'], $_FILES['preview']);
 					break;
+					case 'edit-article':
+					$this->collectEditArticle($_REQUEST['id']);
+					break;
+					case 'update-article':
+					$this->collectUpdateArticle($_REQUEST['id'],$_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text'], $_FILES['preview'], $_REQUEST['image']);
+					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
 					break;
@@ -239,7 +245,7 @@ class ContactsController{
 		$articleform = $this->ContactsLogic->fetchArticleForm();
 		require_once 'view/createArticle.php';
 	}
-	
+
 	public function collectCreateArticle($title, $categorie, $author, $text, $image) {
 		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);	
 		$this->collectAllArticles($message);
@@ -248,6 +254,16 @@ class ContactsController{
 	public function collectArticle($id) {
 		$article = $this->ContactsLogic->readArticle($id);
 		require_once 'view/article.php';
+	}
+	
+	public function collectEditArticle($id) {
+		$article = $this->ContactsLogic->editArticle($id);
+		require_once 'view/editArticle.php';
+	}
+
+	public function collectUpdateArticle($id, $title, $categorie, $author, $text, $imageFile, $image) {
+		$message = $this->ContactsLogic->updateArticle($id, $title, $categorie, $author, $text, $imageFile, $image);
+		$this->collectAllArticles($message);
 	}
 }
 
