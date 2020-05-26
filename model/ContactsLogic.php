@@ -503,7 +503,7 @@ class ContactsLogic {
 	public function fetchArticleForm() {
 		$sql = "SELECT * FROM categorie";
 		$results = $this->DataHandler->readsData($sql);
-		$form = '<select name="categorie" id="categorie">';
+		$form = '<select type="text" name="categorie" id="category" placeholder="categorie" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">';
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
 			$form .= '<option value="'.$row['id'].'">'.$row['name'].'</option>';
 		}
