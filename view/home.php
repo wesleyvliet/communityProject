@@ -59,7 +59,7 @@ require_once "view/header.php";
     <div
         class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 lg:gap-4 ">
         <!-- article 1 -->
-        <a href="article">
+        <a href="article?id=1">
             <div class="bg-top bg-cover" id="article" style="background-image: url(view/assets/img/rl-players.jpg)">
                 <div
                     class="  text-center bg-gray-700 bg-opacity-25 hover:bg-gray-900 hover:bg-opacity-75 px-10 pt-40 h-full text-xl text-white ">

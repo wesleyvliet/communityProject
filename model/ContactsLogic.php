@@ -410,7 +410,22 @@ class ContactsLogic {
 		return $overview;
 	}
 
-	public function fetchAllArticles() {
+	public function fetchAllArticles($message) {
+		if ((isset($message)) && ($message != "")) {
+			$message = '</div>
+			<div id="alert-box" class="alert-toast absolute bottom-0 right-0 m-8">
+			<label class="close cursor-pointer flex items-start items-center justify-center w-full p-2 pt-1 pr-1 bg-green-500 rounded shadow-lg text-white" for="footertoast">
+			<p>'.$message.'</p>
+			<button onclick="hideAlert()" class="h-8 w-5 ml-2">
+			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+			<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+			</svg>
+			</button>
+			</label>
+			</div>';
+		} else {
+			$message = "";
+		}
 		$sql = "SELECT *, categorie.id, categorie.name FROM articles INNER JOIN categorie ON articles.categorie=categorie.id";
 		$results = $this->DataHandler->readsData($sql);
 		$overview = '<table>
@@ -426,7 +441,41 @@ class ContactsLogic {
 			<td>'.$row['author'].'</td>
 			</tr>';
 		}
-		$overview .= '</table>';
+		$overview .= '</table>'.$message;
 		return $overview;
+	}
+
+	public function fetchArticleForm() {
+		$sql = "SELECT * FROM categorie";
+		$results = $this->DataHandler->readsData($sql);
+		$form = '<select name="categorie" id="categorie">';
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$form .= '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+		}
+		$form .= '</select>';
+		return $form;
+	}
+
+	public function CreateArticle($title, $categorie, $author, $text) {
+		$date = date("Y-m-d");
+		$sql = "INSERT INTO `articles` (`id`, `title`, `content`, `date`, `categorie`, `author`) VALUES (NULL, '$title', '$text', '$date', '$categorie', '$author')";
+		$this->DataHandler->createData($sql);
+		$message = "Artiekel is aangemaakt";
+		return $message;
+	}
+
+	public function readArticle($id) {
+		$sql = "SELECT * FROM articles WHERE id=$id";
+		$results = $this->DataHandler->readsData($sql);
+		$row = $results->fetch(PDO::FETCH_ASSOC);
+
+		$article = array();
+		$article["title"] = $row["title"];
+		$article["content"] = $row["content"];
+		$article["date"] = $row["date"];
+		$article["categorie"] = $row["categorie"];
+		$article["author"] = $row["author"];
+
+		return $article;
 	}
 }

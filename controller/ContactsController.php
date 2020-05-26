@@ -35,7 +35,10 @@ class ContactsController{
 					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
 					break;
 					case 'add-competitor':
-						$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
+					$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
+					break;
+					case 'create-article':
+					$this->collectCreateArticle($_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text']);
 					break;
 					default:
 					echo 'sorry kan deze pagina: ' . $op . ' niet vinden :(';
@@ -51,7 +54,7 @@ class ContactsController{
 					// 	require_once 'view/assets/css/style.css';
 					// 	break;
 					case 'article':
-						include 'view/article.php';
+						$this->collectArticle($_REQUEST['id']);
 						break;
 					case 'merch':
 						include 'view/shop.php';
@@ -70,6 +73,9 @@ class ContactsController{
 						break;
 					case 'overview-artiekelen':
 						$this->collectAllArticles();
+						break;
+					case 'create-article':
+						$this->collectArticleForm();
 						break;
 					case 'nieuwe-wedstrijden-competitors':
 						$this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']);
@@ -222,9 +228,24 @@ class ContactsController{
 		include 'view/overviewArchivedGames.php';
 	}
 
-	public function collectAllArticles() {
-		$articles = $this->ContactsLogic->fetchAllArticles();
+	public function collectAllArticles($message = null) {
+		$articles = $this->ContactsLogic->fetchAllArticles($message);
 		require_once 'view/aricleOverview.php';
+	}
+
+	public function collectArticleForm() {
+		$articleform = $this->ContactsLogic->fetchArticleForm();
+		require_once 'view/createArticle.php';
+	}
+	
+	public function collectCreateArticle($title, $categorie, $author, $text) {
+		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text);	
+		$this->collectAllArticles($message);
+	}
+
+	public function collectArticle($id) {
+		$article = $this->ContactsLogic->readArticle($id);
+		require_once 'view/article.php';
 	}
 }
 

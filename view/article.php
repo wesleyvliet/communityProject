@@ -6,7 +6,7 @@ require_once "view/header.php";
     <nav class="bg-gray-900">
         <div class="flex items-center justify-between flex-wrap fixed w-11/12 z-0 relative top-0 m-auto mb-10 py-5">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+                <a class="text-white no-underline hover:text-white hover:no-underline" href="./">
                     <img src="view/assets/img/g2-logo.png " alt="" class="h-16 inline">
 
                     <span class="text-2xl pl-2"><i class="em em-grinning"></i>G69</span>
@@ -50,9 +50,8 @@ require_once "view/header.php";
             style="background-image: url(view/assets/img/rl-players.jpg)">
             <div class="flex items-center h-full bg-gray-900 bg-opacity-25">
                 <div class="flex-1 lg:px-64 text-center ">
-                    <span class=" block text-white text-4xl px-16">G69 Is Your NA Rocket League Spring Series
-                        Champions</span>
-                    <span class="text-white">2 September 2019</span>
+                    <span class=" block text-white text-4xl px-16"><?php echo $article["title"] ?></span>
+                    <span class="text-white"><?php echo $article["date"] ?></span>
                 </div>
             </div>
         </div>
@@ -63,43 +62,13 @@ require_once "view/header.php";
             <div id="categorie-container " class="m-auto text-center mb-10 ">
                 <p class=" text-xl">CATEGORIE</p>
                 <div class="flex justify-center gap-5">
-                    <span class=" bg-red-600 px-2 py-1 ">g69</span>
-                    <span class=" bg-red-600 px-2 py-1 ">rocket league</span>
-                    <span class=" bg-red-600 px-2 py-1 ">NA</span>
+                    <span class=" bg-red-600 px-2 py-1 "><?php echo $article["categorie"] ?></span>
                 </div>
 
             </div>
 
             <p>
-                Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another
-                clean tournament win to become your Rocket League Spring Series – North America Champions!
-                <br>
-                <br>
-                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we
-                have re-established ourselves as the North American Powerhouse we are known as.
-                <br>
-                <br>
-                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League
-                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s
-                share of the $125,000 prize pool.
-                <br>
-                <br>
-                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in
-                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us
-                as we took the series 4-2 to advance to the Grand Finals.
-                <br>
-                <br>
-                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned
-                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0
-                sweep!
-                <br>
-                <br>
-                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well
-                deserved R&R before we get back into the action in RLCS10.
-                <br>
-                <br>
-                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and
-                Twitch!
+                <?php echo $article["content"] ?>
             </p>
         </div>
     </div>
