@@ -219,8 +219,14 @@ class ContactsController{
 		require_once 'view/editContest.php';
 	}
 	public function collectEditGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
-		$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
-		$this->collectAllGames($message);
+		$check = $this->ContactsLogic->checkDataGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+		if($check['error'] == 'false') {
+			$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+			$this->collectAllGames($message);
+		} else {
+			$edit = $this->ContactsLogic->editGameForm($id);
+			include 'view/editContest.php';
+		}
 	}
 
 	public function collectArchivedGames($message = null) {
@@ -237,9 +243,9 @@ class ContactsController{
 		$articleform = $this->ContactsLogic->fetchArticleForm();
 		require_once 'view/createArticle.php';
 	}
-	
+
 	public function collectCreateArticle($title, $categorie, $author, $text) {
-		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text);	
+		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text);
 		$this->collectAllArticles($message);
 	}
 
