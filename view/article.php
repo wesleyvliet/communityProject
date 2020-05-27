@@ -70,9 +70,13 @@ require_once "view/header.php";
             <p>
                 <?php echo $article["content"]; ?>
             </p>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button  " data-text="Look at this awsome article about G69" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
+        
     </div>
     <!-- Main End -->
+
+    
 
 
     <!-- footer -->
