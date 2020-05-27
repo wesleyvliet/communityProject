@@ -89,6 +89,9 @@ class ContactsController{
 					case 'overview-wedstrijden':
 						$this->collectAllGames();
 						break;
+					case 'overview-teams':
+						$this->collectAllTeams();
+						break;
 					case 'gearchiveerde-wedstrijden':
 						$this->collectArchivedGames();
 						break;
@@ -235,6 +238,11 @@ class ContactsController{
 	public function collectAllArchivedArticles($message = null) {
 		$articles = $this->ContactsLogic->fetchAllArchivedArticles($message);
 		require_once 'view/archivedArticleOverview.php';
+	}
+
+	public function collectAllTeams($message = null) {
+		$teams = $this->ContactsLogic->overviewTeams($message);
+		require_once 'view/teamOverview.php';
 	}
 }
 
