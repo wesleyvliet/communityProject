@@ -31,7 +31,7 @@ require_once 'view/header.php';
 		
 		<div class="flex py-8 mx-auto flex-col sm:flex-row">
 			<div class="float-right mr-8">
-				<a href="add-team">
+				<a href="create-team">
 					<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded float-right">
 						Team&nbsp;toevoegen 
 					</button>

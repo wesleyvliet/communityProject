@@ -49,6 +49,9 @@ class ContactsController{
 					case 'undo-delete-article':
 					$this->collectUndoDeleteArticle($_REQUEST['id']);
 					break;
+					case 'add-team':
+					$this->collectCreateTeam($_REQUEST["name"], $_FILES["logo"]);
+					break;
 					default:
 					echo 'sorry kan deze actie: ' . $op . ' niet vinden :(';
 					break;
@@ -71,9 +74,6 @@ class ContactsController{
 					case 'dashboard':
 						include 'view/dashboard.php';
 						break;
-					case 'nieuwe-deelnemers':
-						include 'view/competitors.php';
-						break;
 					case 'nieuwe-wedstrijden':
 						$this->collectAddGameForm();
 						break;
@@ -91,6 +91,9 @@ class ContactsController{
 						break;
 					case 'overview-teams':
 						$this->collectAllTeams();
+						break;
+					case 'create-team':
+						$this->collectCreateTeamForm();
 						break;
 					case 'gearchiveerde-wedstrijden':
 						$this->collectArchivedGames();
@@ -243,6 +246,15 @@ class ContactsController{
 	public function collectAllTeams($message = null) {
 		$teams = $this->ContactsLogic->overviewTeams($message);
 		require_once 'view/teamOverview.php';
+	}
+
+	public function collectCreateTeamForm() {
+		require_once 'view/addTeam.php';
+	}
+
+	public function collectCreateTeam($name, $logo) {
+		$message = $this->ContactsLogic->createTeam($name, $logo);
+		$this->collectAllTeams($message);
 	}
 }
 
