@@ -17,7 +17,7 @@ class ContactsController{
 					$this->collectReadAdmin($_REQUEST['userName'], $_REQUEST['userPass']);
 					break;
 					case 'create-wedstrijd':
-					$this->collectCreateCompetition();
+					$this->collectCreateGame();
 					break;
 					case 'delete-game':
 					$this->collectDeleteGame($_REQUEST['id']);
@@ -33,9 +33,6 @@ class ContactsController{
 					break;
 					case 'edit-wedstrijd':
 					$this->collectEditGame($_REQUEST['id'], $_REQUEST['title'], $_REQUEST['game'], $_REQUEST['competitorsA'], $_REQUEST['competitorsB'], $_REQUEST['time'], $_REQUEST['date']);
-					break;
-					case 'add-competitor':
-					$this->collectCreateCompetitor($_REQUEST['competitorName'], $_FILES['competitorLogo']);
 					break;
 					case 'create-article':
 					$this->collectCreateArticle($_REQUEST['title'], $_REQUEST['categorie'],$_REQUEST['author'],$_REQUEST['text'], $_FILES['preview']);
@@ -92,9 +89,6 @@ class ContactsController{
 					case 'create-article':
 						$this->collectArticleForm();
 						break;
-					case 'nieuwe-wedstrijden-competitors':
-						$this->collectReadCompetitors($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestAmount'], $_REQUEST['contestTime'], $_REQUEST['contestDate']);
-						break;
 					case 'overview-wedstrijden':
 						$this->collectAllGames();
 						break;
@@ -148,12 +142,8 @@ class ContactsController{
 		//include 'view/reads.php';
 	}
 
-	public function collectReadContact($id){
-
-	}
-
-	public function collectUpdateContact(){
-
+	public function collectCreateGame() {
+		
 	}
 
 	public function collectDeleteGame($id){
