@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 27 mei 2020 om 00:07
+-- Gegenereerd op: 27 mei 2020 om 11:46
 -- Serverversie: 10.4.11-MariaDB
 -- PHP-versie: 7.4.3
 
@@ -66,10 +66,10 @@ CREATE TABLE `articles` (
 
 INSERT INTO `articles` (`id`, `title`, `content`, `date`, `categorie`, `author`, `preview_image`, `archived`) VALUES
 (1, 'G2 Is Your NA Rocket League Spring Series Champions', 'Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another\r\n                clean tournament win to become your Rocket League Spring Series – North America Champions!\r\n                <br>\r\n                <br>\r\n                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we\r\n                have re-established ourselves as the North American Powerhouse we are known as.\r\n                <br>\r\n                <br>\r\n                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League\r\n                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s\r\n                share of the $125,000 prize pool.\r\n                <br>\r\n                <br>\r\n                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in\r\n                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us\r\n                as we took the series 4-2 to advance to the Grand Finals.\r\n                <br>\r\n                <br>\r\n                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned\r\n                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0\r\n                sweep!\r\n                <br>\r\n                <br>\r\n                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well\r\n                deserved R&R before we get back into the action in RLCS10.\r\n                <br>\r\n                <br>\r\n                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and\r\n                Twitch!', '2020-05-25', 1, 'Remco', 'rl-players.jpg', 0),
-(2, 'G2 Is Your NA Rocket League Spring Series Champions', 'test', '2020-05-26', 1, 'test', 'reaper.jpg', 0),
-(3, 'G2 Is Your NA Rocket League Spring Series Champions', 'asdf', '2020-05-26', 1, 'test', 'spelers.jpg', 0),
-(5, 'G2 Is Your NA Rocket League Spring Series Champions', 'awdawd', '2020-05-26', 1, 'awdwad', 'bmw.jpg', 0),
-(7, 'wefwef', 'wefwefwefew', '2020-05-26', 1, 'wefwefewf', '880354-200.png', 0);
+(2, 'G2 Is Your NA Rocket League Spring Series Champions', 'Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another\r\n                clean tournament win to become your Rocket League Spring Series – North America Champions!\r\n                <br>\r\n                <br>\r\n                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we\r\n                have re-established ourselves as the North American Powerhouse we are known as.\r\n                <br>\r\n                <br>\r\n                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League\r\n                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s\r\n                share of the $125,000 prize pool.\r\n                <br>\r\n                <br>\r\n                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in\r\n                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us\r\n                as we took the series 4-2 to advance to the Grand Finals.\r\n                <br>\r\n                <br>\r\n                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned\r\n                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0\r\n                sweep!\r\n                <br>\r\n                <br>\r\n                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well\r\n                deserved R&R before we get back into the action in RLCS10.\r\n                <br>\r\n                <br>\r\n                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and\r\n                Twitch!', '2020-05-26', 1, 'reee', 'reaper.jpg', 0),
+(3, 'G2 Is Your NA Rocket League Spring Series Champions', 'Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another\r\n                clean tournament win to become your Rocket League Spring Series – North America Champions!\r\n                <br>\r\n                <br>\r\n                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we\r\n                have re-established ourselves as the North American Powerhouse we are known as.\r\n                <br>\r\n                <br>\r\n                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League\r\n                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s\r\n                share of the $125,000 prize pool.\r\n                <br>\r\n                <br>\r\n                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in\r\n                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us\r\n                as we took the series 4-2 to advance to the Grand Finals.\r\n                <br>\r\n                <br>\r\n                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned\r\n                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0\r\n                sweep!\r\n                <br>\r\n                <br>\r\n                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well\r\n                deserved R&R before we get back into the action in RLCS10.\r\n                <br>\r\n                <br>\r\n                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and\r\n                Twitch!', '2020-05-26', 1, 'pepe', 'spelers.jpg', 0),
+(5, 'G2 Is Your NA Rocket League Spring Series Champions', 'Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another\r\n                clean tournament win to become your Rocket League Spring Series – North America Champions!\r\n                <br>\r\n                <br>\r\n                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we\r\n                have re-established ourselves as the North American Powerhouse we are known as.\r\n                <br>\r\n                <br>\r\n                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League\r\n                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s\r\n                share of the $125,000 prize pool.\r\n                <br>\r\n                <br>\r\n                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in\r\n                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us\r\n                as we took the series 4-2 to advance to the Grand Finals.\r\n                <br>\r\n                <br>\r\n                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned\r\n                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0\r\n                sweep!\r\n                <br>\r\n                <br>\r\n                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well\r\n                deserved R&R before we get back into the action in RLCS10.\r\n                <br>\r\n                <br>\r\n                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and\r\n                Twitch!', '2020-05-26', 1, 'pepe', 'bmw.jpg', 0),
+(11, 'G2 Is Your NA Rocket League Spring Series Champions', 'Another tournament, another victory! Our Rocket League squad is unstoppable this year, taking another\r\n                clean tournament win to become your Rocket League Spring Series – North America Champions!\r\n                <br>\r\n                <br>\r\n                After winning the North American Rocket League Championship Season 9 and the Astronauts Star Circuit, we\r\n                have re-established ourselves as the North American Powerhouse we are known as.\r\n                <br>\r\n                <br>\r\n                Winning the RLCS9 meant that we secured our spot in Psyonix’s newest tournament, the Rocket League\r\n                Spring Series. Going in as the favorites, we were eager to get the ball rolling and snag the lion’s\r\n                share of the $125,000 prize pool.\r\n                <br>\r\n                <br>\r\n                Dropping only one game in the opening matches, we breezed past Rogue and Team Envy to secure our spot in\r\n                the winners’ bracket finals against rival NRG. Even NRG’s show stopping attack wasn’t enough to stop us\r\n                as we took the series 4-2 to advance to the Grand Finals.\r\n                <br>\r\n                <br>\r\n                What better way to end a tournament than with an epic rematch against NRG? This epic Grand Final turned\r\n                out to be an epic stomp as we rolled, flicked and demoed our way through NRG to secure the clean 4-0\r\n                sweep!\r\n                <br>\r\n                <br>\r\n                After a couple months of grinding and hard work, the boys are shifting gears and taking a bit of well\r\n                deserved R&R before we get back into the action in RLCS10.\r\n                <br>\r\n                <br>\r\n                Be sure to keep up with these professional ball chasers on Twitter, Facebook, Instagram, YouTube and\r\n                Twitch!', '2020-05-27', 1, 'Remco', 'rl-players.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -116,11 +116,7 @@ INSERT INTO `competition` (`id`, `title`, `game`, `competitorsA`, `competitorsB`
 (4, 'title', '', 'usertest4', 'usertest1', '00:00:00', '2020-05-21', 0),
 (5, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-21', 0),
 (6, 'title', '', 'usertest1', 'usertest1', '00:00:00', '2020-05-19', 0),
-(7, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-19', 0),
-(8, 'title', 'game', 'usertest1', 'usertest1', '00:00:00', '2020-05-18', 0),
-(9, 'test', 'test', 'usertest1', 'usertest1', '06:03:00', '2020-05-18', 0),
-(10, 'test', 'test', 'usertest1', 'usertest1', '03:42:00', '2020-05-29', 0),
-(11, 'test', 'test', 'usertest1', 'usertest1', '03:42:00', '2020-05-29', 0);
+(7, 'title', '', 'usertest3', 'usertest1', '00:00:00', '2020-05-19', 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +138,8 @@ INSERT INTO `competitors` (`id`, `name`, `logo`) VALUES
 (1, 'usertest1', 'logo1.png'),
 (2, 'usertest2', 'logo2.png'),
 (3, 'usertest3', 'logo3.png'),
-(4, 'usertest4', 'logo4.png');
+(4, 'usertest4', 'logo4.png'),
+(12, 'rwefwewe', '880354-200.png');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -192,7 +189,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT voor een tabel `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT voor een tabel `categorie`
@@ -204,13 +201,13 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT voor een tabel `competition`
 --
 ALTER TABLE `competition`
-  MODIFY `id` int(240) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(240) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT voor een tabel `competitors`
 --
 ALTER TABLE `competitors`
-  MODIFY `id` int(240) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(240) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
