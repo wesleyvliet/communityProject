@@ -88,12 +88,11 @@ class ContactsLogic {
 	   return $comp;
 	}
 
-	public function createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
-		$contestCompetitorsA = serialize($contestCompetitorsA);
-		$contestCompetitorsB = serialize($contestCompetitorsB);
-		$sql = "INSERT INTO `competition` (`id`, `title`, `game`, `description`, `competitorsA`, `competitorsB`, `time`, `date`) VALUES (NULL, '$title', '$game', '$description', '$contestCompetitorsA', '$contestCompetitorsB', '$time', '$date')";
-		$result = $this->DataHandler->createData($sql);
-		return $result;
+	public function createGame($title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$sql = "INSERT INTO competition (id, title, game, competitorsA, competitorsB, time, date, archived) VALUES (NULL, '$title', '$game', '$competitorsA', '$competitorsB', '$time', '$date', '0')";
+		$this->DataHandler->createData($sql);
+		$message = "Wedstrijd succesvol toegevoegd";
+		return $message;
 	}
 
 	public function checkDataGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
@@ -147,18 +146,6 @@ class ContactsLogic {
 		}
 	}
 
-	public function readContact($id){
-
-	}
-
-	public function updateContact($name, $phone, $email, $address, $id){
-
-	}
-
-	public function deleteContact($id){
-
-	}
-
 	public function archiveGame($id) {
 		$sql = "UPDATE competition SET archived=1 WHERE id=$id";
 		$this->DataHandler->updateData($sql);
@@ -189,7 +176,7 @@ class ContactsLogic {
 		} else {
 			$message = "";
 		}
-		$sql = "SELECT * FROM competition WHERE archived=0";
+		$sql = "SELECT * FROM competition WHERE archived=0 ORDER BY date";
 		$results = $this->DataHandler->readsData($sql);
 		$overview = '<table class="border-collapse w-full mt-10">
 		<thead class="bg-gray-800 text-white border border-gray-300">
@@ -261,6 +248,27 @@ class ContactsLogic {
 		</table>
 		</div>' . $message;
 		return $overview;
+	}
+
+	public function addGameForm() {
+		$sql = "SELECT * FROM competition";
+		$results = $this->DataHandler->readsData($sql);
+		$game = $results->fetch(PDO::FETCH_ASSOC);
+
+		$sql = "SELECT * FROM competitors";
+		$results = $this->DataHandler->readsData($sql);
+		$compA = "";
+		$compB = "";
+		while ($comp = $results->fetch(PDO::FETCH_ASSOC)) {
+			$compA .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+			$compB .= '<option value="'.$comp['name'].'">'.$comp['name'].'</option>';
+		}
+
+		$comp = array();
+		$comp["compA"] = $compA;
+		$comp["compB"] = $compB;
+
+		return $comp;
 	}
 
 	public function editGameForm($id) {

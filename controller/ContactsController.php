@@ -17,7 +17,7 @@ class ContactsController{
 					$this->collectReadAdmin($_REQUEST['userName'], $_REQUEST['userPass']);
 					break;
 					case 'create-wedstrijd':
-					$this->collectCreateGame();
+					$this->collectCreateGame($_REQUEST["title"], $_REQUEST["game"], $_REQUEST["competitorsA"], $_REQUEST["competitorsB"], $_REQUEST["time"], $_REQUEST["date"]);
 					break;
 					case 'delete-game':
 					$this->collectDeleteGame($_REQUEST['id']);
@@ -59,9 +59,6 @@ class ContactsController{
 					case 'index.php':
 						$this->collectHomePage();
 						break;
-					// case 'view':
-					// 	require_once 'view/assets/css/style.css';
-					// 	break;
 					case 'article':
 						$this->collectArticle($_REQUEST['id']);
 						break;
@@ -78,7 +75,7 @@ class ContactsController{
 						include 'view/competitors.php';
 						break;
 					case 'nieuwe-wedstrijden':
-						include 'view/addContest.php';
+						$this->collectAddGameForm();
 						break;
 					case 'overview-artiekelen':
 						$this->collectAllArticles();
@@ -142,8 +139,14 @@ class ContactsController{
 		//include 'view/reads.php';
 	}
 
-	public function collectCreateGame() {
-		
+	public function collectAddGameForm() {
+		$comp = $this->ContactsLogic->addGameForm();
+		require_once 'view/addContest.php';
+	}
+
+	public function collectCreateGame($title, $game, $competitorsA, $competitorsB, $time, $date) {
+		$message = $this->ContactsLogic->createGame($title, $game, $competitorsA, $competitorsB, $time, $date);
+		$this->collectAllGames($message);
 	}
 
 	public function collectDeleteGame($id){
@@ -167,7 +170,7 @@ class ContactsController{
 
 	public function collectAllGames($message = null) {
 		$overview = $this->ContactsLogic->fetchAllGames($message);
-		include 'view/overviewGames.php';
+		require_once 'view/overviewGames.php';
 	}
 	public function collectEditGameForm($id) {
 		$edit = $this->ContactsLogic->editGameForm($id);
@@ -180,7 +183,7 @@ class ContactsController{
 			$this->collectAllGames($message);
 		} else {
 			$edit = $this->ContactsLogic->editGameForm($id);
-			include 'view/editContest.php';
+			require_once 'view/editContest.php';
 		}
 	}
 
