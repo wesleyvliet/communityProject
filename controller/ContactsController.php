@@ -16,8 +16,8 @@ class ContactsController{
 					case 'login':
 					$this->collectReadAdmin($_REQUEST['userName'], $_REQUEST['userPass']);
 					break;
-					case 'create':
-					$this->collectCreateCompetition($_REQUEST['contestTitle'], $_REQUEST['contestGame'], $_REQUEST['contestDescription'], $_REQUEST['contestTime'], $_REQUEST['contestDate'], $_REQUEST['contestCompetitorsA'], $_REQUEST['contestCompetitorsB']);
+					case 'create-wedstrijd':
+					$this->collectCreateCompetition();
 					break;
 					case 'delete-game':
 					$this->collectDeleteGame($_REQUEST['id']);
@@ -121,56 +121,10 @@ class ContactsController{
 
 	}
 
-	public function collectCreateCompetitor($name, $logo) {
-		session_start();
-		if(empty($name) || empty($logo)) {
-			$_SESSION['warning'] = 'missende gegevens binnengekregen controleer het formulier en proebeer het opnieuw';
-			header('Location: nieuwe-deelnemers');
-		} else {
-			$uploadLogo = $this->ContactsLogic->uploadFile($logo);
-			if($uploadLogo['upload'] == 'false') {
-				$_SESSION['warning'] = $uploadLogo['message'];
-				header('Location: nieuwe-deelnemers');
-			} else {
-				$competitor = $this->ContactsLogic->createCompetitor($name, $uploadLogo['message']);
-				$id = intval($competitor);
-				if($id >= 1) {
-					$_SESSION['warning'] = 'deelnemer is aangemaakt';
-					header('Location: nieuwe-deelnemers');
-				} else {
-					$_SESSION['warning'] = 'deelnemer is niet aangemaakt proebeer het opnieuw';
-					header('Location: nieuwe-deelnemers');
-				}
-			}
-		}
-	}
-
 	public function collectHomePage() {
 		$articles = $this->ContactsLogic->displayArticles();
 		$competitions = $this->ContactsLogic->readCompetition();
 		require_once 'view/home.php';
-	}
-
-	public function collectCreateCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB) {
-		$create = $this->ContactsLogic->createCompetition($title, $game, $description, $time, $date, $contestCompetitorsA, $contestCompetitorsB);
-		$id = intval($create);
-		if($id >= 1) {
-			$message = 'wedstrijd is aangemaakt';
-			include 'view/addContest.php';
-		} else {
-			$message = 'wedstrijd is niet aangemaakt proebeer het opnieuw';
-			include 'view/addContest.php';
-		}
-	}
-
-	public function collectReadCompetitors($title, $game, $description, $competitorsAmount, $time, $date){
-		$check = $this->ContactsLogic->checkDataContest($title, $game, $description, $competitorsAmount, $time, $date);
-		if($check == false) {
-			$competitors = $this->ContactsLogic->fetchCompetitors();
-		} else {
-			$error = 'Ongeldige gegevens bij het inlogen controleer de velden opnieuw';
-		}
-		include 'view/addContest.php';
 	}
 
 	public function collectReadAdmin($userName, $userPass){

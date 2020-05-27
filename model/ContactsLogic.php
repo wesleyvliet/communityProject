@@ -48,7 +48,7 @@ class ContactsLogic {
 	}
 
 	public function readCompetition() {
-		$sql = "SELECT * FROM competition";
+		$sql = "SELECT * FROM competition ORDER BY date DESC";
 		$results = $this->DataHandler->readsData($sql);
 
 		$comp ='';
@@ -538,7 +538,7 @@ class ContactsLogic {
 	}
 
 	public function displayArticles() {
-		$sql = "SELECT * FROM articles";
+		$sql = "SELECT * FROM articles WHERE archived=0 ORDER BY date DESC";
 		$results = $this->DataHandler->readsData($sql);
 		$articles = "";
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
@@ -562,7 +562,7 @@ class ContactsLogic {
 		$results = $this->DataHandler->readsData($sql);
 		
 
-		$categorie = '<select name="categorie" id="categorie">';
+		$categorie = '<select type="text" name="categorie" id="category" placeholder="categorie" class="outline-none px-2 py-2 border shadow-sm placeholder-gray-500 opacity-50 rounded">';
 		while($categories = $results->fetch(PDO::FETCH_ASSOC)) {
 			if ($row["id"] == $categories["id"]) {
 				$categorie .= '<option value="'.$categories['id'].'">'.$categories['name'].'</option> selected';
