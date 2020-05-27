@@ -96,7 +96,7 @@
             <div class="flex items-center text-gray-800 p-8">
                 <span class="w-1/2"></span>
                     <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-10 rounded float-right">
-                        Artiekel toevoegen
+                        Artikel&nbsp;Toevoegen
                     </button>
                 <span class="w-1/2"></span>
             </div>
