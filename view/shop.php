@@ -43,7 +43,7 @@ require_once "view/header.php";
     </nav>
 
     <!-- article -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-0 md:gap-4 lg:gap-4 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-4 md:gap-4 lg:gap-4 ">
         <!-- item1 -->
         <div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">
             <div class="px-4 py-2 bg-gray-900 bg-opacity-50">
