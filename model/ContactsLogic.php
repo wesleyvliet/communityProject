@@ -530,17 +530,40 @@ class ContactsLogic {
 	}
 
 	public function readArticle($id) {
-		$sql = "SELECT * FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.id=$id";
+		$sql = "SELECT *, articles.id AS 'idArticle' FROM articles INNER JOIN categorie ON articles.categorie=categorie.id WHERE articles.id=$id";
 		$results = $this->DataHandler->readsData($sql);
 		$row = $results->fetch(PDO::FETCH_ASSOC);
 
 		$article = array();
+		$article["id"] = $row["idArticle"];
 		$article["title"] = $row["title"];
 		$article["content"] = $row["content"];
 		$article["date"] = $row["date"];
 		$article["categorie"] = $row["name"];
 		$article["author"] = $row["author"];
 		$article["preview_image"] = $row["preview_image"];
+
+		$article_id = $row["idArticle"];
+		$comments = "";
+		$sql = "SELECT * FROM comments WHERE article_id = $article_id ORDER BY date DESC";
+		$results = $this->DataHandler->readsData($sql);
+
+		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
+			$comments .= '<div class="flex flex-col md:flex-row  mr-auto ml-auto mb-5  ">
+			<!-- Comment IMG -->
+			<div class="m-2 flex-col mr-auto ml-auto flex-none items-left md:text-center "><img src="./view/assets/img/icon2'. $img = (rand(1,2) == 1 ? ".jpg" : ".png").'" class=" h-10 w-10 lg:h-20 lg:w-20 rounded-full text-center " alt="">'.$row["name"].'</div>
+			<!-- Comment text -->
+			<div class="  border-2 w-full rounded-lg px-4 py-2 m-2 flex align-middle text-white text-left">'.$row["comment"].'</div>
+			</div>';
+		}
+
+		if($comments == "") {
+			$comments = '<div class="flex flex-col md:flex-row  mr-auto ml-auto mb-5 flex justify-center">
+			<p>No comments yet be the first to comment!</p>
+			</div>';
+		}
+
+		$article["comments"] = $comments;
 
 		return $article;
 	}
@@ -731,5 +754,12 @@ class ContactsLogic {
 		$this->DataHandler->createData($sql);
 		$message = "Team toegevoed";
 		return $message;
+	}
+
+	public function addComment($id, $name, $message) {
+		$date = date("Y-m-d");
+		$sql = "INSERT INTO `comments` (`id`, `article_id`, `name`, `comment`, `date`) VALUES (NULL, '$id', '$name', '$message', '$date')";
+		$result = $this->DataHandler->createData($sql);
+		return $result;
 	}
 }

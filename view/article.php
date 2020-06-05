@@ -14,8 +14,7 @@ require_once "view/header.php";
             </div>
             <!-- Nav burger menu  (hidden on bigger screens)-->
             <div class="block lg:hidden">
-                <button id="nav-toggle"
-                    class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
                     <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -23,19 +22,16 @@ require_once "view/header.php";
                 </button>
             </div>
             <!-- Nav normal menu -->
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0"
-                id="nav-content">
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
                         <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="Home">Home</a>
                     </li>
                     <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="Merch">Merch</a>
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="Merch">Merch</a>
                     </li>
                     <li class="mr-3">
-                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="About-G69">About-G69</a>
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="About-G69">About-G69</a>
                     </li>
                 </ul>
             </div>
@@ -46,8 +42,7 @@ require_once "view/header.php";
     <!-- Main -->
     <div class="w-10/12 m-auto mb-3 h-auto py-12">
         <!-- Article img -->
-        <div class=" bg-cover bg-top mb-10 h-64" id="article_img"
-            style="background-image: url(view/assets/img/<?php echo $article["preview_image"]; ?>)">
+        <div class=" bg-cover bg-top mb-10 h-64" id="article_img" style="background-image: url(view/assets/img/<?php echo $article["preview_image"]; ?>)">
             <div class="flex items-center h-full bg-gray-900 bg-opacity-25">
                 <div class="flex-1 lg:px-64 text-center ">
                     <span class=" block text-white text-4xl px-16"><?php echo $article["title"]; ?></span>
@@ -70,50 +65,34 @@ require_once "view/header.php";
             <p>
                 <?php echo $article["content"]; ?>
             </p>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button   " data-text="Look at this awsome article about G69" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button   " data-text="Look at this awsome article about G69" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <!-- comment section -->
             <div class="  w-full  mt-10 flex-row mb-10 ">
-                <!-- Comment -->
-               
-               <div class="flex flex-col md:flex-row  mr-auto ml-auto mb-5  ">
-                <!-- Comment IMG -->
-                <div class="m-2 flex-col mr-auto ml-auto flex-none items-left md:text-center "><img src="./view/assets/img/icon2.jpg" class=" h-10 w-10 lg:h-20 lg:w-20 rounded-full text-center " alt="">jasper</div>
-                <!-- Comment text -->
-                <div class="  border-2 rounded-lg px-4 py-2 m-2 flex align-middle text-white text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?</div>                      
-            
-            </div>
-               <!-- Comment -->
-               
-               <div class="flex flex-col md:flex-row w-3/3 mr-auto ml-auto mb-5  ">
-                <!-- Comment IMG -->
-                <div class="     m-2 mr-auto ml-auto flex-col flex-none items-left md:text-center"><img src="./view/assets/img/icon2.jpg" class=" h-10 w-10 lg:h-20 lg:w-20 rounded-full text-center " alt="">jasper</div>
-                <!-- Comment text -->
-                <div class="  border-2 rounded-lg px-4 py-2 m-2 flex align-middle text-white text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi iLorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?psa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?</div>                      
-            
-            </div>
+                <?php echo $article["comments"]; ?>
                 <!-- Comment END -->
 
-                
-                    <div class="w-full mr-auto ml-auto mt-10  lg:w-2/3  mb-2 mt-2 ">
-                        <form action="">
+
+                <div class="w-full mr-auto ml-auto mt-10  lg:w-2/3  mb-2 mt-2 ">
+                    <form action="?op=commented" method="POST">
+                        <input type="text" hidden name="article_id" value="<?php echo $article["id"]; ?>">
                         <input type="text" class="bg-gray-700 mb-5 text-white rounded border border-gray-800 leading-normal resize-none w-full h-10 py-2 px-3  placeholder-gray-900 focus:outline-none focus:bg-gray-600 " name="name" placeholder='Your name' required>
                         <textarea class="bg-gray-700 mb-5 text-white rounded border border-gray-800 leading-normal resize-y w-full h-20 py-2 px-3 font-medium placeholder-gray-900 focus:outline-none focus:bg-gray-600" name="message" placeholder='Type Your Comment' required></textarea>
-                        
-                            <input type='submit' class="bg-gray-700 text-white font-medium py-1 px-4 border border-gray-800 rounded-lg  mr-1 hover:bg-gray-600 cursor-pointer" value='Post Comment'>
-                        </form>
-                    </div>
+                        <input type='submit' class="bg-gray-700 text-white font-medium py-1 px-4 border border-gray-800 rounded-lg  mr-1 hover:bg-gray-600 cursor-pointer" value='Post Comment'>
+                    </form>
                 </div>
-               
-           
-             <!-- Commment section END -->
+            </div>
 
-          
+
+            <!-- Commment section END -->
+
+
         </div>
-        
+
     </div>
     <!-- Main End -->
 
-    
+
 
 
     <!-- footer -->
@@ -152,11 +131,11 @@ require_once "view/header.php";
 
     <script>
         //Javascript to toggle the menu
-        document.getElementById('nav-toggle').onclick = function () {
+        document.getElementById('nav-toggle').onclick = function() {
             document.getElementById("nav-content").classList.toggle("hidden");
         }
     </script>
 
     <?php
-require_once "view/footer.php";
-?>
+    require_once "view/footer.php";
+    ?>
