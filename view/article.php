@@ -88,7 +88,7 @@ require_once "view/header.php";
                 <!-- Comment IMG -->
                 <div class="     m-2 mr-auto ml-auto flex-col flex-none items-left md:text-center"><img src="./view/assets/img/icon2.jpg" class=" h-10 w-10 lg:h-20 lg:w-20 rounded-full text-center " alt="">jasper</div>
                 <!-- Comment text -->
-                <div class="  border-2 rounded-lg px-4 py-2 m-2 flex align-middle text-white text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?</div>                      
+                <div class="  border-2 rounded-lg px-4 py-2 m-2 flex align-middle text-white text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi iLorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?psa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dolores quasi. Sequi ipsa soluta architecto neque voluptate quaerat inventore sapiente aut, incidunt ut blanditiis esse provident dolorum saepe accusamus quod?</div>                      
             
             </div>
                 <!-- Comment END -->
@@ -96,10 +96,10 @@ require_once "view/header.php";
                 
                     <div class="w-full mr-auto ml-auto mt-10  lg:w-2/3  mb-2 mt-2 ">
                         <form action="">
-                        <input type="text" class="bg-gray-100 mb-5 text-black rounded border border-gray-400 leading-normal resize-none w-full h-10 py-2 px-3  placeholder-gray-700 focus:outline-none focus:bg-white " name="name" placeholder='Your name' required>
-                        <textarea class="bg-gray-100 mb-5 text-black rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="message" placeholder='Type Your Comment' required></textarea>
+                        <input type="text" class="bg-gray-700 mb-5 text-white rounded border border-gray-800 leading-normal resize-none w-full h-10 py-2 px-3  placeholder-gray-900 focus:outline-none focus:bg-gray-600 " name="name" placeholder='Your name' required>
+                        <textarea class="bg-gray-700 mb-5 text-white rounded border border-gray-800 leading-normal resize-y w-full h-20 py-2 px-3 font-medium placeholder-gray-900 focus:outline-none focus:bg-gray-600" name="message" placeholder='Type Your Comment' required></textarea>
                         
-                            <input type='submit' class="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg  mr-1 hover:bg-gray-400" value='Post Comment'>
+                            <input type='submit' class="bg-gray-700 text-white font-medium py-1 px-4 border border-gray-800 rounded-lg  mr-1 hover:bg-gray-600 cursor-pointer" value='Post Comment'>
                         </form>
                     </div>
                 </div>
