@@ -1,7 +1,7 @@
 <?php
 require_once 'model/ContactsLogic.php';
 class ContactsController{
-
+	
 	public function __construct() {
 		$this->ContactsLogic = new ContactsLogic();
 	}
@@ -51,6 +51,9 @@ class ContactsController{
 					break;
 					case 'add-team':
 					$this->collectCreateTeam($_REQUEST["name"], $_FILES["logo"]);
+					break;
+					case 'commented':
+					$this->collectAddComment($_REQUEST["article_id"], $_REQUEST["name"], $_REQUEST["message"]);
 					break;
 					default:
 					echo 'sorry kan deze actie: ' . $op . ' niet vinden :(';
@@ -256,6 +259,13 @@ class ContactsController{
 		$message = $this->ContactsLogic->createTeam($name, $logo);
 		$this->collectAllTeams($message);
 	}
+
+	public function collectAddComment($id, $name, $message) {
+		$this->ContactsLogic->addComment($id,$name,$message);
+		header("Location: article?id=".$id);
+	}
 }
 
 ?>
+
+
