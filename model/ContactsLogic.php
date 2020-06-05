@@ -545,7 +545,7 @@ class ContactsLogic {
 
 		$article_id = $row["idArticle"];
 		$comments = "";
-		$sql = "SELECT * FROM comments WHERE article_id = $article_id";
+		$sql = "SELECT * FROM comments WHERE article_id = $article_id ORDER BY date DESC";
 		$results = $this->DataHandler->readsData($sql);
 
 		while($row = $results->fetch(PDO::FETCH_ASSOC)) {
