@@ -5,9 +5,7 @@
     <!-- Nav menu CMS START-->
     <nav class="flex items-center justify-between flex-wrap bg-indigo-800 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <a href="home">
-                <span class="font-semibold text-xl tracking-tight">G69</span>
-                </a>
+          <span class="font-semibold text-xl tracking-tight">G69</span>
         </div>
         <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -31,7 +29,7 @@
 
     <!-- Form START -->
     <div class="flex justify-center items-center py-8">
-        <form action="?op=create-article" method="post" enctype='multipart/form-data' class="max-w-lg border border-gray-200 shadow-xs mx-auto rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
+        <form action="?op=create-article" method="post" enctype='multipart/form-data' class="w-2 border border-gray-200 shadow-xs  rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
             <div class="flex flex-col">
                 <label for="titel" class="self-start mb-2 font-medium text-gray-800">
                     Titel
@@ -64,7 +62,7 @@
             </div>
             <div class="flex justify-around text-center divide-x divide-gray-300 p-8">
 
-                <textarea name="text" id="content" class="outline-none w-full h-40 border shadow-sm placeholder-gray-500 opacity-50 rounded"></textarea>
+                <textarea name="text" id="articleSelector"></textarea>
             </div>
 
             <div class="flex items-center text-gray-800">
