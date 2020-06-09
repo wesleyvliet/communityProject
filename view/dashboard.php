@@ -50,7 +50,7 @@ require_once 'view/header.php';
             <!-- Grid 1 -->
 
             <!-- Grid 2 -->
-            <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
+            <!-- <div class="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
                 <div class="m-2 text-justify text-sm">
                     <h2 class="text-center font-bold text-lg h-2 mb-8">Webshop</h2>
                 </div>
@@ -64,7 +64,7 @@ require_once 'view/header.php';
                 <div class="w-full text-right mt-4">
                     <a class="text-green-400 uppercase font-bold text-sm" href="#"></a>
                 </div>
-            </div>
+            </div> -->
             <!-- Grid 2 -->
 
             <!-- Grid 3 -->
