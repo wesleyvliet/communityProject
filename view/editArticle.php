@@ -31,7 +31,7 @@
 
     <!-- Form START -->
     <div class="flex justify-center items-center py-8">
-        <form action="?op=update-article" method="post" enctype='multipart/form-data' class="max-w-lg border border-gray-200 shadow-xs mx-auto rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
+        <form action="?op=update-article" method="post" enctype='multipart/form-data' class="w-2 border border-gray-200 shadow-xs  rounded-lg p-10 bg-white text-center space-y-6 flex-grow">
         <input type="text" hidden name="id" value="<?php echo $article["id"] ?>">
         <input type="text" name="image" hidden value="<?php echo $article["preview_image"] ?>">
             <div class="flex flex-col">
@@ -66,7 +66,7 @@
             </div>
             <div class="flex justify-around text-center divide-x divide-gray-300 p-8">
 
-                <textarea name="text" id="content" class="outline-none w-full h-40 border shadow-sm placeholder-gray-500 opacity-50 rounded"><?php echo $article["content"] ?></textarea>
+                <textarea name="text" id="articleSelector"><?php echo $article["content"] ?></textarea>
             </div>
 
             <div class="flex items-center text-gray-800">
