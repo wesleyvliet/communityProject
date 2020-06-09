@@ -73,17 +73,25 @@ require_once "view/header.php";
     <!-- Article end -->
 
     <!-- Comp -->
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
+    <div class=" w-11/12 m-auto mb-5 ">
+    <h1 class="text-white font-bold">SORT</h1>
+    <button id="alphBnt" class="mr-4 bg-red-600 is-active py-2 px-4 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="">Game</button>
+    <button id="new" class="mr-4 bg-red-600 is-active py-2 px-4 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="">New</button>
+    <button id="old" class="mr-4 bg-red-600 is-active py-2 px-4 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="">Old</button>
+    </div>
+    <div id="container" class="comp grid grid-cols-1 sm:grid-cols-2 w-11/12 m-auto mb-3 col-gap-4 flex ">
         <!-- Comp 1  -->
         <?php echo $competitions; ?>
     </div>
-
-    <div class="m-auto  text-center mb-12">
-        <a href="#" class="bg-red-600 py-4 px-8 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="load">Load More</a>
+    <div class=" w-11/12 m-auto flex">
+    
+    <div class="mr-auto ml-auto inline-block relative clear-left text-center mb-12">
+        
+        <button class="clickme bg-red-600 py-4 px-8 m-auto text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" id="load">Load More</button>
     </div>
+</div>
     <!-- Article end -->
-
+    
     <!-- footer -->
     <footer class="footer bg-gray-900 relative pt-1 ">
         <div class="container mx-auto px-6">
@@ -149,6 +157,35 @@ require_once "view/header.php";
                 }
             });
         });
+        var $divs = $("div.box");
+
+    $('#alphBnt').on('click', function () {
+        var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+            return $(a).find(".piet").text() > $(b).find(".piet").text();
+        });
+        $("#container").html(alphabeticallyOrderedDivs);
+        $("#alphBnt").css({"background-color": "white", "color": "black"});
+        $("#new , #old").css({"background-color": "", "color": ""});
+        
+
+    });
+
+    $('#new').on('click', function () {
+        var numericallyOrderedDivs = $divs.sort(function (a, b) {
+            return $(a).find(".klaas").text() > $(b).find(".klaas").text();
+        });
+        $("#container").html(numericallyOrderedDivs);
+        $("#new").css({"background-color": "white", "color": "black"});
+        $("#alphBnt , #old").css({"background-color": "", "color": ""});
+    });
+    $('#old').on('click', function () {
+        var numericallyOrderedDivs = $divs.sort(function (a, b) {
+            return $(a).find(".klaas").text() < $(b).find(".klaas").text();
+        });
+        $("#container").html(numericallyOrderedDivs);
+        $("#old").css({"background-color": "white", "color": "black"});
+        $("#alphBnt , #new").css({"background-color": "", "color": ""});
+    });
     </script>
 
     <?php

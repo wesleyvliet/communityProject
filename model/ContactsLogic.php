@@ -64,13 +64,13 @@ class ContactsLogic {
 				}
 			}
 
-			$comp .= '<div class="  comp-container hidden ">';
+			$comp .= '<div class=" box comp-container hidden ">';
 			$comp .= '<div class=" comp-section1">';
 			$comp .= '<div class=" comp-date-section">';
-			$comp .= '<span>'. $competition["date"] . '</span><span>'.$competition["time"] . '</span>';
+			$comp .= '<span class="klaas" >'. $competition["date"] . '</span><span>'.$competition["time"] . '</span>';
 			$comp .= '</div>';
 			$comp .= '<div class="comp-held-section ">';
-			$comp .= '<span>'. $competition["title"] . '</span><span>'.$competition["game"] . '</span>';
+			$comp .= '<span>'. $competition["title"] . '</span><span class="piet">'.$competition["game"] . '</span>';
 			$comp .= '</div>';
 			$comp .= '</div>';
 
