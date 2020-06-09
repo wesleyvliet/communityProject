@@ -736,7 +736,7 @@ class ContactsLogic {
 			<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
 				<span class="lg:hidden absolute text-white bg-gray-800 rounded-r-lg inset-y-0 left-0 py-4 text-xs font-bold uppercase w-32">Categorie</span>
 				<div class="flex justify-center">
-					<img class="w-25 " src="view/assets/img/'.$row['logo'].'"/>
+					<img class="w-24 " src="view/assets/img/'.$row['logo'].'"/>
 				</div>
 			</td>
 
