@@ -1,9 +1,11 @@
 <?php
 require_once 'model/ContactsLogic.php';
+require_once 'model/ShopHandler.php';
 class ContactsController{
-	
+
 	public function __construct() {
 		$this->ContactsLogic = new ContactsLogic();
+		$this->ShopHandler = new ShopHandler();
 	}
 
 	public function handleRequest()
@@ -55,6 +57,12 @@ class ContactsController{
 					case 'commented':
 					$this->collectAddComment($_REQUEST["article_id"], $_REQUEST["name"], $_REQUEST["message"]);
 					break;
+					case 'checkout':
+					$this->displayCheckOut($_REQUEST["id"]);
+					break;
+					case 'checkedout':
+					$this->displayCheckedOut($_REQUEST["product"], $_REQUEST["email"], $_REQUEST["firstname"], $_REQUEST["lastname"], $_REQUEST["city"], $_REQUEST["street"], $_REQUEST["postal"]);
+					break;
 					default:
 					echo 'sorry kan deze actie: ' . $op . ' niet vinden :(';
 					break;
@@ -69,7 +77,7 @@ class ContactsController{
 						$this->collectArticle($_REQUEST['id']);
 						break;
 					case 'merch':
-						include 'view/shop.php';
+						$this->collectProducts();
 						break;
 					case 'admin':
 						include 'view/login.php';
@@ -109,6 +117,9 @@ class ContactsController{
 						break;
 					case 'disclaimer':
 						include 'view/disclaimer.php';
+						break;
+					case 'merch-ordered':
+						include 'view/merchOrdered.php';
 						break;
 					default:
 						echo 'sorry kann deze pagina: ' . $url . ' niet vinden :(';
@@ -212,7 +223,7 @@ class ContactsController{
 	}
 
 	public function collectCreateArticle($title, $categorie, $author, $text, $image) {
-		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);	
+		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);
 		$this->collectAllArticles($message);
 	}
 
@@ -220,7 +231,7 @@ class ContactsController{
 		$article = $this->ContactsLogic->readArticle($id);
 		require_once 'view/article.php';
 	}
-	
+
 	public function collectEditArticle($id) {
 		$article = $this->ContactsLogic->editArticle($id);
 		require_once 'view/editArticle.php';
@@ -238,7 +249,7 @@ class ContactsController{
 
 	public function collectUndoDeleteArticle($id) {
 		$message = $this->ContactsLogic->undoDeleteArticle($id);
-		$this->collectAllArticles($message);	
+		$this->collectAllArticles($message);
 	}
 
 	public function collectAllArchivedArticles($message = null) {
@@ -264,8 +275,30 @@ class ContactsController{
 		$this->ContactsLogic->addComment($id,$name,$message);
 		header("Location: article?id=".$id);
 	}
+	public function collectProducts() {
+		$products = $this->ShopHandler->collectProducts();
+		//echo '<pre>' . var_dump($products) . '</pre>';
+		require_once 'view/shop.php';
+	}
+	public function displayCheckout($id) {
+		$product = $this->ShopHandler->collectProduct($id);
+		require_once 'view/checkout.php';
+	}
+	public function displayCheckedOut($product, $email, $firstname, $lastname, $city, $street, $postal) {
+		$product = $this->ShopHandler->collectProduct($product);
+		if(empty($email) || empty($firstname) || empty($lastname) || empty($city) || empty($street) || empty($postal)) {
+			$message = 'Not all input fields are filled in. Please check the form and try again';
+			require_once 'view/checkout.php';
+		} else {
+			$mail = $this->ShopHandler->sendMail($email);
+			if($mail === true) {
+				$order = $this->ShopHandler->order($product, $email, $firstname, $lastname, $city, $street, $postal);
+				header('Location: Merch-Ordered');
+			} else {
+				echo "problemen met de email sturen";
+			}
+		}
+	}
 }
 
 ?>
-
-
