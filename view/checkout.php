@@ -43,25 +43,69 @@ require_once "view/header.php";
     </nav>
 
     <!-- article -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-4 md:gap-4 lg:gap-4 ">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-3 w-11/12 m-auto mb-6 gap-3 sm:gap-3 md:gap-3 lg:gap-3 ">
         <?php
-            if(empty($products)) {
+            if(empty($product)) {
                 echo "Geen producten op dit moment beschikbaar";
             } else {
-                $end = count($products);
+                $end = count($product);
                 for ($i=0; $i < $end; $i++) {
                     $html  = '<div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">';
-                    $html .= '<div class="px-4 py-2 bg-gray-900 bg-opacity-50">';
-                    $html .= '<h1 class="text-white font-bold text-3xl uppercase">' . $products[$i]['name'] . '</h1>';
-                    $html .= '<p class="text-gray-600 text-sm mt-1">' . $products[$i]['description'] . '</p>';
+                    $html .= '<div class="px-2 py-2 bg-gray-900 bg-opacity-50">';
+                    $html .= '<h1 class="text-white font-bold text-3xl uppercase">' . $product[$i]['name'] . '</h1>';
+                    $html .= '<p class="text-gray-600 text-sm mt-1">' . $product[$i]['description'] . '</p>';
                     $html .= '</div>';
-                    $html .= '<img src="' . $products[$i]['src'] . '" alt="" class="h-56 w-full object-contain mt-2">';
-                    $html .= '<div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">';
-                    $html .= '<h1 class="text-gray-200 font-bold text-xl">' . $products[$i]['value'] . '</h1>';
-                    $html .= '<button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"><a href="?op=checkout&id=' . $products[$i]['id'] . '">Buy Now</a></button>';
+                    $html .= '<img src="' . $product[$i]['src'] . '" alt="" class="h-56 w-full object-contain mt-2">';
+                    $html .= '<div class="flex items-center justify-between px-2 py-2 bg-gray-900 bg-opacity-50">';
+                    $html .= '<h1 class="text-gray-200 font-bold text-xl">' . $product[$i]['value'] . '</h1>';
                     $html .= '</div>';
                     $html .= '</div>';
 
+                    $html .= '<div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">';
+                    $html .= '<form method="POST" action="?op=checkedout" enctype="multipart/form-data" autocomplete="off">';
+                    $html .= '<input type="hidden" name="product" value="'. $product[$i]['id'] . '">';
+                    if(empty($message)) {
+                        $html .= '<div class="px-2 py-2 bg-gray-900 bg-opacity-50">';
+                        $html .= '<h1 class="text-white font-bold text-2xl uppercase">Shipment Information</h1><br>';
+                        $html .= '<label for="email" class="text-white font-bold text-1x3 ">Email </label>';
+                        $html .= '<input type="text" name="email"><br><br>';
+                        $html .= '<label for="firstname" class="text-white font-bold text-1x3 ">Firstname </label>';
+                        $html .= '<input type="text" name="firstname"><br><br>';
+                        $html .= '<label for="lastname" class="text-white font-bold text-1x3 ">Lastname </label>';
+                        $html .= '<input type="text" name="lastname"><br><br>';
+                        $html .= '<label for="city" class="text-white font-bold text-1x3 ">City </label>';
+                        $html .= '<input type="text" name="city"><br><br>';
+                        $html .= '<label for="street" class="text-white font-bold text-1x3 ">Street </label>';
+                        $html .= '<input type="text" name="street"><br><br>';
+                        $html .= '<label for="Postal" class="text-white font-bold text-1x3 ">Postal Code </label>';
+                        $html .= '<input type="text" name="postal"><br><br>';
+                    } else {
+                        $html .= '<h1 class="text-white font-bold text-1x3">' . $message . '</h1><br>';
+                        $html .= '<div class="px-2 py-2 bg-gray-900 bg-opacity-50">';
+                        $html .= '<h1 class="text-white font-bold text-2xl uppercase">Shipment Information</h1><br>';
+                        $html .= '<label for="email" class="text-white font-bold text-1x3 ">Email </label>';
+                        $html .= '<input type="text" name="email" value=' . $email . '><br><br>';
+                        $html .= '<label for="firstname" class="text-white font-bold text-1x3 ">Firstname </label>';
+                        $html .= '<input type="text" name="firstname" value=' . $firstname . '><br><br>';
+                        $html .= '<label for="lastname" class="text-white font-bold text-1x3 ">Lastname </label>';
+                        $html .= '<input type="text" name="lastname" value=' . $lastname . '><br><br>';
+                        $html .= '<label for="city" class="text-white font-bold text-1x3 ">City </label>';
+                        $html .= '<input type="text" name="city" value=' . $city . '><br><br>';
+                        $html .= '<label for="street" class="text-white font-bold text-1x3 ">Street </label>';
+                        $html .= '<input type="text" name="street" value=' . $street . '><br><br>';
+                        $html .= '<label for="Postal" class="text-white font-bold text-1x3 ">Postal Code </label>';
+                        $html .= '<input type="text" name="postal" value=' . $postal . '><br><br>';
+                    }
+                    $html .= '</div>';
+                    $html .= '</div>';
+
+                    $html .= '<div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">';
+                    $html .= '<div class="px-2 py-2 bg-gray-900 bg-opacity-50">';
+                    $html .= '<h1 class="text-white font-bold text-2xl uppercase">PAYMENT Information</h1>';
+                    $html .= '<p class="text-gray-600 text-sm mt-1">Payment: on arrival <br>Costs:' . $product[$i]['value'] . '</p>';
+                        $html .= '<button type="submit" class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Checkout</button>';
+                    $html .= '</div>';
+                    $html .= '</div>';
                     echo $html;
                 }
             }

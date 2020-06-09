@@ -43,28 +43,21 @@ require_once "view/header.php";
     </nav>
 
     <!-- article -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 w-11/12 m-auto mb-6 gap-4 sm:gap-4 md:gap-4 lg:gap-4 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-1 w-11/12 m-auto mb-6 gap-4 sm:gap-4 md:gap-4 lg:gap-4 ">
         <?php
-            if(empty($products)) {
-                echo "Geen producten op dit moment beschikbaar";
-            } else {
-                $end = count($products);
-                for ($i=0; $i < $end; $i++) {
-                    $html  = '<div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">';
-                    $html .= '<div class="px-4 py-2 bg-gray-900 bg-opacity-50">';
-                    $html .= '<h1 class="text-white font-bold text-3xl uppercase">' . $products[$i]['name'] . '</h1>';
-                    $html .= '<p class="text-gray-600 text-sm mt-1">' . $products[$i]['description'] . '</p>';
-                    $html .= '</div>';
-                    $html .= '<img src="' . $products[$i]['src'] . '" alt="" class="h-56 w-full object-contain mt-2">';
-                    $html .= '<div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">';
-                    $html .= '<h1 class="text-gray-200 font-bold text-xl">' . $products[$i]['value'] . '</h1>';
-                    $html .= '<button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"><a href="?op=checkout&id=' . $products[$i]['id'] . '">Buy Now</a></button>';
-                    $html .= '</div>';
-                    $html .= '</div>';
 
-                    echo $html;
-                }
-            }
+            $html  = '<div class="max-w-xs bg-gray-800  rounded-lg overflow-hidden m-auto my-10">';
+            $html .= '<div class="px-4 py-2 bg-gray-900 bg-opacity-50">';
+            $html .= '<h1 class="text-white font-bold text-3xl uppercase">We have recieved youre order</h1>';
+            $html .= '<p class="text-gray-600 text-sm mt-1">youre order is in progres please check your email for further details.</p>';
+            $html .= '</div>';
+            $html .= '<div class="flex items-center justify-between px-4 py-2 bg-gray-900 bg-opacity-50">';
+            $html .= '<h1 class="text-gray-200 font-bold text-xl"></h1>';
+            $html .= '<button class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"><a href="home">home</a></button>';
+            $html .= '</div>';
+            $html .= '</div>';
+
+            echo $html;
 
         ?>
     </div>
