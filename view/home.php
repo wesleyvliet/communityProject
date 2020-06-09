@@ -43,16 +43,23 @@ require_once "view/header.php";
     </nav>
 
     <!-- Big lean more -->
-    <div class="bg-cover bg-center mb-6 flex justify-between m-auto mb-3 w-11/12  md:h-auto text-white py-16 px-6 object-fill"
+    <div class=" fullscreen-bg relative bg-cover bg-center mb-6 flex justify-between m-auto mb-3 w-11/12  md:h-auto text-white  "
         style="background-image: url(view/assets/img/g2.jpg)">
-        <div class="md:w-1/2">
-            <p class=" hidden md:block font-bold">We are G69</p>
-            <p class=" hidden md:block mb-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat officia
+        <video class="relative z-0 absolute-center top-0" id="video"  autoplay="true" muted  loop="loop">
+        <source src="https://3hmd7z41jo8fr2m9o2xkrln5-wpengine.netdna-ssl.com/wp-content/uploads/manual/G2%20Website%20Video%2020%20sec%20cropped.mp4" type="video/mp4" />
+        
+    </video>
+        <div class="md:w-1/2 flex-col z-10 absolute  sm:pb-10 pb-10 sm:py-0 md:py-30 md:mb-10 lg:mb-20 px-10 lg:pr-24 text-left   bottom-0">
+        
+            <h1 class="  md:block font-bold text-5xl">We are G69</h1>
+            <p class=" hidden lg:block mb-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat officia
                 aliquam repellendus, saepe quae possimus amet incidunt necessitatibus esse quas. </p>
             <a href="About-G69"
                 class="bg-red-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Learn
                 more</a>
+                
         </div>
+        
     </div>
 
     <!-- article -->
