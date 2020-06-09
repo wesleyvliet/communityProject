@@ -71,6 +71,7 @@ class ContactsController{
 				switch ($url) {
 					case 'home':
 					case 'index.php':
+					case '#':
 						$this->collectHomePage();
 						break;
 					case 'article':
