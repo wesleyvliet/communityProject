@@ -64,7 +64,7 @@ require_once "view/header.php";
     <!-- Article end -->
 
     <!-- footer -->
-    <footer class="footer bg-gray-900 relative pt-1 ">
+    <footer class="footer bg-gray-900 relative pt-1 mt-64 ">
         <div class="container mx-auto px-6">
             <!-- Footer nav -->
             <div class="sm:flex sm:mt-8">
