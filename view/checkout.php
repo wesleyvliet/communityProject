@@ -69,7 +69,7 @@ require_once "view/header.php";
                         $html .= '<h1 class="text-white font-bold text-2xl uppercase">Shipment Information</h1><br>';
                         $html .= '<div class=" grid grid-cols-2 row-gap-2 ">';
                         $html .= '<div class="col-span-1"><label for="email" class="text-white  font-bold text-1x3 ">Email </label></div>';
-                        $html .= '<div class="col-span-1 "><input type="text" name="email " class="w-11/12 " ></div>';
+                        $html .= '<div class="col-span-1 "><input type="text" name="email" class="w-11/12 " ></div>';
                         $html .= '<div class="col-span-1"><label for="firstname" class="text-white font-bold text-1x3 ">Firstname </label></div>';
                         $html .= '<div class="col-span-1"><input type="text" name="firstname" class="w-11/12 "></div>';
                         $html .= '<div class="col-span-1"><label for="lastname" class="text-white font-bold text-1x3 ">Lastname </label></div>';
@@ -86,7 +86,7 @@ require_once "view/header.php";
                             $html .= '<h1 class="text-white font-bold text-2xl uppercase">Shipment Information</h1><br>';
                             $html .= '<div class=" grid grid-cols-2 row-gap-2 ">';
                             $html .= '<div class="col-span-1"><label for="email" class="text-white  font-bold text-1x3 ">Email </label></div>';
-                            $html .= '<div class="col-span-1 "><input type="text" name="email " class="w-11/12 " ></div>';
+                            $html .= '<div class="col-span-1 "><input type="text" name="email" class="w-11/12 " ></div>';
                             $html .= '<div class="col-span-1"><label for="firstname" class="text-white font-bold text-1x3 ">Firstname </label></div>';
                             $html .= '<div class="col-span-1"><input type="text" name="firstname" class="w-11/12 "></div>';
                             $html .= '<div class="col-span-1"><label for="lastname" class="text-white font-bold text-1x3 ">Lastname </label></div>';
@@ -106,7 +106,7 @@ require_once "view/header.php";
                     $html .= '<div class="px-2 pt-4 pb-4 bg-gray-900 bg-opacity-50 rounded-lg" >';
                     $html .= '<h1 class="text-white font-bold text-2xl uppercase">PAYMENT Information</h1>';
                     $html .= '<p class="text-gray-600 text-sm mt-1">Payment: on arrival <br>Costs:' . $product[$i]['value'] . '</p>';
-                        $html .= '<button type="submit" class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Checkout</button>';
+                    $html .= '<button type="submit" class="bg-red-600 py-1 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Checkout</button>';
                     $html .= '</div>';
                     $html .= '</div>';
                     echo $html;
@@ -138,7 +138,7 @@ require_once "view/header.php";
                 </div>
             </div>
         </div>
-    
+
         <!-- Footer border / copyright -->
         <div class="container mx-auto px-6 ">
             <div class=" flex flex-col items-center">
