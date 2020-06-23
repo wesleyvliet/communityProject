@@ -1,10 +1,9 @@
-## Titel van jouw website
-www.mijnliveomgeving.com is een website van (..jouw naam..) waar gebruikers kunnen (..nut gebruiker..) bedoeld voor (..doelgroep..)
-De website is enigszins te vergelijken met (..concurrentie1..) of (..concurrentie2..) maar toch anders omdat (..uniek aspect..)
-
+## G69
+g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde kunnen worden gehouden over alle nieuwe wedstrijden en nieuwe info doormiddel van artikelen
 ### Uniek aan dit concept is: 
- * eerste u.s.p. (vul hier in, waarin jouw site anders is dan alle anderen)
- * tweede u.s.p. (vul hier in, waar jouw site door gaat opvallen, wat zal iedereen onthouden van jouw site?)
+ * eerste u.s.p. Onze website is uniek omdat deze een een goede indeling gebruikt
+ * tweede u.s.p. Wat de mensen aan deze website onthouden is het mooie design
+
 
 ---
 #### Milestones Fase 1
