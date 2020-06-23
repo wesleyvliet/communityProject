@@ -11,8 +11,8 @@ De website is enigszins te vergelijken met (..concurrentie1..) of (..concurrenti
 | Milestone  | Status | Link | Type Document of cloudservice |
 | ------ |  ------ | ------ | ------ |
 | readme                         | DONE |  [readme.md]            | *MarkDown op github |
-| b1-k1-w2 Plan van aanpak       | TODO | [doc/1/PvA.rtf]         | Rich Text Format |
-| b1-k1-w2 Functioneel ontwerp   | TODO | [FO]                    | MarkDown op github |
+| b1-k1-w2 Plan van aanpak       | TODO | [doc/1/PvA.rtf]         | Google Doc Comment enabled |
+| b1-k1-w2 Functioneel ontwerp   | TODO | [FO]                    | Google Doc Comment enabled |
 
 
    [readme.md]: <https://github.com/JouwGithubNaam/myband/blob/master/readme.md>
@@ -23,16 +23,13 @@ De website is enigszins te vergelijken met (..concurrentie1..) of (..concurrenti
 #### Milestones Fase 2
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
-| b1-k1-w3 Technisch Ontwerp |  TODO |  [doc/fase2/TO.rtf] |
-| b1-k1-w3 ERD               |  TODO |  [doc/fase2/erd.svg] |
-| b1-k1-w4 Ontwikkelomgeving |  TODO |  [doc/fase2/oo.md]|
-| Link naar de live omgeving |  TODO |  <https://mijnliveomgeving.com>|
-| Implementatieplan          | TODO |  [doc/fase2/imp.rtf] |
+| b1-k1-w3 Technisch Ontwerp |  TODO |  [TO] |
+| b1-k1-w3 ERD               |  TODO |  [doc/erd.pdf] |
 
-   [doc/fase2/TO.rtf]: <https://github.com/jouwgithub/doc/fase2/TO.rtf>
-   [doc/fase2/erd.svg]: <https://github.com/jouwgithub/doc/fase2/erd.svg>
-   [doc/fase2/oo.md]: <https://github.com/jouwgithub/doc/fase2/oo.md>
-   [doc/fase2/imp.rtf]: <http://github.com/jouwgithub/doc/fase2/imp.rtf>
+
+   [TO]: <https://docs.google.com/document/d/1NwshzIUbXwPxH5hU8y7WQz-du9aOG5otl8-rZ29fTPA/edit?usp=sharing>
+   [doc/erd.pdf]: <https://github.com/wesleyvliet/communityProject/blob/master/doc/bulshitERD.pdf>
+   
    
 #### Milestones Fase 3
 | Milestone  | Status | Link |
