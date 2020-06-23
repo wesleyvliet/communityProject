@@ -1,8 +1,8 @@
 ## G69
 g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde kunnen worden gehouden over alle nieuwe wedstrijden en nieuwe info doormiddel van artikelen
 ### Uniek aan dit concept is: 
- * eerste u.s.p. Onze website is uniek omdat deze een een goede indeling gebruikt
- * tweede u.s.p. Wat de mensen aan deze website onthouden is het mooie design
+ Onze website is uniek omdat deze een een goede indeling gebruikt
+ Wat de mensen aan deze website onthouden is het mooie design
 
 
 ---
