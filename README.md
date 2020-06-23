@@ -23,7 +23,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
 | b1-k1-w3 Technisch Ontwerp |  TODO |  [TO] |
-| b1-k1-w3 data dictionary   |  TODO |  [doc/erd.pdf] |
+| b1-k1-w3 data dictionary   |  TODO |  [data dictionary] |
 
 
    [TO]: <https://docs.google.com/document/d/1NwshzIUbXwPxH5hU8y7WQz-du9aOG5otl8-rZ29fTPA/edit?usp=sharing>
