@@ -16,7 +16,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 
    [readme.md]: <https://github.com/wesleyvliet/communityProject/blob/master/README.md>
    [PvA]: <https://docs.google.com/document/d/1vrJxu8X6afZDTLu5KLJIcXbH29MPest9jHm99JToPpQ/edit?usp=sharing>
-   [FO]: <https://github.com/jouwgithub/doc/1/FO.md>
+   [FO]: <https://docs.google.com/document/d/1fE-SqUdztTpMsAXw43m5CCiBKfXJ8I_qPRpS1fqqXws/edit?usp=sharing>
   
 
 #### Milestones Fase 2
