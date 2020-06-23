@@ -14,7 +14,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 | b1-k1-w2 Functioneel ontwerp   | TODO | [FO]                    |
 
 
-   [readme.md]: <https://github.com/JouwGithubNaam/myband/blob/master/readme.md>
+   [readme.md]: <https://github.com/wesleyvliet/communityProject/blob/master/README.md>
    [PvA]: <https://docs.google.com/document/d/1vrJxu8X6afZDTLu5KLJIcXbH29MPest9jHm99JToPpQ/edit?usp=sharing>
    [FO]: <https://github.com/jouwgithub/doc/1/FO.md>
   
