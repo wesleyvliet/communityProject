@@ -7,11 +7,11 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 
 ---
 #### Milestones Fase 1
-| Milestone  | Status | Link | Type Document of cloudservice |
+| Milestone  | Status | Link | 
 | ------ |  ------ | ------ | ------ |
-| readme                         | DONE |  [readme.md]            | *MarkDown op github |
-| b1-k1-w2 Plan van aanpak       | TODO | [doc/1/PvA.rtf]         | Google Doc Comment enabled |
-| b1-k1-w2 Functioneel ontwerp   | TODO | [FO]                    | Google Doc Comment enabled |
+| readme                         | DONE |  [readme.md]            |
+| b1-k1-w2 Plan van aanpak       | TODO | [doc/1/PvA.rtf]         |
+| b1-k1-w2 Functioneel ontwerp   | TODO | [FO]                    |
 
 
    [readme.md]: <https://github.com/JouwGithubNaam/myband/blob/master/readme.md>
@@ -23,7 +23,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
 | b1-k1-w3 Technisch Ontwerp |  TODO |  [TO] |
-| b1-k1-w3 ERD               |  TODO |  [doc/erd.pdf] |
+| b1-k1-w3 data dictionary   |  TODO |  [doc/erd.pdf] |
 
 
    [TO]: <https://docs.google.com/document/d/1NwshzIUbXwPxH5hU8y7WQz-du9aOG5otl8-rZ29fTPA/edit?usp=sharing>
