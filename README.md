@@ -27,7 +27,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 
 
    [TO]: <https://docs.google.com/document/d/1NwshzIUbXwPxH5hU8y7WQz-du9aOG5otl8-rZ29fTPA/edit?usp=sharing>
-   [data dictionary]: <https://github.com/wesleyvliet/communityProject/blob/master/doc/bulshitERD.pdf>
+   [data dictionary]: <https://github.com/wesleyvliet/communityProject/blob/master/doc/Data.pdf>
    
    
 #### Milestones Fase 3
