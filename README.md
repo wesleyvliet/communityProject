@@ -33,7 +33,7 @@ g69 is een website van van Yeet waar fans van de het e-sport team op de hoogde k
 #### Milestones Fase 3
 | Milestone  | Status | Link |
 | ------ |  ------ | ------ |
-| B1-K2-W2 GebruikersTestrapport | TODO |  [test Raport] |
+| B1-K2-W2 GebruikersTestrapport | TODO |  [Test Raport] |
 
 
 
