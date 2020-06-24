@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 09 jun 2020 om 23:11
+-- Gegenereerd op: 09 jun 2020 om 23:45
 -- Serverversie: 10.4.10-MariaDB
 -- PHP-versie: 7.3.12
 
@@ -174,8 +174,8 @@ CREATE TABLE IF NOT EXISTS `competitors` (
 INSERT INTO `competitors` (`id`, `name`, `logo`) VALUES
 (1, 'g2', 'logo1.png'),
 (2, 'Misfits', 'logo2.png'),
-(3, 'Giant panda dream', 'logo2.png'),
-(4, 'grizzlys', 'logo2.png');
+(3, 'Giant panda dream', 'logo3.png'),
+(4, 'grizzlys', 'logo4.png');
 
 -- --------------------------------------------------------
 
