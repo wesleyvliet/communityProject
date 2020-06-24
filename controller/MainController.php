@@ -1,10 +1,10 @@
 <?php
-require_once 'model/ContactsLogic.php';
+require_once 'model/MainLogic.php';
 require_once 'model/ShopHandler.php';
-class ContactsController{
+class MainController{
 
 	public function __construct() {
-		$this->ContactsLogic = new ContactsLogic();
+		$this->MainLogic = new MainLogic();
 		$this->ShopHandler = new ShopHandler();
 	}
 
@@ -134,15 +134,15 @@ class ContactsController{
 	}
 
 	public function collectHomePage() {
-		$articles = $this->ContactsLogic->displayArticles();
-		$competitions = $this->ContactsLogic->readCompetition();
+		$articles = $this->MainLogic->displayArticles();
+		$competitions = $this->MainLogic->readCompetition();
 		require_once 'view/home.php';
 	}
 
 	public function collectReadAdmin($userName, $userPass){
-		$check = $this->ContactsLogic->checkData($userName, $userPass);
+		$check = $this->MainLogic->checkData($userName, $userPass);
 		if($check == false) {
-			$admin = $this->ContactsLogic->readAdmin($userName, $userPass);
+			$admin = $this->MainLogic->readAdmin($userName, $userPass);
 			if(empty($admin)) {
 				$error = "Verkeerde wachtwoord of gebruikersnaam";
 				include 'view/login.php';
@@ -161,27 +161,27 @@ class ContactsController{
 	}
 
 	public function collectAddGameForm() {
-		$comp = $this->ContactsLogic->addGameForm();
+		$comp = $this->MainLogic->addGameForm();
 		require_once 'view/addContest.php';
 	}
 
 	public function collectCreateGame($title, $game, $competitorsA, $competitorsB, $time, $date) {
-		$message = $this->ContactsLogic->createGame($title, $game, $competitorsA, $competitorsB, $time, $date);
+		$message = $this->MainLogic->createGame($title, $game, $competitorsA, $competitorsB, $time, $date);
 		$this->collectAllGames($message);
 	}
 
 	public function collectDeleteGame($id){
-		$message = $this->ContactsLogic->archiveGame($id);
+		$message = $this->MainLogic->archiveGame($id);
 		$this->collectAllGames($message);
 	}
 
 	public function collectUndoDelete($id) {
-		$message = $this->ContactsLogic->undoDelete($id);
+		$message = $this->MainLogic->undoDelete($id);
 		$this->collectAllGames($message);
 	}
 
 	public function collectUndoDeleteArchive($id) {
-		$message = $this->ContactsLogic->undoDelete($id);
+		$message = $this->MainLogic->undoDelete($id);
 		$this->collectArchivedGames($message);
 	}
 
@@ -190,76 +190,76 @@ class ContactsController{
 	}
 
 	public function collectAllGames($message = null) {
-		$overview = $this->ContactsLogic->fetchAllGames($message);
+		$overview = $this->MainLogic->fetchAllGames($message);
 		require_once 'view/overviewGames.php';
 	}
 	public function collectEditGameForm($id) {
-		$edit = $this->ContactsLogic->editGameForm($id);
+		$edit = $this->MainLogic->editGameForm($id);
 		require_once 'view/editContest.php';
 	}
 	public function collectEditGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date) {
-		$check = $this->ContactsLogic->checkDataGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+		$check = $this->MainLogic->checkDataGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
 		if($check['error'] == 'false') {
-			$message = $this->ContactsLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
+			$message = $this->MainLogic->editGame($id, $title, $game, $competitorsA, $competitorsB, $time, $date);
 			$this->collectAllGames($message);
 		} else {
-			$edit = $this->ContactsLogic->editGameForm($id);
+			$edit = $this->MainLogic->editGameForm($id);
 			require_once 'view/editContest.php';
 		}
 	}
 
 	public function collectArchivedGames($message = null) {
-		$overview = $this->ContactsLogic->fetchArchivedGames($message);
+		$overview = $this->MainLogic->fetchArchivedGames($message);
 		include 'view/overviewArchivedGames.php';
 	}
 
 	public function collectAllArticles($message = null) {
-		$articles = $this->ContactsLogic->fetchAllArticles($message);
+		$articles = $this->MainLogic->fetchAllArticles($message);
 		require_once 'view/aricleOverview.php';
 	}
 
 	public function collectArticleForm() {
-		$articleform = $this->ContactsLogic->fetchArticleForm();
+		$articleform = $this->MainLogic->fetchArticleForm();
 		require_once 'view/createArticle.php';
 	}
 
 	public function collectCreateArticle($title, $categorie, $author, $text, $image) {
-		$message = $this->ContactsLogic->CreateArticle($title, $categorie, $author, $text, $image);
+		$message = $this->MainLogic->CreateArticle($title, $categorie, $author, $text, $image);
 		$this->collectAllArticles($message);
 	}
 
 	public function collectArticle($id) {
-		$article = $this->ContactsLogic->readArticle($id);
+		$article = $this->MainLogic->readArticle($id);
 		require_once 'view/article.php';
 	}
 
 	public function collectEditArticle($id) {
-		$article = $this->ContactsLogic->editArticle($id);
+		$article = $this->MainLogic->editArticle($id);
 		require_once 'view/editArticle.php';
 	}
 
 	public function collectUpdateArticle($id, $title, $categorie, $author, $text, $imageFile, $image) {
-		$message = $this->ContactsLogic->updateArticle($id, $title, $categorie, $author, $text, $imageFile, $image);
+		$message = $this->MainLogic->updateArticle($id, $title, $categorie, $author, $text, $imageFile, $image);
 		$this->collectAllArticles($message);
 	}
 
 	public function collectDeleteArticle($id) {
-		$message = $this->ContactsLogic->archiveArticle($id);
+		$message = $this->MainLogic->archiveArticle($id);
 		$this->collectAllArticles($message);
 	}
 
 	public function collectUndoDeleteArticle($id) {
-		$message = $this->ContactsLogic->undoDeleteArticle($id);
+		$message = $this->MainLogic->undoDeleteArticle($id);
 		$this->collectAllArticles($message);
 	}
 
 	public function collectAllArchivedArticles($message = null) {
-		$articles = $this->ContactsLogic->fetchAllArchivedArticles($message);
+		$articles = $this->MainLogic->fetchAllArchivedArticles($message);
 		require_once 'view/archivedArticleOverview.php';
 	}
 
 	public function collectAllTeams($message = null) {
-		$teams = $this->ContactsLogic->overviewTeams($message);
+		$teams = $this->MainLogic->overviewTeams($message);
 		require_once 'view/teamOverview.php';
 	}
 
@@ -268,12 +268,12 @@ class ContactsController{
 	}
 
 	public function collectCreateTeam($name, $logo) {
-		$message = $this->ContactsLogic->createTeam($name, $logo);
+		$message = $this->MainLogic->createTeam($name, $logo);
 		$this->collectAllTeams($message);
 	}
 
 	public function collectAddComment($id, $name, $message) {
-		$this->ContactsLogic->addComment($id,$name,$message);
+		$this->MainLogic->addComment($id,$name,$message);
 		header("Location: article?id=".$id);
 	}
 	public function collectProducts() {

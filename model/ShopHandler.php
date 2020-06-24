@@ -1,6 +1,6 @@
 <?php
 
-class ShopHandler extends ContactsLogic {
+class ShopHandler extends MainLogic {
 
     public function collectProducts() {
         $sql = "SELECT * FROM products";
